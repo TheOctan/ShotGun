@@ -69,7 +69,7 @@ public class Enemy : LivingEntity
 		float attackSpeed = 3;
 		float percent = 0;
 
-
+		skinMaterial.color = Color.red;
 
 		while (percent <= 1)
 		{
@@ -80,6 +80,7 @@ public class Enemy : LivingEntity
 			yield return null;
 		}
 
+		skinMaterial.color = originalColor;
 		currentState = State.Chasing;
 		pathFinder.enabled = true;
 	}
