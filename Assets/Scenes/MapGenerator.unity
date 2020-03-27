@@ -327,6 +327,7 @@ MonoBehaviour:
   tilePrefab: {fileID: 3775338572594619400, guid: c131909b6d752f748a50cf027176ffaf,
     type: 3}
   mapSize: {x: 10, y: 10}
+  outlinePercent: 0.189
 --- !u!4 &1959680369
 Transform:
   m_ObjectHideFlags: 0
