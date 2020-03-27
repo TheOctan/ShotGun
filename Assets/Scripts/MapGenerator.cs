@@ -10,6 +10,9 @@ public class MapGenerator : MonoBehaviour
 	[Range(0, 1)]
 	public float outlinePercent;
 
+	private List<Coord> allTileCoords;
+	private Queue<Coord> shuffledTileCoords;
+
 	void Start()
 	{
 		GenerateMap();
@@ -17,6 +20,17 @@ public class MapGenerator : MonoBehaviour
 
 	public void GenerateMap()
 	{
+		allTileCoords = new List<Coord>();
+
+		for (int x = 0; x < mapSize.x; x++)
+		{
+			for (int y = 0; y < mapSize.y; y++)
+			{
+				allTileCoords.Add(new Coord(x, y));
+			}
+		}
+		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().Shuffle(0));
+
 		string holderName = "Generated Map";
 
 		var childTransform = transform.Find(holderName);
@@ -38,6 +52,31 @@ public class MapGenerator : MonoBehaviour
 				newTile.localScale = Vector3.one * (1 - outlinePercent);
 				newTile.parent = mapHolder;
 			}
+		}
+
+		int obstacleCount = 10;
+		for (int i = 0; i < obstacleCount; i++)
+		{
+			Coord randomCoord = GetRandomCoord();
+		}
+	}
+
+	public Coord GetRandomCoord()
+	{
+		Coord randomCoord = shuffledTileCoords.Dequeue();
+		shuffledTileCoords.Enqueue(randomCoord);
+		return randomCoord;
+	}
+
+	public struct Coord
+	{
+		public int x;
+		public int y;
+
+		public Coord(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
 		}
 	}
 }
