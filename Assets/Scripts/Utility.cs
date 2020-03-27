@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public static class Utility
 {
-	//public static T[] Shuffle<T>(this T[] array)
-	//{
-	//	return ShuffleArray(array, System.DateTime.Now.Second);
-	//}
+	public static T[] Shuffle<T>(this T[] array)
+	{
+		return Shuffle(array, System.DateTime.Now.Second);
+	}
 	public static T[] Shuffle<T>(this T[] array, int seed)
 	{
 		System.Random random = new System.Random(seed);
