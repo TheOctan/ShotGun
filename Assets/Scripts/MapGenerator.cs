@@ -10,10 +10,14 @@ public class MapGenerator : MonoBehaviour
 
 	[Range(0, 1)]
 	public float outlinePercent;
+	[Range(0, 1)]
+	public float obstaclePercent;
 	public int seed = 10;
 
 	private List<Coord> allTileCoords;
 	private Queue<Coord> shuffledTileCoords;
+
+	private Coord mapCenter;
 
 	void Start()
 	{
@@ -32,6 +36,7 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().Shuffle(seed));
+		mapCenter = new Coord(mapCenter.x / 2, mapCenter.y / 2);
 
 		string holderName = "Generated Map";
 
@@ -56,15 +61,41 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 
-		int obstacleCount = 10;
+		bool[,] obstacleMap = new bool[(int)mapSize.x, (int)mapSize.y];
+
+		int obstacleCount = (int)(mapSize.x * mapSize.y * obstaclePercent);
+		int currentObctacleCount = 0;
+
 		for (int i = 0; i < obstacleCount; i++)
 		{
 			Coord randomCoord = GetRandomCoord();
-			Vector3 obstaclePosition = CoordToPosition(randomCoord.x, randomCoord.y);
-			Transform newObstacle = Instantiate(obstaclePrefab, obstaclePosition + Vector3.up * 0.5f, Quaternion.identity);
-			newObstacle.parent = mapHolder;
+			obstacleMap[randomCoord.x, randomCoord.y] = true;
+			currentObctacleCount++;
+
+			if (randomCoord != mapCenter && MapIsFullyAccessible(obstacleMap, currentObctacleCount))
+			{
+				Vector3 obstaclePosition = CoordToPosition(randomCoord.x, randomCoord.y);
+
+				Transform newObstacle = Instantiate(obstaclePrefab, obstaclePosition + Vector3.up * 0.5f, Quaternion.identity);
+				newObstacle.parent = mapHolder;
+			}
+			else
+			{
+				obstacleMap[randomCoord.x, randomCoord.y] = false;
+				currentObctacleCount--;
+			}
 		}
 	}
+
+	bool MapIsFullyAccessible(bool[,] obstacleMap, int currentObstacleCount)
+	{
+		bool[,] mapFlags = new bool[obstacleMap.GetLongLength(0), obstacleMap.GetLongLength(1)];
+		Queue<Coord> queue = new Queue<Coord>();
+		queue.Enqueue(mapCenter);
+
+		return false;
+	}
+
 	private Vector3 CoordToPosition(Vector2Int coord)
 	{
 		return CoordToPosition(coord.x, coord.y);
@@ -79,8 +110,7 @@ public class MapGenerator : MonoBehaviour
 		shuffledTileCoords.Enqueue(randomCoord);
 		return randomCoord;
 	}
-
-	public struct Coord
+	public struct Coord : System.IEquatable<Coord>
 	{
 		public int x;
 		public int y;
@@ -89,6 +119,35 @@ public class MapGenerator : MonoBehaviour
 		{
 			this.x = x;
 			this.y = y;
+		}
+
+		public override bool Equals(object obj)
+		{
+			return obj is Coord coord &&
+				   x == coord.x &&
+				   y == coord.y;
+		}
+
+		public bool Equals(Coord other)
+		{
+			return x.Equals(other.x) && y.Equals(other.y);
+		}
+
+		public override int GetHashCode()
+		{
+			var hashCode = 1502939027;
+			hashCode = hashCode * -1521134295 + x.GetHashCode();
+			hashCode = hashCode * -1521134295 + y.GetHashCode();
+			return hashCode;
+		}
+
+		public static bool operator == (Coord lhs, Coord rhs)
+		{
+			return lhs.Equals(rhs);
+		}
+		public static bool operator != (Coord lhs, Coord rhs)
+		{
+			return !lhs.Equals(rhs);
 		}
 	}
 }
