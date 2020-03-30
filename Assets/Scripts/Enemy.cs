@@ -87,7 +87,7 @@ public class Enemy : LivingEntity
 		Vector3 originalPosition = transform.position;
 		Vector3 dirToTarget = (target.position - transform.position).normalized;
 		Vector3 attackPosition = target.position - dirToTarget * (myCollisionRadius/* + targetCollisionRadius*/);
-
+		
 		float attackSpeed = 3;
 		float percent = 0;
 
