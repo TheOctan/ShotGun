@@ -36,7 +36,7 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().Shuffle(seed));
-		mapCenter = new Coord(mapCenter.x / 2, mapCenter.y / 2);
+		mapCenter = new Coord((int)mapSize.x / 2, (int)mapSize.y / 2);
 
 		string holderName = "Generated Map";
 
@@ -89,11 +89,43 @@ public class MapGenerator : MonoBehaviour
 
 	bool MapIsFullyAccessible(bool[,] obstacleMap, int currentObstacleCount)
 	{
-		bool[,] mapFlags = new bool[obstacleMap.GetLongLength(0), obstacleMap.GetLongLength(1)];
+		bool[,] mapFlags = new bool[obstacleMap.GetLength(0), obstacleMap.GetLength(1)];
 		Queue<Coord> queue = new Queue<Coord>();
 		queue.Enqueue(mapCenter);
+		mapFlags[mapCenter.x, mapCenter.y] = true;
 
-		return false;
+		int accessibleTileCount = 1;
+
+		while(queue.Count > 0)
+		{
+			Coord tile = queue.Dequeue();
+
+			for (int x = -1; x <= 1; x++)
+			{
+				for (int y = -1; y <= 1; y++)
+				{
+					int neighbourX = tile.x + x;
+					int neighbourY = tile.y + y;
+
+					if(x == 0 || y == 0)
+					{
+						if(neighbourX >= 0 && neighbourX < obstacleMap.GetLength(0) && neighbourY >= 0 && neighbourY < obstacleMap.GetLength(1))
+						{
+							if(!mapFlags[neighbourX, neighbourY] && !obstacleMap[neighbourX, neighbourY])
+							{
+								mapFlags[neighbourX, neighbourY] = true;
+								queue.Enqueue(new Coord(neighbourX, neighbourY));
+								accessibleTileCount++;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		int targetAccessibleTileCount = (int)(mapSize.x * mapSize.y - currentObstacleCount);
+
+		return targetAccessibleTileCount == accessibleTileCount;
 	}
 
 	private Vector3 CoordToPosition(Vector2Int coord)
