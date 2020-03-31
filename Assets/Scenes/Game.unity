@@ -3561,7 +3561,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: ec5c04bcb9f7da041867e4dcc33e0802, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 34dc966ad7597eb478f3577d351bae27, type: 2}
 --- !u!1 &356545313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4948,7 @@ GameObject:
   - component: {fileID: 532383547}
   - component: {fileID: 532383546}
   - component: {fileID: 532383545}
+  - component: {fileID: 532383549}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5036,6 +5037,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &532383549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532383544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 980b7445ab7156148b842b0ca076e6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadePlane: {fileID: 1781625068}
+  gameOverUI: {fileID: 1162984291}
 --- !u!1 &540028072
 GameObject:
   m_ObjectHideFlags: 0
