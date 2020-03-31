@@ -19,6 +19,8 @@ public class MapGenerator : MonoBehaviour
 
 	private List<Coord> allTileCoords;
 	private Queue<Coord> shuffledTileCoords;
+	private Queue<Coord> shuffledOpenTileCoords;
+	private Transform[,] tileMap;
 
 	private Map currentMap;
 
@@ -30,6 +32,7 @@ public class MapGenerator : MonoBehaviour
 	public void GenerateMap()
 	{
 		currentMap = maps[mapIndex];
+		tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.x];
 		System.Random random = new System.Random(currentMap.seed);
 		GetComponent<BoxCollider>().size = new Vector3(currentMap.mapSize.x * tileSize, 0.05f, currentMap.mapSize.y * tileSize);
 
@@ -65,6 +68,7 @@ public class MapGenerator : MonoBehaviour
 
 				newTile.localScale = Vector3.one * (1 - outlinePercent) * tileSize;
 				newTile.parent = mapHolder;
+				tileMap[x, y] = newTile;
 			}
 		}
 
@@ -73,6 +77,7 @@ public class MapGenerator : MonoBehaviour
 
 		int obstacleCount = (int)(currentMap.mapSize.x * currentMap.mapSize.y * currentMap.obstaclePercent);
 		int currentObctacleCount = 0;
+		List<Coord> allOpenCoords = new List<Coord>(allTileCoords);
 
 		for (int i = 0; i < obstacleCount; i++)
 		{
@@ -94,6 +99,8 @@ public class MapGenerator : MonoBehaviour
 				float colorPercent = randomCoord.y / (float)currentMap.mapSize.y;
 				obstacleMaterial.color = Color.Lerp(currentMap.foregroundColor, currentMap.backgroundColor, colorPercent);
 				obstacleRenderer.sharedMaterial = obstacleMaterial;
+
+				allOpenCoords.Remove(randomCoord);
 			}
 			else
 			{
@@ -101,6 +108,8 @@ public class MapGenerator : MonoBehaviour
 				currentObctacleCount--;
 			}
 		}
+
+		shuffledOpenTileCoords = new Queue<Coord>(allOpenCoords.ToArray().Shuffle(currentMap.seed));
 
 		// Creating navmesh mask
 		Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity);
@@ -162,21 +171,24 @@ public class MapGenerator : MonoBehaviour
 
 		return targetAccessibleTileCount == accessibleTileCount;
 	}
-	private Vector3 CoordToPosition(Vector2Int coord)
-	{
-		return CoordToPosition(coord.x, coord.y);
-	}
 	private Vector3 CoordToPosition(int x, int y)
 	{
 		return new Vector3(-currentMap.mapSize.x / 2f + 0.5f + x, 0, -currentMap.mapSize.y / 2f + 0.5f + y) * tileSize;
 	}
+	
 	public Coord GetRandomCoord()
 	{
 		Coord randomCoord = shuffledTileCoords.Dequeue();
 		shuffledTileCoords.Enqueue(randomCoord);
 		return randomCoord;
 	}
-
+	public Transform GetRandomTile()
+	{
+		Coord randomCoord = shuffledOpenTileCoords.Dequeue();
+		shuffledOpenTileCoords.Enqueue(randomCoord);
+		return tileMap[randomCoord.x, randomCoord.y];
+	}
+	
 	[System.Serializable]
 	public struct Coord : System.IEquatable<Coord>
 	{

@@ -14,8 +14,11 @@ public class Spawner : MonoBehaviour
     private int enemiesRemainingAlive;
     private float nextSpawnTime;
 
+    private MapGenerator map;
+
     void Start()
     {
+        map = FindObjectOfType<MapGenerator>();
         NextWave();
     }
 
@@ -26,9 +29,31 @@ public class Spawner : MonoBehaviour
             enemiesRemainingToSpawn--;
             nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
 
-            Enemy spawnedEnemy = Instantiate(enemy, Vector3.zero, Quaternion.identity);
-            spawnedEnemy.OnDeath += OnEnemyDeath;
+            StartCoroutine(SpawnEnemy());
         }
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+        float spawnDelay = 1;
+        float tileFlashSpeed = 4;
+
+        Transform randomTile = map.GetRandomTile();
+        Material tileMat = randomTile.GetComponent<Renderer>().material;
+        Color initialColor = tileMat.color;
+        Color flashColor = Color.red;
+        float spawnTimer = 0;
+
+        while(spawnTimer < spawnDelay)
+        {
+            tileMat.color = Color.Lerp(initialColor, flashColor, Mathf.PingPong(spawnTimer * tileFlashSpeed, 1));
+
+            spawnTimer += Time.deltaTime;
+            yield return null;
+        }
+
+        Enemy spawnedEnemy = Instantiate(enemy, randomTile.position + Vector3.up, Quaternion.identity);
+        spawnedEnemy.OnDeath += OnEnemyDeath;
     }
 
     void OnEnemyDeath()
@@ -46,7 +71,7 @@ public class Spawner : MonoBehaviour
         currentWaveNumber++;
         if(currentWaveNumber - 1 < waves.Length)
         {
-            print("Wave: " + currentWaveNumber);
+            //print("Wave: " + currentWaveNumber);
             currentWave = waves[currentWaveNumber - 1];
 
             enemiesRemainingToSpawn = currentWave.enemyCount;
@@ -59,8 +84,5 @@ public class Spawner : MonoBehaviour
     {
         public int enemyCount;
         public float timeBetweenSpawns;
-
-
-
     }
 }
