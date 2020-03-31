@@ -171,24 +171,35 @@ public class MapGenerator : MonoBehaviour
 
 		return targetAccessibleTileCount == accessibleTileCount;
 	}
+
 	private Vector3 CoordToPosition(int x, int y)
 	{
 		return new Vector3(-currentMap.mapSize.x / 2f + 0.5f + x, 0, -currentMap.mapSize.y / 2f + 0.5f + y) * tileSize;
 	}
-	
+
+	public Transform GetTileFromPosition(Vector3 postion)
+	{
+		int x = Mathf.RoundToInt(postion.x / tileSize + (currentMap.mapSize.x - 1) / 2f);
+		int y = Mathf.RoundToInt(postion.z / tileSize + (currentMap.mapSize.y - 1) / 2f);
+		x = Mathf.Clamp(x, 0, tileMap.GetLength(0) - 1);
+		y = Mathf.Clamp(y, 0, tileMap.GetLength(1) - 1);
+
+		return tileMap[x, y];
+	}
 	public Coord GetRandomCoord()
 	{
 		Coord randomCoord = shuffledTileCoords.Dequeue();
 		shuffledTileCoords.Enqueue(randomCoord);
 		return randomCoord;
 	}
+
 	public Transform GetRandomTile()
 	{
 		Coord randomCoord = shuffledOpenTileCoords.Dequeue();
 		shuffledOpenTileCoords.Enqueue(randomCoord);
 		return tileMap[randomCoord.x, randomCoord.y];
 	}
-	
+
 	[System.Serializable]
 	public struct Coord : System.IEquatable<Coord>
 	{
