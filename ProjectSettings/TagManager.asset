@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - Player
   - NavMesh
-  - 
-  - 
+  - Floor
+  - Obstacle
   - 
   - 
   - 
