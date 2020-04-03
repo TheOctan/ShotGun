@@ -108,8 +108,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1092298102938690749}
-  - {fileID: 9184560620816204870}
+  - {fileID: 8326298735550787757}
   - {fileID: 3393138753709205924}
+  - {fileID: 9184560620816204870}
+  - {fileID: 5238918485577691093}
+  - {fileID: 583234883619335043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +129,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMode: 0
-  muzzle: {fileID: 9184560620816204870}
+  projectileSpawn:
+  - {fileID: 5238918485577691093}
+  - {fileID: 9184560620816204870}
+  - {fileID: 583234883619335043}
   projectile: {fileID: -5965544253095547562, guid: 86680bb6a0f6f73419038094bcf6cb9b,
     type: 3}
   msBetweenShots: 100
@@ -345,6 +351,36 @@ Transform:
   m_Father: {fileID: 1092298101656128908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1153200212953557356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583234883619335043}
+  m_Layer: 0
+  m_Name: Projectile Spawn 03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &583234883619335043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153200212953557356}
+  m_LocalRotation: {x: 0, y: -0.072515756, z: 0, w: 0.99736726}
+  m_LocalPosition: {x: -0.055, y: 0, z: 0.80799997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092298101656128908}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -8.317, z: 0}
 --- !u!1 &2370879874021154414
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,15 +404,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370879874021154414}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.80799997}
   m_LocalScale: {x: 0.44, y: 0.44, z: 0.44}
   m_Children:
   - {fileID: 4749739763950565645}
   - {fileID: 3888836166184869452}
   - {fileID: 4799915509080786504}
-  m_Father: {fileID: 9184560620816204870}
-  m_RootOrder: 0
+  m_Father: {fileID: 1092298101656128908}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2414903500073860006
 GameObject:
@@ -671,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9184560620816204870}
   m_Layer: 0
-  m_Name: Projectile Spawn
+  m_Name: Projectile Spawn 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,8 +723,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.808}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8326298735550787757}
+  m_Children: []
   m_Father: {fileID: 1092298101656128908}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8021697044086377756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5238918485577691093}
+  m_Layer: 0
+  m_Name: Projectile Spawn 02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5238918485577691093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021697044086377756}
+  m_LocalRotation: {x: -0, y: 0.072513245, z: -0, w: 0.9973675}
+  m_LocalPosition: {x: 0.06, y: 0, z: 0.80799997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092298101656128908}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 8.317, z: 0}
