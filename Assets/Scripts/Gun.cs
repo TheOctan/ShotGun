@@ -4,33 +4,79 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Transform muzzle;
-    public Projectile projectile;
-    public float msBetweenShots = 100f;
-    public float muzzleVelocity = 35f;
+	public enum FireMode
+	{
+		Auto = 0,
+		Burst,
+		Single
+	}
+	public FireMode fireMode;
 
-    public Transform shell;
-    public Transform shellEjection;
+	public Transform muzzle;
+	public Projectile projectile;
+	public float msBetweenShots = 100f;
+	public float muzzleVelocity = 35f;
+	public int burstCount;
 
-    private Muzzleflash muzzleflash;
-    private float nextShotTime;
+	public Transform shell;
+	public Transform shellEjection;
 
-    void Start()
-    {
-        muzzleflash = GetComponent<Muzzleflash>();
-    }
+	private Muzzleflash muzzleflash;
+	private float nextShotTime;
 
-    public void Shoot()
-    {
-        if (Time.time > nextShotTime)
-        {
-            nextShotTime = Time.time + msBetweenShots / 1000f;
+	private bool triggerReleaseSinceLastShot;
+	private int shotsRemaningInBurst;
 
-            Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation);
-            newProjectile.SetSpeed(muzzleVelocity);
+	void Start()
+	{
+		muzzleflash = GetComponent<Muzzleflash>();
+		shotsRemaningInBurst = burstCount;
+	}
 
-            Instantiate(shell, shellEjection.position, shellEjection.rotation);
-            muzzleflash.Activate();
-        } 
-    }
+	void Shoot()
+	{
+		if (Time.time > nextShotTime)
+		{
+			switch (fireMode)
+			{
+				case FireMode.Auto:
+					break;
+				case FireMode.Burst:
+					if (shotsRemaningInBurst == 0)
+					{
+						return;
+					}
+					shotsRemaningInBurst--;
+					break;
+				case FireMode.Single:
+					if (!triggerReleaseSinceLastShot)
+					{
+						return;
+					}
+					break;
+				default:
+					break;
+			}
+
+			nextShotTime = Time.time + msBetweenShots / 1000f;
+
+			Projectile newProjectile = Instantiate(projectile, muzzle.position, muzzle.rotation);
+			newProjectile.SetSpeed(muzzleVelocity);
+
+			Instantiate(shell, shellEjection.position, shellEjection.rotation);
+			muzzleflash.Activate();
+		}
+	}
+
+	public void OnTriggerHold()
+	{
+		Shoot();
+		triggerReleaseSinceLastShot = false;
+	}
+
+	public void OnTriggerRelease()
+	{
+		triggerReleaseSinceLastShot = true;
+		shotsRemaningInBurst = burstCount;
+	}
 }
