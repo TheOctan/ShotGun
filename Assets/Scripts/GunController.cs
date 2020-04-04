@@ -37,4 +37,6 @@ public class GunController : MonoBehaviour
 	{
 		equippedGun?.OnTriggerRelease();
 	}
+
+	public float GunHeight => weaponHold.position.y;
 }

@@ -7515,6 +7515,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3210894883852823590, guid: 57513095f18f6e244afc97f9f20b90ef,
+        type: 3}
+      propertyPath: crosshairs
+      value: 
+      objectReference: {fileID: 2120348537}
     - target: {fileID: 3210894883852823591, guid: 57513095f18f6e244afc97f9f20b90ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10999,6 +11004,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119041883}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2120348537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9183984572012869721, guid: 5249ff2391facb64680fba5eedce7577,
+    type: 3}
+  m_PrefabInstance: {fileID: 1827071944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b86e4400c28d745a009f3e52d1e765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2146735689
 GameObject:
   m_ObjectHideFlags: 0
