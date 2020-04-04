@@ -8,6 +8,8 @@ public class Player : LivingEntity
 {
     public float moveSpeed = 5.0f;
 
+    public Transform crosshairs;
+
     private Camera viewCamera;
     private PlayerController controller;
     private GunController gunController;
@@ -38,6 +40,7 @@ public class Player : LivingEntity
             Vector3 point = ray.GetPoint(rayDistance);
             Debug.DrawLine(ray.origin, point, Color.red);
             controller.LookAt(point);
+            crosshairs.position = point;
         }
 
         // Weapon input

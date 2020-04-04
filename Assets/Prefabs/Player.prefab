@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   moveSpeed: 5
+  crosshairs: {fileID: 0}
 --- !u!114 &3210894883852823595
 MonoBehaviour:
   m_ObjectHideFlags: 0
