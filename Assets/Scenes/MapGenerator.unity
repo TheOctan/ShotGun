@@ -17566,7 +17566,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 502f9fc7f8d134d4382245cbb30a3f3d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7588e0aafe0ff1e4685d44f300da7773, type: 2}
 --- !u!21 &1552347961
 Material:
   serializedVersion: 6
@@ -23151,7 +23151,7 @@ Camera:
   m_GameObject: {fileID: 1933571157}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.24719651, g: 0.35858232, b: 0.5188679, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
