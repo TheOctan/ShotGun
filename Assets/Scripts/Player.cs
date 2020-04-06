@@ -6,52 +6,57 @@ using UnityEngine;
 [RequireComponent(typeof(GunController))]
 public class Player : LivingEntity
 {
-    public float moveSpeed = 5.0f;
+	public float moveSpeed = 5.0f;
 
-    public Crosshairs crosshairs;
+	public Crosshairs crosshairs;
 
-    private Camera viewCamera;
-    private PlayerController controller;
-    private GunController gunController;
-    
-    protected override void Start()
-    {
-        base.Start();
+	private Camera viewCamera;
+	private PlayerController controller;
+	private GunController gunController;
 
-        controller = GetComponent<PlayerController>();
-        gunController = GetComponent<GunController>();
-        viewCamera = Camera.main;        
-    }
+	protected override void Start()
+	{
+		base.Start();
 
-    void Update()
-    {
-        // Movement input
-        Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        Vector3 moveVelocity = moveInput.normalized * moveSpeed;
-        controller.Move(moveVelocity);
+		controller = GetComponent<PlayerController>();
+		gunController = GetComponent<GunController>();
+		viewCamera = Camera.main;
+	}
 
-        // Look input
-        Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.up * gunController.GunHeight);
-        float rayDistance;
+	void Update()
+	{
+		// Movement input
+		Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+		Vector3 moveVelocity = moveInput.normalized * moveSpeed;
+		controller.Move(moveVelocity);
 
-        if(groundPlane.Raycast(ray, out rayDistance))
-        {
-            Vector3 point = ray.GetPoint(rayDistance);
-            Debug.DrawLine(ray.origin, point, Color.red);
-            controller.LookAt(point);
-            crosshairs.transform.position = point;
-            crosshairs.DetectTargets(ray);
-        }
+		// Look input
+		Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
+		Plane groundPlane = new Plane(Vector3.up, Vector3.up * gunController.GunHeight);
+		float rayDistance;
 
-        // Weapon input
-        if (Input.GetMouseButton(0))
-        {
-            gunController.OnTriggerHold();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            gunController.OnTriggerRelease();
-        }
-    }
+		if (groundPlane.Raycast(ray, out rayDistance))
+		{
+			Vector3 point = ray.GetPoint(rayDistance);
+			Debug.DrawLine(ray.origin, point, Color.red);
+			controller.LookAt(point);
+			crosshairs.transform.position = point;
+			crosshairs.DetectTargets(ray);
+
+			if ((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).magnitude > 1)
+			{
+				gunController.Aim(point);
+			}
+		}
+
+		// Weapon input
+		if (Input.GetMouseButton(0))
+		{
+			gunController.OnTriggerHold();
+		}
+		else if (Input.GetMouseButtonUp(0))
+		{
+			gunController.OnTriggerRelease();
+		}
+	}
 }

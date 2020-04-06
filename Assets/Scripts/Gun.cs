@@ -71,6 +71,11 @@ public class Gun : MonoBehaviour
 		}
 	}
 
+	public void Aim(Vector3 aimPoint)
+	{
+		transform.LookAt(aimPoint);
+	}
+
 	public void OnTriggerHold()
 	{
 		Shoot();
