@@ -43,5 +43,10 @@ public class GunController : MonoBehaviour
 		equippedGun?.Aim(aimPoint);
 	}
 
+	public void Reload()
+	{
+		equippedGun?.Reload();
+	}
+
 	public float GunHeight => weaponHold.position.y;
 }
