@@ -33,8 +33,8 @@ public class Gun : MonoBehaviour
 	private Muzzleflash muzzleflash;
 	private float nextShotTime;
 
-	private bool triggerReleaseSinceLastShot;
-	private int shotsRemaningInBurst;
+	private bool triggerReleasedSinceLastShot;
+	private int shotsRemainingInBurst;
 	private int projectilesRemaningInMag;
 	private bool isReloading;
 
@@ -45,7 +45,7 @@ public class Gun : MonoBehaviour
 	void Start()
 	{
 		muzzleflash = GetComponent<Muzzleflash>();
-		shotsRemaningInBurst = burstCount;
+		shotsRemainingInBurst = burstCount;
 		projectilesRemaningInMag = projectilesPerMag;
 	}
 
@@ -66,25 +66,20 @@ public class Gun : MonoBehaviour
 	{
 		if (!isReloading && Time.time > nextShotTime && projectilesRemaningInMag > 0)
 		{
-			switch (fireMode)
+			if (fireMode == FireMode.Burst)
 			{
-				case FireMode.Auto:
-					break;
-				case FireMode.Burst:
-					if (shotsRemaningInBurst == 0)
-					{
-						return;
-					}
-					shotsRemaningInBurst--;
-					break;
-				case FireMode.Single:
-					if (!triggerReleaseSinceLastShot)
-					{
-						return;
-					}
-					break;
-				default:
-					break;
+				if (shotsRemainingInBurst == 0)
+				{
+					return;
+				}
+				shotsRemainingInBurst--;
+			}
+			else if (fireMode == FireMode.Single)
+			{
+				if (!triggerReleasedSinceLastShot)
+				{
+					return;
+				}
 			}
 
 			for (int i = 0; i < projectileSpawn.Length; i++)
@@ -150,12 +145,12 @@ public class Gun : MonoBehaviour
 	public void OnTriggerHold()
 	{
 		Shoot();
-		triggerReleaseSinceLastShot = false;
+		triggerReleasedSinceLastShot = false;
 	}
 
 	public void OnTriggerRelease()
 	{
-		triggerReleaseSinceLastShot = true;
-		shotsRemaningInBurst = burstCount;
+		triggerReleasedSinceLastShot = true;
+		shotsRemainingInBurst = burstCount;
 	}
 }
