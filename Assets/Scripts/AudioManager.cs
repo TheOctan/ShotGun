@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-	private float masterVolumePercent = 1;
+	private float masterVolumePercent = 0.2f;
 	private float sfxVolumePercent = 1;
 	private float musicVolumePercent = 1;
 
@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
 	private int activeMusicSourceIndex;
 
 	public static AudioManager instance;
+
+	private Transform audioListener;
+	private Transform playerT;
 
 	void Awake()
 	{
@@ -23,6 +26,17 @@ public class AudioManager : MonoBehaviour
 			GameObject newMusicSource = new GameObject("Music source " + (i + 1));
 			musicSources[i] = newMusicSource.AddComponent<AudioSource>();
 			newMusicSource.transform.parent = transform;
+		}
+
+		audioListener = FindObjectOfType<AudioListener>().transform;
+		playerT = FindObjectOfType<Player>().transform;
+	}
+
+	void Update()
+	{
+		if(playerT != null)
+		{
+			audioListener.position = playerT.position;
 		}
 	}
 
@@ -37,7 +51,10 @@ public class AudioManager : MonoBehaviour
 
 	public void PlaySound(AudioClip clip, Vector3 pos)
 	{
-		AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
+		if(clip != null)
+		{
+			AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
+		}
 	}
 
 	IEnumerator AnimatemusicCrossfade(float duration)
