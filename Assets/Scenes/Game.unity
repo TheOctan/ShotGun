@@ -6864,6 +6864,12 @@ MonoBehaviour:
   - groupID: Enemy Attack
     group:
     - {fileID: 8300000, guid: 0ca684a9710324168be662e3364b8e50, type: 3}
+  - groupID: Level Complete
+    group:
+    - {fileID: 8300000, guid: 557ed296e3a8c4844b5a6f403cfe19ea, type: 3}
+  - groupID: Player Death
+    group:
+    - {fileID: 8300000, guid: 3d24370b259f24569a73f7f58aa703c2, type: 3}
 --- !u!1 &1038969902
 GameObject:
   m_ObjectHideFlags: 0

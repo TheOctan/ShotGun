@@ -73,4 +73,10 @@ public class Player : LivingEntity
 			gunController.Reload();
 		}
 	}
+
+	protected override void Die()
+	{
+		AudioManager.instance.PlaySound("Player Death", transform.position);
+		base.Die();
+	}
 }
