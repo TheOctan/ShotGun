@@ -604,6 +604,7 @@ MonoBehaviour:
   - {fileID: 428051893}
   - {fileID: 1907204480}
   - {fileID: 66447815}
+  fullscreenToggle: {fileID: 596076307}
   screenWidths: c00300000005000080070000
 --- !u!1 &369115165
 GameObject:
