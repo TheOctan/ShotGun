@@ -39,7 +39,7 @@ public class MapGenerator : MonoBehaviour
 	public void GenerateMap()
 	{
 		currentMap = maps[mapIndex];
-		tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.x];
+		tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
 		System.Random random = new System.Random(currentMap.seed);
 		
 

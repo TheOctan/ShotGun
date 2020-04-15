@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +30,7 @@ public class Spawner : MonoBehaviour
 
 	private bool isDisabled;
 
-	public event System.Action<int> OnNewWave;
+	public event Action<int> OnNewWave;
 
 	void Start()
 	{

@@ -15,19 +15,19 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, lifeTime);
-    }
-
-    public void SetSpeed(float speed)
-    {
-        this.speed = speed;
 
         Collider[] initialCollisions = Physics.OverlapSphere(transform.position, 0.1f, collisionMask);
-        if(initialCollisions.Length > 0)
+        if (initialCollisions.Length > 0)
         {
             OnHitObject(initialCollisions[0], transform.position);
         }
 
         GetComponent<TrailRenderer>().material.SetColor("_TintColor", trailColor);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     void Update()
@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
+        //Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red);
 
         if(Physics.Raycast(ray, out hit, moveDistance + skinWidth, collisionMask, QueryTriggerInteraction.Collide))
         {

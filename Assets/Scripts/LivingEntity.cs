@@ -9,7 +9,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     public float health { get; protected set; }
     protected bool dead;
 
-    public event System.Action OnDeath;
+    public event Action OnDeath;
 
     protected virtual void Start()
     {

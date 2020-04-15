@@ -16,7 +16,7 @@ public class Enemy : LivingEntity
 	private State currentState;
 
 	public ParticleSystem deathEffect;
-	public static event System.Action OnDeathStatic;
+	public static event Action OnDeathStatic;
 
 	private NavMeshAgent pathFinder;
 	private Transform target;
