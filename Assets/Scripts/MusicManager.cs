@@ -20,7 +20,7 @@ public class MusicManager : MonoBehaviour
 		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 	}
 
-	private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
 	{
 		string newSceneName = scene.name;
 		if (newSceneName != sceneName)

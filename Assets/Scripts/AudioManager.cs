@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -64,6 +65,27 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+	void OnEnable()
+	{
+		SceneManager.sceneLoaded += OnLevelFinishedLoading;
+	}
+
+	void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+	}
+
+	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	{
+		if (playerT == null)
+		{
+			if (FindObjectOfType<Player>() != null)
+			{
+				playerT = FindObjectOfType<Player>().transform;
+			}
+		}
+	}
+
 	void Update()
 	{
 		if (playerT != null)
@@ -104,7 +126,7 @@ public class AudioManager : MonoBehaviour
 		musicSources[activeMusicSourceIndex].clip = clip;
 		musicSources[activeMusicSourceIndex].Play();
 
-		StartCoroutine(AnimatemusicCrossfade(fadeDuration));
+		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
 	}
 
 	public void PlaySound(AudioClip clip, Vector3 pos)
@@ -115,17 +137,18 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void PlaySound(string sound, Vector3 pos)
+	public void PlaySound(string soundName, Vector3 pos)
 	{
-		PlaySound(library.GetClipFromName(sound), pos);
+		PlaySound(library.GetClipFromName(soundName), pos);
 	}
 
-	public void PlaySound2D(string sound)
+	public void PlaySound2D(string soundName)
 	{
-		sfx2DSource.PlayOneShot(library.GetClipFromName(sound), sfxVolumePercent * masterVolumePercent);
+		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
 	}
 
-	IEnumerator AnimatemusicCrossfade(float duration)
+
+	IEnumerator AnimateMusicCrossfade(float duration)
 	{
 		float percent = 0;
 
@@ -134,7 +157,7 @@ public class AudioManager : MonoBehaviour
 			percent += Time.deltaTime * 1 / duration;
 			musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
 			musicSources[1 - activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
-
+			
 			yield return null;
 		}
 	}
