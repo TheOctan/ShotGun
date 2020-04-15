@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
+	public GameObject allUI;
 	public Image fadePlane;
 	public GameObject gameOverUI;
 
@@ -21,6 +22,7 @@ public class GameUI : MonoBehaviour
 
 	void Start()
 	{
+		allUI.SetActive(true);
 		player = FindObjectOfType<Player>();
 		player.OnDeath += OnGameOver;
 	}

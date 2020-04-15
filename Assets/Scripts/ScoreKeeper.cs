@@ -30,7 +30,7 @@ public class ScoreKeeper : MonoBehaviour
 
         lastEnemyKillTime = Time.time;
 
-        score += 5 + (int)Mathf.Pow(2, streakCount);
+        score += 3 + 2 * streakCount;
     }
 
     void OnPlayerDeath()

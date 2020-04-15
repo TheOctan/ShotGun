@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Muzzleflash : MonoBehaviour
+public class MuzzleFlash : MonoBehaviour
 {
 	public GameObject flashHolder;
 	public Sprite[] flashSprites;

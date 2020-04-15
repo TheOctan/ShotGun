@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour
 	public AudioClip shootAudio;
 	public AudioClip reloadAudio;
 
-	private Muzzleflash muzzleflash;
+	private MuzzleFlash muzzleflash;
 	private float nextShotTime;
 
 	private bool triggerReleasedSinceLastShot;
@@ -46,7 +46,7 @@ public class Gun : MonoBehaviour
 
 	void Start()
 	{
-		muzzleflash = GetComponent<Muzzleflash>();
+		muzzleflash = GetComponent<MuzzleFlash>();
 		shotsRemainingInBurst = burstCount;
 		projectilesRemaningInMag = projectilesPerMag;
 	}

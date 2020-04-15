@@ -84,7 +84,7 @@ public class Enemy : LivingEntity
 	public override void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
 	{
 		AudioManager.instance.PlaySound("Impact", transform.position);
-		if(damage >= health)
+		if(damage >= health && !dead)
 		{
 			OnDeathStatic?.Invoke();
 			AudioManager.instance.PlaySound("Enemy Death", transform.position);
