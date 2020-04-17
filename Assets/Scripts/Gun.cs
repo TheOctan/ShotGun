@@ -35,7 +35,7 @@ public class Gun : MonoBehaviour
 	private MuzzleFlash muzzleflash;
 	private float nextShotTime;
 
-	private bool triggerReleasedSinceLastShot;
+	private bool triggerReleasedSinceLastShot = true;
 	private int shotsRemainingInBurst;
 	private int projectilesRemaningInMag;
 	private float reloadAngle;
