@@ -38,6 +38,7 @@ public class Gun : MonoBehaviour
 	private bool triggerReleasedSinceLastShot;
 	private int shotsRemainingInBurst;
 	private int projectilesRemaningInMag;
+	private float reloadAngle;
 	private bool isReloading;
 
 	private Vector3 recoilSmootDampVelocity;
@@ -56,7 +57,7 @@ public class Gun : MonoBehaviour
 		// animate recoil
 		transform.localPosition = Vector3.SmoothDamp(transform.localPosition, Vector3.zero, ref recoilSmootDampVelocity, recoilMoveSettleTime);
 		recoilAngle = Mathf.SmoothDamp(recoilAngle, 0, ref recoilRotSmoothDampVelocity, recoilRotationSettleTime);
-		transform.localEulerAngles = transform.localEulerAngles + Vector3.left * recoilAngle;
+		transform.localEulerAngles = Vector3.left * (recoilAngle + reloadAngle) + Vector3.up * transform.localEulerAngles.y;
 
 		if (!isReloading && projectilesRemaningInMag == 0)
 		{
@@ -129,7 +130,7 @@ public class Gun : MonoBehaviour
 		{
 			percent += Time.deltaTime * reloadSpeed;
 			float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
-			float reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
+			reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
 			transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
 
 			yield return null;
