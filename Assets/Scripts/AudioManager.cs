@@ -160,5 +160,7 @@ public class AudioManager : MonoBehaviour
 			
 			yield return null;
 		}
+
+		musicSources[1 - activeMusicSourceIndex].clip = null;
 	}
 }
