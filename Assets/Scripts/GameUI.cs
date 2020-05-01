@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-	public GameObject allUI;
+	public static bool GameIsPaused = false;
+
 	public Image fadePlane;
+	public GameObject allUI;
 	public GameObject gameOverUI;
+	public GameObject pauseMenuUI;
 
 	public RectTransform newWaveBanner;
 	public Text newWaveTitle;
@@ -42,6 +45,18 @@ public class GameUI : MonoBehaviour
 			healthPercent = player.health / player.startingHealth;
 		}
 		healthBar.localScale = new Vector3(healthPercent, 1, 1);
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if (GameIsPaused)
+			{
+				Resume();
+			}
+			else
+			{
+				Pause();
+			}
+		}
 	}
 
 	void OnNewWave(int waveNumber)
@@ -113,6 +128,29 @@ public class GameUI : MonoBehaviour
 
 	public void ReturnToMainMenu()
 	{
+		GameIsPaused = false;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene("Menu");
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
+	}
+
+	public void Resume()
+	{
+		Cursor.visible = false;
+		pauseMenuUI.SetActive(false);
+		Time.timeScale = 1f;
+		GameIsPaused = false;
+	}
+
+	void Pause()
+	{
+		Cursor.visible = true;
+		pauseMenuUI.SetActive(true);
+		Time.timeScale = 0f;
+		GameIsPaused = true;
 	}
 }

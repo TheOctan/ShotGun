@@ -131,7 +131,7 @@ public class Gun : MonoBehaviour
 			percent += Time.deltaTime * reloadSpeed;
 			float interpolation = (-Mathf.Pow(percent, 2) + percent) * 4;
 			reloadAngle = Mathf.Lerp(0, maxReloadAngle, interpolation);
-			transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
+			//transform.localEulerAngles = initialRot + Vector3.left * reloadAngle;
 
 			yield return null;
 		}

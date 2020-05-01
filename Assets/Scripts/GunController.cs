@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+	public float GunHeight => weaponHold.position.y;
+
 	public Transform weaponHold;
 	public Gun[] allGuns;
 	private Gun equippedGun;
@@ -49,6 +51,4 @@ public class GunController : MonoBehaviour
 	{
 		equippedGun?.Reload();
 	}
-
-	public float GunHeight => weaponHold.position.y;
 }
