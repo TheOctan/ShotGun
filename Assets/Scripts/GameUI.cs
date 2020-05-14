@@ -23,6 +23,8 @@ public class GameUI : MonoBehaviour
 	private Spawner spawner;
 	private Player player;
 
+	private bool isGameOver = false;
+
 	void Start()
 	{
 		allUI.SetActive(true);
@@ -46,7 +48,7 @@ public class GameUI : MonoBehaviour
 		}
 		healthBar.localScale = new Vector3(healthPercent, 1, 1);
 
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (GameIsPaused)
 			{
@@ -78,6 +80,8 @@ public class GameUI : MonoBehaviour
 		scoreUI.gameObject.SetActive(false);
 		healthBar.transform.parent.gameObject.SetActive(false);
 		gameOverUI.SetActive(true);
+
+		isGameOver = true;
 	}
 
 	IEnumerator AnimateNewWaveBanner()
