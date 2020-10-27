@@ -1,105 +1,157 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject mainMenuHolder;
-    public GameObject optionMenuHolder;
+	public GameObject mainMenuHolder;
+	public GameObject optionMenuHolder;
+	public GameObject inputMenuHolder;
 
-    public Slider[] volumeSliders;
-    public Toggle[] resolutionToggles;
-    public Toggle fullscreenToggle;
-    public int[] screenWidths;
-    private int activeScreenResIndex;
+	public Slider[] volumeSliders;
+	public Toggle[] resolutionToggles;
+	public Toggle fullscreenToggle;
+	public int[] screenWidths;
 
-    void Start()
-    {
-        activeScreenResIndex = PlayerPrefs.GetInt("screen res index");
-        bool isFullScreen = (PlayerPrefs.GetInt("fullscreen") == 1) ? true : false;
+	[Header("Nickname control")]
+	public InputField nickname;
+	public InputField spareNickname;
 
-        volumeSliders[0].value = AudioManager.instance.masterVolumePercent;
-        volumeSliders[1].value = AudioManager.instance.musicVolumePercent;
-        volumeSliders[2].value = AudioManager.instance.sfxVolumePercent;
+	private InputController nicknameController;
+	private InputController spareNicknameController;
 
-        for (int i = 0; i < resolutionToggles.Length; i++)
-        {
-            resolutionToggles[i].isOn = i == activeScreenResIndex;
-        }
+	private int activeScreenResIndex;
 
-        fullscreenToggle.isOn = isFullScreen;
-    }
+	private void Awake()
+	{
+		nicknameController = nickname.GetComponent<InputController>();
+		spareNicknameController = spareNickname.GetComponent<InputController>();
+	}
 
-    public void Play()
-    {
-        SceneManager.LoadScene("Game");
-    }
+	private void Start()
+	{
+		activeScreenResIndex = PlayerPrefs.GetInt("screen res index");
+		bool isFullScreen = (PlayerPrefs.GetInt("fullscreen") == 1) ? true : false;
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
+		volumeSliders[0].value = AudioManager.instance.masterVolumePercent;
+		volumeSliders[1].value = AudioManager.instance.musicVolumePercent;
+		volumeSliders[2].value = AudioManager.instance.sfxVolumePercent;
 
-    public void OptionsMenu()
-    {
-        mainMenuHolder.SetActive(false);
-        optionMenuHolder.SetActive(true);
-    }
+		for (int i = 0; i < resolutionToggles.Length; i++)
+		{
+			resolutionToggles[i].isOn = i == activeScreenResIndex;
+		}
 
-    public void MainMenu()
-    {
-        mainMenuHolder.SetActive(true);
-        optionMenuHolder.SetActive(false);
-    }
+		fullscreenToggle.isOn = isFullScreen;
+	}
 
-    public void SetScreenResolution(int i)
-    {
-        if (resolutionToggles[i].isOn)
-        {
-            activeScreenResIndex = i;
-            float aspectRatio = 16 / 9f;
-            Screen.SetResolution(screenWidths[i], (int)(screenWidths[i] / aspectRatio), false);
-            PlayerPrefs.SetInt("screen res index", activeScreenResIndex);
-            PlayerPrefs.Save();
-        }
-    }
+	public void Play()
+	{
+		if (nickname.text == string.Empty || !nicknameController.IsValid)
+		{
+			mainMenuHolder.SetActive(false);
+			inputMenuHolder.SetActive(true);
 
-    public void SetFullscreen(bool isFullscreen)
-    {
-        for (int i = 0; i < resolutionToggles.Length; i++)
-        {
-            resolutionToggles[i].interactable = !isFullscreen;
-        }
+			if (!nicknameController.IsValid)
+			{
+				spareNickname.text = nickname.text;
+				spareNickname.GetComponent<Image>().color = Color.red;
+			}
+		}
+		else
+		{
+			SceneManager.LoadScene("Game");
+		}
+	}
 
-        if (isFullscreen)
-        {
-            Resolution[] allResolutions = Screen.resolutions;
-            Resolution maxResolution = allResolutions[allResolutions.Length - 1];
-            Screen.SetResolution(maxResolution.width, maxResolution.height, true);
-        }
-        else
-        {
-            SetScreenResolution(activeScreenResIndex);
-        }
+	public void Next()
+	{
+		if (spareNicknameController.IsValid)
+		{
+			SceneManager.LoadScene("Game");
+		}
+	}
 
-        PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0);
-        PlayerPrefs.Save();
-    }
+	public void Quit()
+	{
+#if UNITY_EDITOR
+		EditorApplication.isPlaying = false;
+#else
+	Application.Quit();
+#endif
+	}
 
-    public void SetMasterVolume(float value)
-    {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
-    }
+	public void OptionsMenu()
+	{
+		mainMenuHolder.SetActive(false);
+		optionMenuHolder.SetActive(true);
 
-    public void SetMusicVolume(float value)
-    {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
-    }
+		if(spareNickname.text != string.Empty)
+		{
+			nickname.text = spareNickname.text;
 
-    public void SetSfxVolume(float value)
-    {
-        AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
-    }
+			if (!spareNicknameController.IsValid)
+			{
+				nickname.GetComponent<Image>().color = Color.red;
+			}
+		}
+	}
+
+	public void MainMenu()
+	{
+		mainMenuHolder.SetActive(true);
+		optionMenuHolder.SetActive(false);
+	}
+
+	public void SetScreenResolution(int i)
+	{
+		if (resolutionToggles[i].isOn)
+		{
+			activeScreenResIndex = i;
+			float aspectRatio = 16 / 9f;
+			Screen.SetResolution(screenWidths[i], (int)(screenWidths[i] / aspectRatio), false);
+			PlayerPrefs.SetInt("screen res index", activeScreenResIndex);
+			PlayerPrefs.Save();
+		}
+	}
+
+	public void SetFullscreen(bool isFullscreen)
+	{
+		for (int i = 0; i < resolutionToggles.Length; i++)
+		{
+			resolutionToggles[i].interactable = !isFullscreen;
+		}
+
+		if (isFullscreen)
+		{
+			Resolution[] allResolutions = Screen.resolutions;
+			Resolution maxResolution = allResolutions[allResolutions.Length - 1];
+			Screen.SetResolution(maxResolution.width, maxResolution.height, true);
+		}
+		else
+		{
+			SetScreenResolution(activeScreenResIndex);
+		}
+
+		PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0);
+		PlayerPrefs.Save();
+	}
+
+	public void SetMasterVolume(float value)
+	{
+		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
+	}
+
+	public void SetMusicVolume(float value)
+	{
+		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
+	}
+
+	public void SetSfxVolume(float value)
+	{
+		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
+	}
 }

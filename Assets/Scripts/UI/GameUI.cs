@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -139,7 +140,11 @@ public class GameUI : MonoBehaviour
 
 	public void Quit()
 	{
-		Application.Quit();
+#if UNITY_EDITOR
+		EditorApplication.isPlaying = false;
+#else
+	Application.Quit();
+#endif
 	}
 
 	public void Resume()
