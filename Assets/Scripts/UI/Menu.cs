@@ -17,18 +17,19 @@ public class Menu : MonoBehaviour
 	public int[] screenWidths;
 
 	[Header("Nickname control")]
-	public InputField nickname;
-	public InputField spareNickname;
+	public InputField nicknameInput;
+	public InputField spareNicknameInput;
 
 	private InputController nicknameController;
 	private InputController spareNicknameController;
 
 	private int activeScreenResIndex;
+	private string nickname;
 
 	private void Awake()
 	{
-		nicknameController = nickname.GetComponent<InputController>();
-		spareNicknameController = spareNickname.GetComponent<InputController>();
+		nicknameController = nicknameInput.GetComponent<InputController>();
+		spareNicknameController = spareNicknameInput.GetComponent<InputController>();
 	}
 
 	private void Start()
@@ -46,19 +47,24 @@ public class Menu : MonoBehaviour
 		}
 
 		fullscreenToggle.isOn = isFullScreen;
+
+		if (PlayerPrefs.HasKey("Nickname"))
+		{
+			nickname = PlayerPrefs.GetString("Nickname");
+		}
 	}
 
 	public void Play()
 	{
-		if (nickname.text == string.Empty || !nicknameController.IsValid)
+		if (nicknameInput.text == string.Empty || !nicknameController.IsValid)
 		{
 			mainMenuHolder.SetActive(false);
 			inputMenuHolder.SetActive(true);
 
 			if (!nicknameController.IsValid)
 			{
-				spareNickname.text = nickname.text;
-				spareNickname.GetComponent<Image>().color = Color.red;
+				spareNicknameInput.text = nicknameInput.text;
+				spareNicknameInput.GetComponent<Image>().color = Color.red;
 			}
 		}
 		else
@@ -71,6 +77,7 @@ public class Menu : MonoBehaviour
 	{
 		if (spareNicknameController.IsValid)
 		{
+			PlayerPrefs.SetString("Nickname", nicknameInput.text);
 			SceneManager.LoadScene("Game");
 		}
 	}
@@ -89,14 +96,18 @@ public class Menu : MonoBehaviour
 		mainMenuHolder.SetActive(false);
 		optionMenuHolder.SetActive(true);
 
-		if(spareNickname.text != string.Empty)
+		if(spareNicknameInput.text != string.Empty)
 		{
-			nickname.text = spareNickname.text;
+			nicknameInput.text = spareNicknameInput.text;
 
 			if (!spareNicknameController.IsValid)
 			{
-				nickname.GetComponent<Image>().color = Color.red;
+				nicknameInput.GetComponent<Image>().color = Color.red;
 			}
+		}
+		else
+		{
+			nicknameInput.text = nickname;
 		}
 	}
 
@@ -104,6 +115,11 @@ public class Menu : MonoBehaviour
 	{
 		mainMenuHolder.SetActive(true);
 		optionMenuHolder.SetActive(false);
+
+		if (nicknameController.IsValid)
+		{
+			PlayerPrefs.SetString("Nickname", nicknameInput.text);
+		}
 	}
 
 	public void SetScreenResolution(int i)
