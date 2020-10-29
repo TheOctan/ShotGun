@@ -24,6 +24,8 @@ public class SessionManager : MonoBehaviour
 		gun = FindObjectOfType<Gun>();
 
 		SubscribeEvents();
+
+		sessionData.Date = DateTime.Now.ToString("dd/MM/yyyy");
 	}
 
 	private void SubscribeEvents()
@@ -76,5 +78,8 @@ public class SessionManager : MonoBehaviour
 	private void OnPlayerDeath()
 	{
 		UnsubscribeEvents();
+
+		sessionData.Duration = Mathf.Floor(Time.timeSinceLevelLoad);
+		sessionData.Score = ScoreKeeper.score;
 	}
 }
