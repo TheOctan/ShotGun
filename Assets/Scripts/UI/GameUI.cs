@@ -9,11 +9,13 @@ public class GameUI : MonoBehaviour
 {
 	public static bool GameIsPaused = false;
 
+	[Header("UI groups")]
 	public Image fadePlane;
 	public GameObject allUI;
 	public GameObject gameOverUI;
 	public GameObject pauseMenuUI;
 
+	[Header("UI elements")]
 	public RectTransform newWaveBanner;
 	public Text newWaveTitle;
 	public Text newWaveEnemyCount;

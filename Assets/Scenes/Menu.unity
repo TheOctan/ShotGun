@@ -611,8 +611,8 @@ MonoBehaviour:
   - {fileID: 66447815}
   fullscreenToggle: {fileID: 596076307}
   screenWidths: c00300000005000080070000
-  nickname: {fileID: 295242636}
-  spareNickname: {fileID: 1776484563}
+  nicknameInput: {fileID: 295242636}
+  spareNicknameInput: {fileID: 1776484563}
 --- !u!1 &295242634
 GameObject:
   m_ObjectHideFlags: 0
