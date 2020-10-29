@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SessionManager : MonoBehaviour
 {
-    private SessionData sessionData;
+    public static SessionData sessionData { get; private set; }
 
 	private Spawner spawner;
     private Player player;
@@ -36,9 +36,11 @@ public class SessionManager : MonoBehaviour
 
 		player.OnDeath += OnPlayerDeath;
 		player.OnHitDamage += OnHitDamage;
+		player.OnMove += OnPlayerMove;
 
 		SubscribeGunEvents();
-	}
+	}	
+
 	private void SubscribeGunEvents()
 	{
 		gun.OnShoot += OnGunShoot;
@@ -74,6 +76,10 @@ public class SessionManager : MonoBehaviour
 	private void OnHitDamage(float damage)
 	{
 		sessionData.HitDamage += damage;
+	}
+	private void OnPlayerMove(float distance)
+	{
+		sessionData.TraveledDistance += distance;
 	}
 	private void OnPlayerDeath()
 	{
