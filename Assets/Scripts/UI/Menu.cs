@@ -120,6 +120,10 @@ public class Menu : MonoBehaviour
 		{
 			PlayerPrefs.SetString("Nickname", nicknameInput.text);
 		}
+		else if(nicknameInput.text == string.Empty)
+		{
+			PlayerPrefs.DeleteKey("Nickname");
+		}
 	}
 
 	public void SetScreenResolution(int i)

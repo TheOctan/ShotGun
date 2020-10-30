@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+	public event System.Action OnShoot;
+	public event System.Action OnReload;
+
 	public enum FireMode
 	{
 		Auto = 0,
@@ -104,6 +107,7 @@ public class Gun : MonoBehaviour
 			recoilAngle = Mathf.Clamp(recoilAngle, 0, 30);
 
 			AudioManager.instance.PlaySound(shootAudio, transform.position);
+			OnShoot?.Invoke();
 		}
 	}
 
@@ -113,6 +117,7 @@ public class Gun : MonoBehaviour
 		{
 			StartCoroutine(AnimateReload());
 			AudioManager.instance.PlaySound(reloadAudio, transform.position);
+			OnReload?.Invoke();
 		}
 	}
 

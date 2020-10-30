@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,12 @@ using UnityEngine;
 [RequireComponent(typeof(GunController))]
 public class Player : LivingEntity
 {
+	public event Action<float> OnMove
+	{
+		add { controller.OnMove += value; }
+		remove { controller.OnMove -= value; }
+	}
+
 	public float moveSpeed = 5.0f;
 
 	public Crosshairs crosshairs;

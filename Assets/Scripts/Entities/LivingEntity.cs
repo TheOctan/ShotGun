@@ -10,8 +10,9 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     protected bool dead;
 
     public event Action OnDeath;
+	public event Action<float> OnHitDamage;
 
-    protected virtual void Start()
+	protected virtual void Start()
     {
         health = startingHealth;
     }
@@ -25,6 +26,7 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float damage)
     {
         health -= damage;
+        OnHitDamage?.Invoke(damage);
 
         if (health <= 0 && !dead)
         {

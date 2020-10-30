@@ -17,6 +17,7 @@ public class Enemy : LivingEntity
 
 	public ParticleSystem deathEffect;
 	public static event Action OnDeathStatic;
+	public static event Action<float> OnHitDamageStatic;
 
 	private NavMeshAgent pathFinder;
 	private Transform target;
@@ -75,7 +76,9 @@ public class Enemy : LivingEntity
 		}
 		startingHealth = enemyHealth;
 
-		deathEffect.startColor = new Color(skinColor.r, skinColor.g, skinColor.b, 1);
+		var main = deathEffect.main;
+		main.startColor = new Color(skinColor.r, skinColor.g, skinColor.b, 1);
+
 		skinMaterial = GetComponent<Renderer>().material;
 		skinMaterial.color = skinColor;
 		originalColor = skinMaterial.color;
@@ -91,6 +94,8 @@ public class Enemy : LivingEntity
 			Destroy(Instantiate(deathEffect.gameObject, hitPoint, Quaternion.FromToRotation(Vector3.forward, hitDirection)), deathEffect.main.startLifetime.constant);
 		}
 		base.TakeHit(damage, hitPoint, hitDirection);
+		OnHitDamageStatic?.Invoke(damage);
+		
 	}
 
 	void OnTargetDeath()

@@ -8,12 +8,15 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
 	public static bool GameIsPaused = false;
+	public bool HierarhyMenu { get; set; } = false;
 
+	[Header("UI groups")]
 	public Image fadePlane;
 	public GameObject allUI;
 	public GameObject gameOverUI;
 	public GameObject pauseMenuUI;
 
+	[Header("UI elements")]
 	public RectTransform newWaveBanner;
 	public Text newWaveTitle;
 	public Text newWaveEnemyCount;
@@ -51,14 +54,17 @@ public class GameUI : MonoBehaviour
 
 		if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (GameIsPaused)
+			if (!HierarhyMenu)
 			{
-				Resume();
-			}
-			else
-			{
-				Pause();
-			}
+				if (GameIsPaused)
+				{
+					Resume();
+				}
+				else
+				{
+					Pause();
+				}
+			}			
 		}
 	}
 
@@ -147,7 +153,7 @@ public class GameUI : MonoBehaviour
 #endif
 	}
 
-	public void Resume()
+	void Resume()
 	{
 		Cursor.visible = false;
 		pauseMenuUI.SetActive(false);
