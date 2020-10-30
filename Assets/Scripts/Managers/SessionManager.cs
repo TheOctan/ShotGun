@@ -28,6 +28,11 @@ public class SessionManager : MonoBehaviour
 		sessionData.Date = DateTime.Now.ToString("dd/MM/yyyy");
 	}
 
+	private void Update()
+	{
+		sessionData.Duration = Mathf.Floor(Time.timeSinceLevelLoad);
+	}
+
 	private void SubscribeEvents()
 	{
 		Enemy.OnHitDamageStatic += OnShootDamage;
@@ -83,9 +88,7 @@ public class SessionManager : MonoBehaviour
 	}
 	private void OnPlayerDeath()
 	{
-		UnsubscribeEvents();
-
-		sessionData.Duration = Mathf.Floor(Time.timeSinceLevelLoad);
+		UnsubscribeEvents();		
 		sessionData.Score = ScoreKeeper.score;
 	}
 }

@@ -13,7 +13,7 @@ namespace Assets.Scripts.Data
 		public float TraveledDistance { get; set; }
 		public float Duration { get; set; }
 		public string Date { get; set; }
-		public float Score { get; set; }
+		public int Score { get; set; }
 		public float ShootDamage { get; set; }
 		public float HitDamage { get; set; }
 	}
