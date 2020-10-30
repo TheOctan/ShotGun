@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
 	public static bool GameIsPaused = false;
+	public bool HierarhyMenu { get; set; } = false;
 
 	[Header("UI groups")]
 	public Image fadePlane;
@@ -53,14 +54,17 @@ public class GameUI : MonoBehaviour
 
 		if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
 		{
-			if (GameIsPaused)
+			if (!HierarhyMenu)
 			{
-				Resume();
-			}
-			else
-			{
-				Pause();
-			}
+				if (GameIsPaused)
+				{
+					Resume();
+				}
+				else
+				{
+					Pause();
+				}
+			}			
 		}
 	}
 
@@ -149,7 +153,7 @@ public class GameUI : MonoBehaviour
 #endif
 	}
 
-	public void Resume()
+	void Resume()
 	{
 		Cursor.visible = false;
 		pauseMenuUI.SetActive(false);
