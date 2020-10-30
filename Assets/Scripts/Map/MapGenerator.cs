@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+	public bool autoGenerateInPlay;
+
 	public Map[] maps;
 	public int mapIndex;
 
+	[Header("Prefabs")]
 	public Transform tilePrefab;
 	public Transform obstaclePrefab;
 	public Transform mapFloor;
 	public Transform navmeshFloor;
 	public Transform navmeshMaskPrefab;
-	public Vector2 maxMapSize;
 
+	[Header("Properties")]
+	public Vector2 maxMapSize;
 	[Range(0, 1)]
 	public float outlinePercent;
 	public float tileSize;
@@ -33,6 +37,13 @@ public class MapGenerator : MonoBehaviour
 	void OnNewWave(int waveNumber)
 	{
 		mapIndex = waveNumber - 1;
+
+		if (autoGenerateInPlay)
+		{
+			System.Random random = new System.Random();
+			maps[mapIndex].seed = random.Next();
+		}
+
 		GenerateMap();
 	}
 
