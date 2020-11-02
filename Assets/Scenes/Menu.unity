@@ -283,7 +283,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetScreenResolution
         m_Mode: 3
         m_Arguments:
@@ -565,6 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 289215004}
   - component: {fileID: 289215005}
+  - component: {fileID: 289215006}
   m_Layer: 0
   m_Name: Menu Manager
   m_TagString: Untagged
@@ -601,6 +602,20 @@ MonoBehaviour:
   mainMenuHolder: {fileID: 1914820932}
   optionMenuHolder: {fileID: 2097022025}
   inputMenuHolder: {fileID: 1777856605}
+  nicknameInput: {fileID: 295242636}
+  spareNicknameInput: {fileID: 1776484563}
+--- !u!114 &289215006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289215003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95783b901ab8ff8408f7f78c066acd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   volumeSliders:
   - {fileID: 1827347111}
   - {fileID: 1682560196}
@@ -612,7 +627,6 @@ MonoBehaviour:
   fullscreenToggle: {fileID: 596076307}
   screenWidths: c00300000005000080070000
   nicknameInput: {fileID: 295242636}
-  spareNicknameInput: {fileID: 1776484563}
 --- !u!1 &295242634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1468,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetScreenResolution
         m_Mode: 3
         m_Arguments:
@@ -1791,7 +1805,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetSfxVolume
         m_Mode: 0
         m_Arguments:
@@ -1960,7 +1974,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetFullscreen
         m_Mode: 0
         m_Arguments:
@@ -4228,7 +4242,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -4691,7 +4705,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetMasterVolume
         m_Mode: 0
         m_Arguments:
@@ -4942,7 +4956,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 289215005}
+      - m_Target: {fileID: 289215006}
         m_MethodName: SetScreenResolution
         m_Mode: 3
         m_Arguments:
