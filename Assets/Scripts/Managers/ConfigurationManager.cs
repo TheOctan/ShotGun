@@ -14,7 +14,7 @@ public class ConfigurationManager : MonoBehaviour
 	public int[] screenWidths;
 
 	[Header("Nickname control")]
-	public InputField nicknameInput;
+	public InputController nicknameInputController;
 
 	private int activeScreenResIndex;
 
@@ -37,6 +37,15 @@ public class ConfigurationManager : MonoBehaviour
 		InitializeConfig();
 	}
 
+	public void OnEndInputNickname(string text)
+	{
+		if (nicknameInputController.IsValid)
+		{
+			configData.Nickname = text;
+			PlayerPrefs.SetString(NICKNAME_KEY, text);
+		}
+	}
+
 	public void LoadConfig()
 	{
 		configData.ResolutionIndex = PlayerPrefs.GetInt(SCREEN_RES_KEY);
@@ -55,16 +64,13 @@ public class ConfigurationManager : MonoBehaviour
 		volumeSliders[1].value = configData.MusicVolume;
 		volumeSliders[2].value = configData.SoundVolume;
 
-		AudioManager.instance.SetVolume(configData.MasterVolume, AudioManager.AudioChannel.Master);
-		AudioManager.instance.SetVolume(configData.MusicVolume, AudioManager.AudioChannel.Music);
-		AudioManager.instance.SetVolume(configData.SoundVolume, AudioManager.AudioChannel.Sfx);
-
 		for (int i = 0; i < resolutionToggles.Length; i++)
 		{
 			resolutionToggles[i].isOn = i == configData.ResolutionIndex;
 		}
 
 		fullscreenToggle.isOn = configData.IsFullScreen;
+		nicknameInputController.SetValue(configData.Nickname);
 	}
 
 	public void SetScreenResolution(int i)

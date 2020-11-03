@@ -69,19 +69,19 @@ public class Menu : MonoBehaviour
 		mainMenuHolder.SetActive(false);
 		optionMenuHolder.SetActive(true);
 
-		if(spareNicknameInput.text != string.Empty)
-		{
-			nicknameInput.text = spareNicknameInput.text;
+		//if(spareNicknameInput.text != string.Empty)
+		//{
+		//	nicknameInput.text = spareNicknameInput.text;
 
-			if (!spareNicknameController.IsValid)
-			{
-				nicknameInput.GetComponent<Image>().color = Color.red;
-			}
-		}
-		else
-		{
-			nicknameInput.text = nickname;
-		}
+		//	if (!spareNicknameController.IsValid)
+		//	{
+		//		nicknameInput.GetComponent<Image>().color = Color.red;
+		//	}
+		//}
+		//else
+		//{
+		//	nicknameInput.text = nickname;
+		//}
 	}
 
 	public void MainMenu()
