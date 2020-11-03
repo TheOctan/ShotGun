@@ -88,14 +88,5 @@ public class Menu : MonoBehaviour
 	{
 		mainMenuHolder.SetActive(true);
 		optionMenuHolder.SetActive(false);
-
-		if (nicknameController.IsValid)
-		{
-			PlayerPrefs.SetString(ConfigurationManager.NICKNAME_KEY, nicknameInput.text);
-		}
-		else if(nicknameInput.text == string.Empty)
-		{
-			PlayerPrefs.DeleteKey(ConfigurationManager.NICKNAME_KEY);
-		}
 	}
 }

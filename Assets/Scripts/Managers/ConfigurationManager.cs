@@ -39,10 +39,14 @@ public class ConfigurationManager : MonoBehaviour
 
 	public void OnEndInputNickname(string text)
 	{
-		if (nicknameInputController.IsValid)
+		if (nicknameInputController.IsValid && nicknameInputController.text != string.Empty)
 		{
 			configData.Nickname = text;
 			PlayerPrefs.SetString(NICKNAME_KEY, text);
+		}
+		else if (nicknameInputController.text == string.Empty)
+		{
+			PlayerPrefs.DeleteKey(NICKNAME_KEY);
 		}
 	}
 
