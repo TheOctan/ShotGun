@@ -59,9 +59,9 @@ public class AudioManager : MonoBehaviour
 				playerT = player.transform;
 			}
 
-			masterVolumePercent = PlayerPrefs.GetFloat("master vol", 1);
-			sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", 1);
-			musicVolumePercent = PlayerPrefs.GetFloat("music vol", 1);
+			masterVolumePercent = 1;
+			sfxVolumePercent = 1;
+			musicVolumePercent = 1;
 		}
 	}
 
@@ -113,11 +113,6 @@ public class AudioManager : MonoBehaviour
 
 		musicSources[0].volume = musicVolumePercent * masterVolumePercent;
 		musicSources[1].volume = musicVolumePercent * masterVolumePercent;
-
-		PlayerPrefs.SetFloat("master vol", masterVolumePercent);
-		PlayerPrefs.SetFloat("sfx vol", sfxVolumePercent);
-		PlayerPrefs.SetFloat("music vol", musicVolumePercent);
-		PlayerPrefs.Save();
 	}
 
 	public void PlayMusic(AudioClip clip, float fadeDuration = 1)
