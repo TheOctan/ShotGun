@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ConfigurationManager : MonoBehaviour
 {
-	public static ConfigData configData { get; private set; }
+	public static ConfigData configData { get; private set; } = new ConfigData();
 
 	public Slider[] volumeSliders;
 	public Toggle[] resolutionToggles;
@@ -28,26 +28,12 @@ public class ConfigurationManager : MonoBehaviour
 
 	private void Awake()
 	{
-		configData = new ConfigData();
+		LoadConfig();
 	}
 
 	private void Start()
 	{
-		LoadConfig();
 		InitializeConfig();
-	}
-
-	public void OnEndInputNickname(string text)
-	{
-		if (nicknameInputController.IsValid && nicknameInputController.text != string.Empty)
-		{
-			configData.Nickname = text;
-			PlayerPrefs.SetString(NICKNAME_KEY, text);
-		}
-		else if (nicknameInputController.text == string.Empty)
-		{
-			PlayerPrefs.DeleteKey(NICKNAME_KEY);
-		}
 	}
 
 	public void LoadConfig()
@@ -61,7 +47,6 @@ public class ConfigurationManager : MonoBehaviour
 
 		configData.Nickname = PlayerPrefs.GetString(NICKNAME_KEY);
 	}
-
 	public void InitializeConfig()
 	{
 		volumeSliders[0].value = configData.MasterVolume;
@@ -75,6 +60,20 @@ public class ConfigurationManager : MonoBehaviour
 
 		fullscreenToggle.isOn = configData.IsFullScreen;
 		nicknameInputController.SetValue(configData.Nickname);
+	}
+
+	public void OnEndInputNickname(InputController inputController)
+	{
+		configData.Nickname = inputController.text;
+
+		if (inputController.IsValid && inputController.text != string.Empty)
+		{
+			PlayerPrefs.SetString(NICKNAME_KEY, inputController.text);
+		}
+		else
+		{
+			PlayerPrefs.DeleteKey(NICKNAME_KEY);
+		}
 	}
 
 	public void SetScreenResolution(int i)

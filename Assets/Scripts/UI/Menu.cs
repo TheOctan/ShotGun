@@ -12,32 +12,19 @@ public class Menu : MonoBehaviour
 	public GameObject inputMenuHolder;
 
 	[Header("Nickname control")]
-	public InputField nicknameInput;
-	public InputField spareNicknameInput;
-
-	private InputController nicknameController;
-	private InputController spareNicknameController;
-
+	public InputController nicknameController;
+	public InputController spareNicknameController;
 	
-	private string nickname;
-
-	private void Awake()
-	{
-		nicknameController = nicknameInput.GetComponent<InputController>();
-		spareNicknameController = spareNicknameInput.GetComponent<InputController>();
-	}
-
 	public void Play()
 	{
-		if (nicknameInput.text == string.Empty || !nicknameController.IsValid)
+		if (ConfigurationManager.configData.Nickname == string.Empty || !nicknameController.IsValid)
 		{
 			mainMenuHolder.SetActive(false);
 			inputMenuHolder.SetActive(true);
 
 			if (!nicknameController.IsValid)
 			{
-				spareNicknameInput.text = nicknameInput.text;
-				spareNicknameInput.GetComponent<Image>().color = Color.red;
+				spareNicknameController.SetValue(nicknameController.text);
 			}
 		}
 		else
@@ -50,7 +37,6 @@ public class Menu : MonoBehaviour
 	{
 		if (spareNicknameController.IsValid)
 		{
-			PlayerPrefs.SetString(ConfigurationManager.NICKNAME_KEY, nicknameInput.text);
 			SceneManager.LoadScene("Game");
 		}
 	}
@@ -68,20 +54,6 @@ public class Menu : MonoBehaviour
 	{
 		mainMenuHolder.SetActive(false);
 		optionMenuHolder.SetActive(true);
-
-		//if(spareNicknameInput.text != string.Empty)
-		//{
-		//	nicknameInput.text = spareNicknameInput.text;
-
-		//	if (!spareNicknameController.IsValid)
-		//	{
-		//		nicknameInput.GetComponent<Image>().color = Color.red;
-		//	}
-		//}
-		//else
-		//{
-		//	nicknameInput.text = nickname;
-		//}
 	}
 
 	public void MainMenu()

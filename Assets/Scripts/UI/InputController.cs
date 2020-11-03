@@ -7,18 +7,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(InputField))]
 public class InputController : MonoBehaviour
 {
-	public bool IsValid { get; private set; }
+	public bool IsValid { get; private set; } = true;
 	public string text { get => inputField.text; }
 
-	private InputField inputField;
-	private Image image;
-
-	private void Awake()
-	{
-		IsValid = true;
-		inputField = GetComponent<InputField>();
-		image = GetComponent<Image>();
-	}
+	public InputField inputField;
+	public Image image;
 
 	public void OnValueChangedInputField(string text)
 	{
@@ -33,11 +26,7 @@ public class InputController : MonoBehaviour
 	public void SetValue(string text)
 	{
 		HandleValidation(text);
-
-		if (IsValid)
-		{
-			inputField.text = text;
-		}
+		inputField.SetTextWithoutNotify(text);
 	}
 
 	public void ResetValue()
@@ -50,6 +39,7 @@ public class InputController : MonoBehaviour
 	{
 		if (ValidateValue(text))
 		{
+			image.color = Color.white;
 			IsValid = true;
 		}
 		else

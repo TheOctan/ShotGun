@@ -602,8 +602,8 @@ MonoBehaviour:
   mainMenuHolder: {fileID: 1914820932}
   optionMenuHolder: {fileID: 2097022025}
   inputMenuHolder: {fileID: 1777856605}
-  nicknameInput: {fileID: 295242636}
-  spareNicknameInput: {fileID: 1776484563}
+  nicknameController: {fileID: 295242639}
+  spareNicknameController: {fileID: 1776484566}
 --- !u!114 &289215006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   - {fileID: 66447815}
   fullscreenToggle: {fileID: 596076307}
   screenWidths: c00300000005000080070000
-  nicknameInput: {fileID: 295242636}
+  nicknameInputController: {fileID: 295242639}
 --- !u!1 &295242634
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +732,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 289215006}
+        m_MethodName: OnEndInputNickname
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 295242639}
+          m_ObjectArgumentAssemblyTypeName: InputController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -802,6 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53ea6484c5ba0d44849752adb337fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 295242636}
+  image: {fileID: 295242637}
 --- !u!1 &337819391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,6 +4446,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 289215006}
+        m_MethodName: OnEndInputNickname
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1776484566}
+          m_ObjectArgumentAssemblyTypeName: InputController, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4503,6 +4527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53ea6484c5ba0d44849752adb337fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputField: {fileID: 1776484563}
+  image: {fileID: 1776484564}
 --- !u!1 &1777856605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5544,6 +5570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097022026}
   - component: {fileID: 2097022027}
+  - component: {fileID: 2097022028}
   m_Layer: 5
   m_Name: Options menu
   m_TagString: Untagged
@@ -5592,6 +5619,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
+--- !u!114 &2097022028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097022025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1c4f87d4cd4a94aabee8e4e2b4160e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nicknameInputController: {fileID: 295242639}
 --- !u!1 &2100368039
 GameObject:
   m_ObjectHideFlags: 0
