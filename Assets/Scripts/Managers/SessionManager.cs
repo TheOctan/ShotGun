@@ -20,7 +20,7 @@ public class SessionManager : MonoBehaviour
 
 		SubscribeEvents();
 
-		sessionData.Date = DateTime.Now.ToString("dd/MM/yyyy");
+		sessionData.Date = DateTime.Now;
 	}
 
 	private void Update()

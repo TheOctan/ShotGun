@@ -26,7 +26,7 @@ public class StatisticsManager : MonoBehaviour
 		SetLineValue(LinePosionn.ReloadCoutn, SessionManager.sessionData.ReloadCount.ToString());
 		SetLineValue(LinePosionn.TraveledDistance, ((int)(SessionManager.sessionData.TraveledDistance)).ToString() + "m");
 		SetLineValue(LinePosionn.Duration, FormatTimeFromSeconds(SessionManager.sessionData.Duration, ':'));
-		SetLineValue(LinePosionn.Date, SessionManager.sessionData.Date);
+		SetLineValue(LinePosionn.Date, SessionManager.sessionData.Date.ToString("dd/MM/yyyy"));
 		SetLineValue(LinePosionn.ShootDamage, SessionManager.sessionData.ShootDamage.ToString());
 		SetLineValue(LinePosionn.HitDamage, SessionManager.sessionData.HitDamage.ToString());
 	}
