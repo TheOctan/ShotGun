@@ -6,16 +6,11 @@ using UnityEngine;
 
 public class SessionManager : MonoBehaviour
 {
-    public static SessionData sessionData { get; private set; }
+	public static SessionData sessionData { get; private set; } = new SessionData();
 
 	private Spawner spawner;
     private Player player;
     private Gun gun;
-
-	private void Awake()
-	{
-		sessionData = new SessionData();
-	}
 
 	private void Start()
 	{
