@@ -67,11 +67,11 @@ public class SessionManager : MonoBehaviour
 	}
 	private void OnGunShoot()
 	{
-		sessionData.ShootCount++;
+		sessionData.ShotCount++;
 	}
 	private void OnShootDamage(float damage)
 	{
-		sessionData.ShootDamage += damage;
+		sessionData.ShotDamage += damage;
 	}
 	private void OnHitDamage(float damage)
 	{

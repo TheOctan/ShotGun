@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,6 +24,9 @@ public class GameUI : MonoBehaviour
 	public Text scoreUI;
 	public Text gameOverScoreUI;
 	public RectTransform healthBar;
+
+	[SerializeField]
+	private GameOverEvent GameOverEvent = null;
 
 	private Spawner spawner;
 	private Player player;
@@ -84,9 +88,12 @@ public class GameUI : MonoBehaviour
 		Cursor.visible = true;
 		StartCoroutine(Fade(Color.clear, new Color(0, 0, 0, 0.75f), 1));
 		gameOverScoreUI.text = scoreUI.text;
+		
 		scoreUI.gameObject.SetActive(false);
 		healthBar.transform.parent.gameObject.SetActive(false);
 		gameOverUI.SetActive(true);
+
+		GameOverEvent.Invoke();
 
 		isGameOver = true;
 	}
@@ -168,4 +175,10 @@ public class GameUI : MonoBehaviour
 		Time.timeScale = 0f;
 		GameIsPaused = true;
 	}
+}
+
+[System.Serializable]
+public class GameOverEvent : UnityEvent
+{
+
 }

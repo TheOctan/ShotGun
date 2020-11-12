@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ScoreItemView : MonoBehaviour
 {
-	[SerializeField] private Image background;
-	[SerializeField] private Text positionText;
-	[SerializeField] private Text nameText;
-	[SerializeField] private Text scoreText;
+	[SerializeField] private Image background = null;
+	[SerializeField] private Text positionText = null;
+	[SerializeField] private Text nameText = null;
+	[SerializeField] private Text scoreText = null;
 
 	public Color BackgroundColor { get => background.color; set => background.color = value; }
 	public float Transparency

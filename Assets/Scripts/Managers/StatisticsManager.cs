@@ -22,12 +22,12 @@ public class StatisticsManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		SetLineValue(LinePosionn.ShootCount, SessionManager.sessionData.ShootCount.ToString());
+		SetLineValue(LinePosionn.ShootCount, SessionManager.sessionData.ShotCount.ToString());
 		SetLineValue(LinePosionn.ReloadCoutn, SessionManager.sessionData.ReloadCount.ToString());
 		SetLineValue(LinePosionn.TraveledDistance, ((int)(SessionManager.sessionData.TraveledDistance)).ToString() + "m");
 		SetLineValue(LinePosionn.Duration, FormatTimeFromSeconds(SessionManager.sessionData.Duration, ':'));
 		SetLineValue(LinePosionn.Date, SessionManager.sessionData.Date.ToString("dd/MM/yyyy"));
-		SetLineValue(LinePosionn.ShootDamage, SessionManager.sessionData.ShootDamage.ToString());
+		SetLineValue(LinePosionn.ShootDamage, SessionManager.sessionData.ShotDamage.ToString());
 		SetLineValue(LinePosionn.HitDamage, SessionManager.sessionData.HitDamage.ToString());
 	}
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoadIndicator : MonoBehaviour
 {
-	[SerializeField] private Image crosshair;
+	[SerializeField] private Image crosshair = null;
 
 	public float rotationSpeed = 150f;
 	public bool clockwise;
@@ -24,5 +24,5 @@ public class LoadIndicator : MonoBehaviour
 		}
 
 		crosshair.transform.Rotate(Vector3.forward * speed * Time.deltaTime);
-	}
+	}	
 }
