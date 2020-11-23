@@ -6,16 +6,11 @@ using UnityEngine;
 
 public class SessionManager : MonoBehaviour
 {
-    public static SessionData sessionData { get; private set; }
+	public static SessionData sessionData { get; private set; } = new SessionData();
 
 	private Spawner spawner;
     private Player player;
     private Gun gun;
-
-	private void Awake()
-	{
-		sessionData = new SessionData();
-	}
 
 	private void Start()
 	{
@@ -25,7 +20,7 @@ public class SessionManager : MonoBehaviour
 
 		SubscribeEvents();
 
-		sessionData.Date = DateTime.Now.ToString("dd/MM/yyyy");
+		sessionData.Date = DateTime.Now;
 	}
 
 	private void Update()
@@ -72,11 +67,11 @@ public class SessionManager : MonoBehaviour
 	}
 	private void OnGunShoot()
 	{
-		sessionData.ShootCount++;
+		sessionData.ShotCount++;
 	}
 	private void OnShootDamage(float damage)
 	{
-		sessionData.ShootDamage += damage;
+		sessionData.ShotDamage += damage;
 	}
 	private void OnHitDamage(float damage)
 	{

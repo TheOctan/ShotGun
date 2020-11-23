@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Data
 {
+	[Serializable]
 	public class ConfigData
 	{
 		public string Nickname { get; set; }
