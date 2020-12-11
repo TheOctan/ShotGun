@@ -12,7 +12,7 @@ public class HighScoreManager: MonoBehaviour
 
 	[Header("Receiver")]
 	[SerializeField]
-	private BaseReceiver receiver = null;
+	private BaseScoreReceiver receiver = null;
 
 	public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
 

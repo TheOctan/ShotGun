@@ -13,9 +13,6 @@ public class ConfigurationManager : MonoBehaviour
 	public Toggle fullscreenToggle;
 	public int[] screenWidths;
 
-	[Header("Nickname control")]
-	public InputController nicknameInputController;
-
 	private int activeScreenResIndex;
 
 	public const string SCREEN_RES_KEY = "screen res index";
@@ -47,6 +44,7 @@ public class ConfigurationManager : MonoBehaviour
 
 		configData.Nickname = PlayerPrefs.GetString(NICKNAME_KEY);
 	}
+
 	public void InitializeConfig()
 	{
 		volumeSliders[0].value = configData.MasterVolume;
@@ -59,21 +57,6 @@ public class ConfigurationManager : MonoBehaviour
 		}
 
 		fullscreenToggle.isOn = configData.IsFullScreen;
-		nicknameInputController.SetValue(configData.Nickname);
-	}
-
-	public void OnEndInputNickname(InputController inputController)
-	{
-		configData.Nickname = inputController.text;
-
-		if (inputController.IsValid && inputController.text != string.Empty)
-		{
-			PlayerPrefs.SetString(NICKNAME_KEY, inputController.text);
-		}
-		else
-		{
-			PlayerPrefs.DeleteKey(NICKNAME_KEY);
-		}
 	}
 
 	public void SetScreenResolution(int i)
