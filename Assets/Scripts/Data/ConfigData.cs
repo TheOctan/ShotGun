@@ -9,6 +9,7 @@ namespace Assets.Scripts.Data
 	[Serializable]
 	public class ConfigData
 	{
+		public bool IsLogined { get; set; }
 		public string Nickname { get; set; }
 		public float MasterVolume { get; set; }
 		public float MusicVolume { get; set; }

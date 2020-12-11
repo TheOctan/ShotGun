@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7550292d6e6f40748a13103318a3a584, type: 3}
   m_Name: Test Registration Sender
   m_EditorClassIdentifier: 
-  isRegistrated: 1
+  connectionTimeout: 5
+  checkNickname: 1
+  nicknames:
+  - Toster3000
+  - TheOctan

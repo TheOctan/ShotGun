@@ -8,13 +8,19 @@ using UnityEngine;
 
 public class TestRegistrationSender : BaseSender
 {
-	[SerializeField] private bool isRegistrated;
+	public override int ConnectionTimeout => connectionTimeout;
+
+	[SerializeField] private int connectionTimeout;
+	[SerializeField] private bool checkNickname;
+	[SerializeField] private string[] nicknames;
 
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
 	{
 		System.Random random = new System.Random();
 		yield return new WaitForSeconds(random.Next(1, 3));
 
-		verificate(isRegistrated);
+		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
+
+		verificate(!checkNickname || !nicknames.Contains(nickname));
 	}
 }
