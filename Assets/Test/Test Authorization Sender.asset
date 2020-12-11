@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42cd01be3db0f34e83dd6a788ffbc33, type: 3}
   m_Name: Test Authorization Sender
   m_EditorClassIdentifier: 
-  isAuthorized: 1
+  connectionTimeout: 3
+  checkUser: 1
+  store: {fileID: 11400000, guid: 3e3018a85df70fe478bc614ddcd79c10, type: 2}

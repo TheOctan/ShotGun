@@ -2606,7 +2606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667067802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3238,6 +3238,7 @@ MonoBehaviour:
   nickname: {fileID: 2122626576}
   password: {fileID: 587535681}
   sender: {fileID: 11400000, guid: c3d7417721ecac2469882bc766e6b363, type: 2}
+  menu: {fileID: 995534674}
   loadingWindow: {fileID: 129825075}
   prompt: {fileID: 681339188}
 --- !u!114 &778300857
@@ -3769,7 +3770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &995534673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7837,7 +7838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1914820933
 RectTransform:
   m_ObjectHideFlags: 0

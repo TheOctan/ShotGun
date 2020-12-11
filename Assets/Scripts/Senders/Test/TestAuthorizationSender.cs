@@ -12,7 +12,7 @@ public class TestAuthorizationSender : BaseSender
 	public override int ConnectionTimeout => connectionTimeout;
 
 	[SerializeField] private int connectionTimeout;
-	[SerializeField] private bool checkNickname;
+	[SerializeField] private bool checkUser;
 	[SerializeField] private TestUserStore store;
 
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
@@ -20,11 +20,9 @@ public class TestAuthorizationSender : BaseSender
 		System.Random random = new System.Random();
 		yield return new WaitForSeconds(random.Next(1, 4));
 
-		bool isVerified = !checkNickname || !store.users.Select(e => e.Nickname).Contains(nickname);
-		if (isVerified)
-		{
-			store.users.Add(new User() { Nickname = nickname, Hash = passwordHash });
-		}
+		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
+
+		bool isVerified = !checkUser || store.users.Any(e => e.Nickname == nickname && e.Hash == passwordHash);
 		verificate(isVerified);
 	}	
 }

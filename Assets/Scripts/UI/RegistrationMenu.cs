@@ -12,7 +12,7 @@ public class RegistrationMenu : TimeoutBehaviour
 	public InputField dublicatePassword;
 
 	[Header("Sender"), SerializeField]
-	private TestRegistrationSender sender = null;
+	private BaseSender sender = null;
 
 	[Header("Menu")]
 	public AccountMenu menu;
@@ -20,8 +20,6 @@ public class RegistrationMenu : TimeoutBehaviour
 	[Header("UI elements")]
 	public GameObject loadingWindow;
 	public Text prompt;
-
-	
 
 	private void Awake()
 	{
@@ -41,7 +39,7 @@ public class RegistrationMenu : TimeoutBehaviour
 			loadingWindow.SetActive(true);
 
 			InvokeTimeoutAction(sender.Send(nickname.text, Crypt.ComputeHash(password.text), Verificate), sender.ConnectionTimeout);
-		}		
+		}
 	}
 
 	protected override void OnTimeout()
@@ -90,7 +88,7 @@ public class RegistrationMenu : TimeoutBehaviour
 			dublicatePassword.image.color = Color.red;
 			prompt.text = "You must dublicate password";
 			return false;
-		}		
+		}
 		if (password.text.Length != dublicatePassword.text.Length || password.text != dublicatePassword.text)
 		{
 			dublicatePassword.image.color = Color.red;
@@ -103,7 +101,8 @@ public class RegistrationMenu : TimeoutBehaviour
 
 	private void Verificate(bool isVerified)
 	{
-		StopCoroutine(timeOutCoroutine);
+		if (timeOutCoroutine != null)
+			StopCoroutine(timeOutCoroutine);
 
 		if (isVerified)
 		{

@@ -10,6 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32722ba6721072042849abf808718d8a, type: 3}
-  m_Name: Test Store
+  m_Name: Test User Store
   m_EditorClassIdentifier: 
-  users: []
+  users:
+  - Nickname: TheOctan
+    Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
+  - Nickname: Toster3000
+    Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
+  - Nickname: TheOctan3000
+    Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
