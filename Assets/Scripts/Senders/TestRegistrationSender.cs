@@ -17,7 +17,7 @@ public class TestRegistrationSender : BaseSender
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
 	{
 		System.Random random = new System.Random();
-		yield return new WaitForSeconds(random.Next(1, 3));
+		yield return new WaitForSeconds(random.Next(1, 4));
 
 		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
 

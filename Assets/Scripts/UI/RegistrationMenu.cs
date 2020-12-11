@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RegistrationMenu : MonoBehaviour
+public class RegistrationMenu : TimeoutBehaviour
 {
 	[Header("Input")]
 	public InputField nickname;
@@ -20,6 +20,8 @@ public class RegistrationMenu : MonoBehaviour
 	[Header("UI elements")]
 	public GameObject loadingWindow;
 	public Text prompt;
+
+	
 
 	private void Awake()
 	{
@@ -38,8 +40,20 @@ public class RegistrationMenu : MonoBehaviour
 		{
 			loadingWindow.SetActive(true);
 
-			StartCoroutine(sender.Send(nickname.text, Crypt.ComputeHash(password.text), Verificate));
+			InvokeTimeoutAction(sender.Send(nickname.text, Crypt.ComputeHash(password.text), Verificate), sender.ConnectionTimeout);
 		}		
+	}
+
+	protected override void OnTimeout()
+	{
+		base.OnTimeout();
+		prompt.text = "No connection: timeout";
+	}
+
+	protected override void OnPostTimeout()
+	{
+		base.OnPostTimeout();
+		loadingWindow.SetActive(false);
 	}
 
 	private bool ValidateNickname()
@@ -89,6 +103,8 @@ public class RegistrationMenu : MonoBehaviour
 
 	private void Verificate(bool isVerified)
 	{
+		StopCoroutine(timeOutCoroutine);
+
 		if (isVerified)
 		{
 			menu.Register(nickname.text);
