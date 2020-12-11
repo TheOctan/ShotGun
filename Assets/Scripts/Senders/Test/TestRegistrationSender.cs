@@ -12,7 +12,7 @@ public class TestRegistrationSender : BaseSender
 
 	[SerializeField] private int connectionTimeout;
 	[SerializeField] private bool checkNickname;
-	[SerializeField] private string[] nicknames;
+	[SerializeField] private TestUserStore store;
 
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
 	{
@@ -21,6 +21,11 @@ public class TestRegistrationSender : BaseSender
 
 		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
 
-		verificate(!checkNickname || !nicknames.Contains(nickname));
+		bool isVerified = !checkNickname || !store.users.Select(e => e.Nickname).Contains(nickname);
+		if (isVerified)
+		{
+			store.users.Add(new User() { Nickname = nickname, Hash = passwordHash });
+		}
+		verificate(isVerified);
 	}
 }
