@@ -2454,7 +2454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667067802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2529,7 +2529,6 @@ MonoBehaviour:
   password: {fileID: 1569037519}
   dublicatePassword: {fileID: 1519037796}
   sender: {fileID: 11400000, guid: 24ec5796241d45745bf89f6be9888aa7, type: 2}
-  registerButton: {fileID: 0}
   loadingWindow: {fileID: 129825075}
   prompt: {fileID: 1914447279}
 --- !u!1 &681339186
@@ -3004,7 +3003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &778300855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3040,6 +3039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nickname: {fileID: 965617792}
   password: {fileID: 1514213241}
+  sender: {fileID: 11400000, guid: c3d7417721ecac2469882bc766e6b363, type: 2}
+  loadingWindow: {fileID: 129825075}
   prompt: {fileID: 2138396727}
 --- !u!114 &778300857
 MonoBehaviour:
@@ -3427,7 +3428,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888021230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 778300856}
+        m_MethodName: OnLogin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888021230
 MonoBehaviour:
   m_ObjectHideFlags: 0
