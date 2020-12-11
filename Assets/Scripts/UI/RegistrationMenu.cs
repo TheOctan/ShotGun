@@ -107,7 +107,7 @@ public class RegistrationMenu : TimeoutBehaviour
 
 		if (isVerified)
 		{
-			menu.Register(nickname.text);
+			menu.Login(nickname.text);
 			ResetMenu();
 			gameObject.SetActive(false);
 		}

@@ -1140,6 +1140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuHolder: {fileID: 1914820932}
   optionMenuHolder: {fileID: 2097022025}
+  loginedText: {fileID: 345395661}
+  login: {fileID: 976549243}
 --- !u!114 &289215006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,7 +2735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.89411765, g: 0.89411765, b: 0.89411765, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3767,7 +3769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &995534673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7835,7 +7837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1914820933
 RectTransform:
   m_ObjectHideFlags: 0

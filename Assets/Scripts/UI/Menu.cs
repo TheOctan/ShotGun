@@ -7,9 +7,23 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+	[Header("Menu")]
 	public GameObject mainMenuHolder;
 	public GameObject optionMenuHolder;
-	
+
+	[Header("UIelements")]
+	[SerializeField] private GameObject loginedText;
+	[SerializeField] private Text login;
+
+	private void OnEnable()
+	{
+		if (ConfigurationManager.configData.IsLogined)
+		{
+			loginedText.SetActive(true);
+			login.text = ConfigurationManager.configData.Nickname;
+		}
+	}
+
 	public void Play()
 	{
 		SceneManager.LoadScene("Game");
