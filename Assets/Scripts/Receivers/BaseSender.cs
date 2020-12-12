@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.Receivers;
+using System;
 using System.Collections;
-using Assets.Scripts.Senders;
 using UnityEngine;
 
-public abstract class BaseSender : ScriptableObject, ISender
+public abstract class BaseSender : ScriptableObject, IReceiver
 {
 	public virtual int ConnectionTimeout => -1;
 	public abstract IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate);

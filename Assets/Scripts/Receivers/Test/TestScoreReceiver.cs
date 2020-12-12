@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Data;
 
-[CreateAssetMenu(menuName = "Receiver/Test")]
-public class TestReceiver : BaseReceiver
+[CreateAssetMenu(menuName = "Receiver/TestScore")]
+public class TestScoreReceiver : BaseScoreReceiver
 {
 	public override IEnumerator GetItems(int minCount, Action<IEnumerable<ScoreData>> callback)
 	{
 		System.Random random = new System.Random();
-		yield return new WaitForSeconds(random.Next(1, 3));
+		yield return new WaitForSeconds(random.Next(1, 4));
 
 		List<ScoreData> scoreData = new List<ScoreData>();
 		for (int i = 0; i < minCount; i++)

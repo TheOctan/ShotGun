@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Sender/TestRegistration")]
-public class TestRegistrationSender : BaseSender
+[CreateAssetMenu(menuName = "Sender/TestAuthorization")]
+public class TestAuthorizationReceiver : BaseSender
 {
 	public override int ConnectionTimeout => connectionTimeout;
 
 	[SerializeField] private int connectionTimeout;
-	[SerializeField] private bool checkNickname;
+	[SerializeField] private bool checkUser;
 	[SerializeField] private TestUserStore store;
 
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
@@ -22,11 +22,7 @@ public class TestRegistrationSender : BaseSender
 
 		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
 
-		bool isVerified = !checkNickname || !store.users.Select(e => e.Nickname).Contains(nickname);
-		if (isVerified)
-		{
-			store.users.Add(new User() { Nickname = nickname, Hash = passwordHash });
-		}
+		bool isVerified = !checkUser || store.users.Any(e => e.Nickname == nickname && e.Hash == passwordHash);
 		verificate(isVerified);
-	}
+	}	
 }
