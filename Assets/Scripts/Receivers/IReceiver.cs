@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Data;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,7 @@ namespace Assets.Scripts.Receivers
 {
 	public interface IReceiver
 	{
-		IEnumerator GetItems(int minCount, Action<IEnumerable<ScoreData>> callback);
+		int ConnectionTimeout { get; }
+		IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate);
 	}
 }

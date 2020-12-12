@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class ConfigurationManager : MonoBehaviour
 {
-	public static ConfigData configData { get; private set; } = new ConfigData();
+	public static ConfigData ConfigData { get; set; } = new ConfigData();
+	public static LoginData LoginData { get; private set; } = new LoginData();
 
 	public Slider[] volumeSliders;
 	public Toggle[] resolutionToggles;
 	public Toggle fullscreenToggle;
 	public int[] screenWidths;
-
-	[Header("Nickname control")]
-	public InputController nicknameInputController;
 
 	private int activeScreenResIndex;
 
@@ -38,42 +36,28 @@ public class ConfigurationManager : MonoBehaviour
 
 	public void LoadConfig()
 	{
-		configData.ResolutionIndex = PlayerPrefs.GetInt(SCREEN_RES_KEY);
-		configData.IsFullScreen = (PlayerPrefs.GetInt(FULLSCREEN_KEY) == 1) ? true : false;
+		ConfigData.ResolutionIndex = PlayerPrefs.GetInt(SCREEN_RES_KEY);
+		ConfigData.IsFullScreen = (PlayerPrefs.GetInt(FULLSCREEN_KEY) == 1) ? true : false;
 
-		configData.MasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 1);
-		configData.SoundVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1);
-		configData.MusicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 1);
+		ConfigData.MasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 1);
+		ConfigData.SoundVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1);
+		ConfigData.MusicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 1);
 
-		configData.Nickname = PlayerPrefs.GetString(NICKNAME_KEY);
+		LoginData.Nickname = PlayerPrefs.GetString(NICKNAME_KEY);
 	}
+
 	public void InitializeConfig()
 	{
-		volumeSliders[0].value = configData.MasterVolume;
-		volumeSliders[1].value = configData.MusicVolume;
-		volumeSliders[2].value = configData.SoundVolume;
+		volumeSliders[0].value = ConfigData.MasterVolume;
+		volumeSliders[1].value = ConfigData.MusicVolume;
+		volumeSliders[2].value = ConfigData.SoundVolume;
 
 		for (int i = 0; i < resolutionToggles.Length; i++)
 		{
-			resolutionToggles[i].isOn = i == configData.ResolutionIndex;
+			resolutionToggles[i].isOn = i == ConfigData.ResolutionIndex;
 		}
 
-		fullscreenToggle.isOn = configData.IsFullScreen;
-		nicknameInputController.SetValue(configData.Nickname);
-	}
-
-	public void OnEndInputNickname(InputController inputController)
-	{
-		configData.Nickname = inputController.text;
-
-		if (inputController.IsValid && inputController.text != string.Empty)
-		{
-			PlayerPrefs.SetString(NICKNAME_KEY, inputController.text);
-		}
-		else
-		{
-			PlayerPrefs.DeleteKey(NICKNAME_KEY);
-		}
+		fullscreenToggle.isOn = ConfigData.IsFullScreen;
 	}
 
 	public void SetScreenResolution(int i)
@@ -83,6 +67,8 @@ public class ConfigurationManager : MonoBehaviour
 			activeScreenResIndex = i;
 			float aspectRatio = 16 / 9f;
 			Screen.SetResolution(screenWidths[i], (int)(screenWidths[i] / aspectRatio), false);
+
+			ConfigData.ResolutionIndex = activeScreenResIndex;
 			PlayerPrefs.SetInt(SCREEN_RES_KEY, activeScreenResIndex);
 			PlayerPrefs.Save();
 		}
@@ -106,6 +92,7 @@ public class ConfigurationManager : MonoBehaviour
 			SetScreenResolution(activeScreenResIndex);
 		}
 
+		ConfigData.IsFullScreen = isFullscreen;
 		PlayerPrefs.SetInt(FULLSCREEN_KEY, isFullscreen ? 1 : 0);
 		PlayerPrefs.Save();
 	}
@@ -114,6 +101,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
 
+		ConfigData.MasterVolume = value;
 		PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}
@@ -122,6 +110,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
 
+		ConfigData.MusicVolume = value;
 		PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}
@@ -130,6 +119,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
 
+		ConfigData.SoundVolume = value;
 		PlayerPrefs.SetFloat(SFX_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}

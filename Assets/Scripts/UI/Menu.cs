@@ -7,38 +7,26 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+	[Header("Menu")]
 	public GameObject mainMenuHolder;
 	public GameObject optionMenuHolder;
-	public GameObject inputMenuHolder;
 
-	[Header("Nickname control")]
-	public InputController nicknameController;
-	public InputController spareNicknameController;
-	
-	public void Play()
+	[Header("UIelements")]
+	[SerializeField] private GameObject loginedText;
+	[SerializeField] private Text login;
+
+	private void OnEnable()
 	{
-		if (ConfigurationManager.configData.Nickname == string.Empty || !nicknameController.IsValid)
+		if (ConfigurationManager.LoginData.IsLogined)
 		{
-			mainMenuHolder.SetActive(false);
-			inputMenuHolder.SetActive(true);
-
-			if (!nicknameController.IsValid)
-			{
-				spareNicknameController.SetValue(nicknameController.text);
-			}
-		}
-		else
-		{
-			SceneManager.LoadScene("Game");
+			loginedText.SetActive(true);
+			login.text = ConfigurationManager.LoginData.Nickname;
 		}
 	}
 
-	public void Next()
+	public void Play()
 	{
-		if (spareNicknameController.IsValid)
-		{
-			SceneManager.LoadScene("Game");
-		}
+		SceneManager.LoadScene("Game");
 	}
 
 	public void Quit()
