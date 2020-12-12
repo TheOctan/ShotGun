@@ -67,6 +67,8 @@ public class ConfigurationManager : MonoBehaviour
 			activeScreenResIndex = i;
 			float aspectRatio = 16 / 9f;
 			Screen.SetResolution(screenWidths[i], (int)(screenWidths[i] / aspectRatio), false);
+
+			ConfigData.ResolutionIndex = activeScreenResIndex;
 			PlayerPrefs.SetInt(SCREEN_RES_KEY, activeScreenResIndex);
 			PlayerPrefs.Save();
 		}
@@ -90,6 +92,7 @@ public class ConfigurationManager : MonoBehaviour
 			SetScreenResolution(activeScreenResIndex);
 		}
 
+		ConfigData.IsFullScreen = isFullscreen;
 		PlayerPrefs.SetInt(FULLSCREEN_KEY, isFullscreen ? 1 : 0);
 		PlayerPrefs.Save();
 	}
@@ -98,6 +101,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
 
+		ConfigData.MasterVolume = value;
 		PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}
@@ -106,6 +110,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
 
+		ConfigData.MusicVolume = value;
 		PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}
@@ -114,6 +119,7 @@ public class ConfigurationManager : MonoBehaviour
 	{
 		AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);
 
+		ConfigData.SoundVolume = value;
 		PlayerPrefs.SetFloat(SFX_VOLUME_KEY, value);
 		PlayerPrefs.Save();
 	}

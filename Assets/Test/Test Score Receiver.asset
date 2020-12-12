@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2418151b063c64281f6ffd728e5bcd, type: 3}
   m_Name: Test Score Receiver
   m_EditorClassIdentifier: 
+  connectionTimeout: 5
+  scoreData: []

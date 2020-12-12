@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Sender/TestRegistration")]
-public class TestRegistrationReceiver : BaseSender
+[CreateAssetMenu(menuName = "Receiver/TestRegistration")]
+public class TestRegistrationReceiver : BaseReceiver
 {
 	public override int ConnectionTimeout => connectionTimeout;
 
@@ -18,7 +18,7 @@ public class TestRegistrationReceiver : BaseSender
 	public override IEnumerator Send(string nickname, string passwordHash, Action<bool> verificate)
 	{
 		System.Random random = new System.Random();
-		yield return new WaitForSeconds(random.Next(1, 4));
+		yield return new WaitForSecondsRealtime(random.Next(1, 4));
 
 		Debug.Log($"Nickname: {nickname}, PasswordHash: {passwordHash}");
 

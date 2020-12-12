@@ -11,7 +11,7 @@ public class LoginMenu : TimeoutBehaviour
 	public InputField password;
 
 	[Header("Sender"), SerializeField]
-	private BaseSender sender = null;
+	private BaseReceiver sender = null;
 
 	[Header("Menu")]
 	public AccountMenu menu;
@@ -27,6 +27,7 @@ public class LoginMenu : TimeoutBehaviour
 
 	private void OnDisable()
 	{
+		ResetMenu();
 		prompt.text = "";
 	}
 
@@ -90,7 +91,6 @@ public class LoginMenu : TimeoutBehaviour
 		if (isVerified)
 		{
 			menu.Login(nickname.text);
-			ResetMenu();
 			gameObject.SetActive(false);
 		}
 		else

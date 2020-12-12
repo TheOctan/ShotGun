@@ -13,15 +13,16 @@ public class TestConfigReceiver : BaseConfigReceiver
 	[SerializeField] private int connectionTimeout;
 	[SerializeField] private List<UserConfig> configs;
 
+	private System.Random random = new System.Random();
+
 	public override IEnumerator GetConfigurations(string nickname, Action<ConfigData> callback)
 	{
-		System.Random random = new System.Random();
-		yield return new WaitForSeconds(random.Next(1, 4));
+		yield return new WaitForSecondsRealtime(random.Next(1, 4));
 
 		var user = configs.SingleOrDefault(e => e.Nickname == nickname);
 		if (user != null)
 		{
-			callback(user.Config);
+			callback(CloneConfig(user.Config));
 		}
 		else
 		{
@@ -31,18 +32,31 @@ public class TestConfigReceiver : BaseConfigReceiver
 
 	public override IEnumerator SendConfigurations(string nickname, ConfigData config, Action callback)
 	{
-		System.Random random = new System.Random();
-		yield return new WaitForSeconds(random.Next(1, 4));
+		yield return new WaitForSecondsRealtime(random.Next(1, 4));
 
 		var user = configs.SingleOrDefault(e => e.Nickname == nickname);
 		if(user != null)
 		{
-			user.Config = config;
+			user.Config = CloneConfig(config);
 		}
 		else
 		{
-			configs.Add(new UserConfig() { Nickname = nickname, Config = config });
+			configs.Add(new UserConfig() { Nickname = nickname, Config = CloneConfig(config) });
 		}
+
+		callback();
+	}
+
+	private ConfigData CloneConfig(ConfigData config)
+	{
+		return new ConfigData()
+		{
+			MasterVolume = config.MasterVolume,
+			MusicVolume = config.MusicVolume,
+			SoundVolume = config.SoundVolume,
+			ResolutionIndex = config.ResolutionIndex,
+			IsFullScreen = config.IsFullScreen
+		};
 	}
 
 	[Serializable]

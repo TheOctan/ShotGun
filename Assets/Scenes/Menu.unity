@@ -2679,7 +2679,7 @@ MonoBehaviour:
   nickname: {fileID: 1203656224}
   password: {fileID: 1569037519}
   dublicatePassword: {fileID: 633544740}
-  sender: {fileID: 11400000, guid: 24ec5796241d45745bf89f6be9888aa7, type: 2}
+  sender: {fileID: 11400000, guid: bee155c8395aa084083327f64a9d45d6, type: 2}
   menu: {fileID: 995534674}
   loadingWindow: {fileID: 129825075}
   prompt: {fileID: 681339188}
@@ -3237,7 +3237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nickname: {fileID: 2122626576}
   password: {fileID: 587535681}
-  sender: {fileID: 11400000, guid: c3d7417721ecac2469882bc766e6b363, type: 2}
+  sender: {fileID: 11400000, guid: 43025d8ff675e1f4a9df7236e73d3a45, type: 2}
   menu: {fileID: 995534674}
   loadingWindow: {fileID: 129825075}
   prompt: {fileID: 681339188}

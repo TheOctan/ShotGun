@@ -12,7 +12,7 @@ public class RegistrationMenu : TimeoutBehaviour
 	public InputField dublicatePassword;
 
 	[Header("Sender"), SerializeField]
-	private BaseSender sender = null;
+	private BaseReceiver sender = null;
 
 	[Header("Menu")]
 	public AccountMenu menu;
@@ -29,6 +29,7 @@ public class RegistrationMenu : TimeoutBehaviour
 
 	private void OnDisable()
 	{
+		ResetMenu();
 		prompt.text = "";
 	}
 
@@ -107,7 +108,6 @@ public class RegistrationMenu : TimeoutBehaviour
 		if (isVerified)
 		{
 			menu.Login(nickname.text);
-			ResetMenu();
 			gameObject.SetActive(false);
 		}
 		else

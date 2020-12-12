@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32722ba6721072042849abf808718d8a, type: 3}
+  m_Script: {fileID: 11500000, guid: e788ddc1069d2864789e999147a88245, type: 3}
   m_Name: Test User Store
   m_EditorClassIdentifier: 
   users:
-  - Nickname: TheOctan
-    Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
   - Nickname: Toster3000
     Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
-  - Nickname: TheOctan3000
+  - Nickname: TheOctan
     Hash: JdVa0oOqQAr0ZMdtcTwHrQ==
+  - Nickname: Timoty512
+    Hash: G72IZGCCcBXl1gXtRCUiUQ==

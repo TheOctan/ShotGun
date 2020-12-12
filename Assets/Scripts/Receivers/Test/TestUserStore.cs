@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-[CreateAssetMenu(menuName = "Sender/TestStore")]
+[CreateAssetMenu(menuName = "Receiver/TestStore")]
 public class TestUserStore: ScriptableObject
 {
 	public List<User> users;

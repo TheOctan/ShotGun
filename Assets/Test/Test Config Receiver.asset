@@ -12,5 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2bb62b8d5454b4a931ad9ecd02e5d1, type: 3}
   m_Name: Test Config Receiver
   m_EditorClassIdentifier: 
-  connectionTimeout: 3
-  configs: []
+  connectionTimeout: 5
+  configs:
+  - Nickname: TheOctan
+    Config:
+      MasterVolume: 0.09751371
+      MusicVolume: 1
+      SoundVolume: 1
+      ResolutionIndex: 0
+      IsFullScreen: 0
+  - Nickname: Toster3000
+    Config:
+      MasterVolume: 0
+      MusicVolume: 1
+      SoundVolume: 1
+      ResolutionIndex: 0
+      IsFullScreen: 0
