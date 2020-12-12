@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Assets.Scripts.Data;
 
-public class AccountMenu : MonoBehaviour
+public class AccountMenu : TimeoutBehaviour
 {
 	[Header("Buttons")]
 	[SerializeField] private Button saveButton;
@@ -11,22 +12,102 @@ public class AccountMenu : MonoBehaviour
 	[SerializeField] private Button logoutButton;
 	[SerializeField] private Button registrationButton;
 
+	[Header("Receiver"), SerializeField]
+	private BaseConfigReceiver configReceiver;
+
+	[Header("Menu")]
+	public ConfigurationManager configurationManager;
+
 	[Header("UI elements")]
+	public GameObject loadingWindow;
 	[SerializeField] private GameObject loginedText;
 	[SerializeField] private Text login;
+	public Text prompt;
 
 	private void OnEnable()
 	{
-		if(ConfigurationManager.configData.IsLogined)
+		if (ConfigurationManager.LoginData.IsLogined)
 		{
-			UpdateLoginUI(ConfigurationManager.configData.Nickname);
+			UpdateLoginUI(ConfigurationManager.LoginData.Nickname);
 		}
+	}
+
+	private void OnDisable()
+	{
+		prompt.text = "";
+	}
+
+	public void OnSave()
+	{
+		loadingWindow.SetActive(true);
+
+		var login = ConfigurationManager.LoginData.Nickname;
+		var config = ConfigurationManager.ConfigData;
+
+		InvokeTimeoutAction(
+			configReceiver.SendConfigurations(login, config, SaveCallback),
+			configReceiver.ConnectionTimeout
+			);
+	}
+
+	private void SaveCallback()
+	{
+		if (timeoutCoroutine != null)
+			StopCoroutine(timeoutCoroutine);
+
+		loadButton.interactable = true;
+		loadingWindow.SetActive(false);
+		prompt.text = "";
+	}
+
+	public void OnLoad()
+	{
+		loadingWindow.SetActive(true);
+
+		var login = ConfigurationManager.LoginData.Nickname;
+
+		InvokeTimeoutAction(
+			configReceiver.GetConfigurations(login, LoadCallback),
+			configReceiver.ConnectionTimeout
+			);
+	}
+
+	private void LoadCallback(ConfigData config)
+	{
+		if (timeoutCoroutine != null)
+			StopCoroutine(timeoutCoroutine);
+
+		if (config != null)
+		{
+			ConfigurationManager.ConfigData = config;
+			configurationManager.InitializeConfig();
+			prompt.text = "";
+		}
+		else
+		{
+			loadButton.interactable = false;
+			prompt.text = "No saved configurations";
+		}
+
+		loadingWindow.SetActive(false);
+	}
+
+	protected override void OnTimeout()
+	{
+		base.OnTimeout();
+		prompt.text = "No connection: timeout";
+	}
+
+	protected override void OnPostTimeout()
+	{
+		base.OnPostTimeout();
+		loadingWindow.SetActive(false);
 	}
 
 	public void Login(string nickname)
 	{
-		ConfigurationManager.configData.IsLogined = true;
-		ConfigurationManager.configData.Nickname = nickname;
+		ConfigurationManager.LoginData.IsLogined = true;
+		ConfigurationManager.LoginData.Nickname = nickname;
 
 		UpdateLoginUI(nickname);
 	}
@@ -45,8 +126,8 @@ public class AccountMenu : MonoBehaviour
 
 	public void Logout()
 	{
-		ConfigurationManager.configData.IsLogined = false;
-		ConfigurationManager.configData.Nickname = string.Empty;
+		ConfigurationManager.LoginData.IsLogined = false;
+		ConfigurationManager.LoginData.Nickname = string.Empty;
 
 		UpdateLogoutUI();
 	}

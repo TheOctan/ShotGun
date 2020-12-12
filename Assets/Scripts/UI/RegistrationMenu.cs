@@ -101,8 +101,8 @@ public class RegistrationMenu : TimeoutBehaviour
 
 	private void Verificate(bool isVerified)
 	{
-		if (timeOutCoroutine != null)
-			StopCoroutine(timeOutCoroutine);
+		if (timeoutCoroutine != null)
+			StopCoroutine(timeoutCoroutine);
 
 		if (isVerified)
 		{

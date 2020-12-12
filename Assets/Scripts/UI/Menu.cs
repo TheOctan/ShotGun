@@ -17,10 +17,10 @@ public class Menu : MonoBehaviour
 
 	private void OnEnable()
 	{
-		if (ConfigurationManager.configData.IsLogined)
+		if (ConfigurationManager.LoginData.IsLogined)
 		{
 			loginedText.SetActive(true);
-			login.text = ConfigurationManager.configData.Nickname;
+			login.text = ConfigurationManager.LoginData.Nickname;
 		}
 	}
 

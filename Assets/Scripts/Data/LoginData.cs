@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.Data
 {
 	[Serializable]
-	public class ConfigData
+	public class LoginData
 	{
-		public float MasterVolume;
-		public float MusicVolume;
-		public float SoundVolume;
-		public int ResolutionIndex;
-		public bool IsFullScreen;
+		public bool IsLogined { get; set; }
+		public string Nickname { get; set; }
 	}
 }

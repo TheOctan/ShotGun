@@ -4,14 +4,14 @@ using System.Collections;
 public abstract class TimeoutBehaviour : MonoBehaviour
 {
 	protected Coroutine actionCoroutine;
-	protected Coroutine timeOutCoroutine;
+	protected Coroutine timeoutCoroutine;
 
 	public void InvokeTimeoutAction(IEnumerator action, int timeout)
 	{
 		actionCoroutine = StartCoroutine(action);
 		if (timeout > 0)
 		{
-			timeOutCoroutine = StartCoroutine(CheckTimeOut(timeout));
+			timeoutCoroutine = StartCoroutine(CheckTimeOut(timeout));
 		}
 	}
 	private IEnumerator CheckTimeOut(int time)
