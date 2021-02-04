@@ -17,8 +17,7 @@ public class TestScoreReceiver : BaseScoreReceiver
 	public override IEnumerator GetScore(int minCount, Action<IEnumerable<ScoreData>> callback)
 	{
 		yield return new WaitForSecondsRealtime(random.Next(1, 4));
-
-		callback(scoreData.OrderByDescending(e => e.Score));
+		callback(scoreData.OrderByDescending(e => e.Score).Take(minCount));
 	}
 
 	public override IEnumerator GetScore(string nickname, SessionData session, int minCount, Action<IEnumerable<ScoreData>> callback)
@@ -27,6 +26,6 @@ public class TestScoreReceiver : BaseScoreReceiver
 
 		scoreData.Add(new ScoreData() { Name = nickname, Date = session.Date, Score = session.Score });
 
-		callback(scoreData.OrderByDescending(e => e.Score));
+		callback(scoreData.OrderByDescending(e => e.Score).Take(minCount));
 	}	
 }

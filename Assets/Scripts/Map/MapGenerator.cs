@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour
 {
 	public bool autoGenerateInPlay;
+
+	public Text text;
 
 	public Map[] maps;
 	public int mapIndex;
@@ -42,6 +45,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			System.Random random = new System.Random();
 			maps[mapIndex].seed = random.Next();
+			
 		}
 
 		GenerateMap();
