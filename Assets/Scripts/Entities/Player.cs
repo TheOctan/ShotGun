@@ -31,7 +31,16 @@ public class Player : LivingEntity
 		controller = GetComponent<PlayerController>();
 		gunController = GetComponent<GunController>();
 		viewCamera = Camera.main;
-		FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
+
+		var spawner = FindObjectOfType<Spawner>();
+		if (spawner)
+		{
+			spawner.OnNewWave += OnNewWave;
+		}
+		else
+		{
+			OnNewWave(1);
+		}
 	}
 
 	void OnNewWave(int waveNumber)

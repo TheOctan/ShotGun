@@ -29,7 +29,10 @@ public class GunController : MonoBehaviour
 
 	public void EquipGun(int weaponIndex)
 	{
-		EquipGun(allGuns[weaponIndex]);
+		if (allGuns.Length != 0)
+		{
+			EquipGun(allGuns[weaponIndex]);
+		}
 	}
 
 	public void OnTriggerHold()
