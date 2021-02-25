@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 386aadd3790ea6448b1714667d5feae2
+guid: 1bd73a0651066854b82cc22490370d73
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -9,6 +9,6 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
   generateWrapperCode: 1
-  wrapperCodePath: 
+  wrapperCodePath: Assets/Scripts/InputMaster.cs
   wrapperClassName: 
   wrapperCodeNamespace: 

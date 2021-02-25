@@ -13,11 +13,9 @@ GameObject:
   - component: {fileID: 1201686887684201797}
   - component: {fileID: 1201686887684201796}
   - component: {fileID: 1201686887684201795}
-  - component: {fileID: 1201686887684201794}
-  - component: {fileID: 1201686887684201793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CapsuleGreen
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,32 +112,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1201686887684201794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201686887684201792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39fb567205662cd46bb133165b73fa1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1201686887684201793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201686887684201792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e66ac87cd296bdc4cbfdb8ac2eed0a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  crosshairs: {fileID: 0}
 --- !u!1 &1201686889590033275
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +124,7 @@ GameObject:
   - component: {fileID: 1201686889590033279}
   - component: {fileID: 1201686889590033278}
   - component: {fileID: 1201686889590033277}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
