@@ -3,44 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Composites;
+using System.Linq;
 
 public class PlayerMover : LivingEntity
 {
-	public float moveSpeed = 5.0f;
 
+	[Header("Components")]
 	[SerializeField] private PlayerController controller;
 	[SerializeField] private GunController gunController;
 	[SerializeField] private Crosshairs crosshairs;
+	[SerializeField] private PlayerInput playerInput;
 
-	private InputMaster input;
+	[Header("Properties")]
+	[SerializeField, Min(0)] private float aimRadius = 3f;
+	[SerializeField, Min(0)] private float moveSpeed = 5.0f;
+
 	private Camera viewCamera;
-
-	[Header("Aim")]
-	[SerializeField] private float aimRadius = 2f;
+	private Vector3 moveDirection;
 	private Vector3 lastAimPosition;
-	private bool isGamepad = false;
+
+	private string currentControlScheme;
+	private bool isFire;
+	private bool isGamepad;
+	private int currentGun;
 
 	private void Awake()
 	{
 		viewCamera = Camera.main;
-		input = new InputMaster();
 
-		gunController.EquipGun(0);
-
-		input.Player.Fire.performed += _ => gunController.OnTriggerHold();
-		input.Player.Release.performed += _ => gunController.OnTriggerRelease();
-		input.Player.Reload.performed += _ => gunController.Reload();
+		currentControlScheme = playerInput.currentControlScheme;
+		gunController.EquipGun(currentGun);
+		lastAimPosition = -Vector3.forward * aimRadius;
 	}
 
-	private void OnEnable()
-	{
-		input.Player.Enable();
-	}
+	//private void OnEnable()
+	//{
+	//	playerInput.enabled = true;
+	//}
 
-	private void OnDisable()
-	{
-		input.Player.Disable();
-	}
+	//private void OnDisable()
+	//{
+	//	playerInput.enabled = false;
+	//}
 
 	protected override void Start()
 	{
@@ -49,18 +53,96 @@ public class PlayerMover : LivingEntity
 
 	private void Update()
 	{
-		Vector2 rawInput = input.Player.Move.ReadValue<Vector2>();
-		Move(rawInput);
+		if (isFire)
+		{
+			gunController.OnTriggerHold();
+		}
 
-		Vector3 point = AnalogAim();
+		Move(moveDirection);
 
+		Vector3 point;
+		if (isGamepad)
+		{
+			point = AnalogAim();
+		}
+		else
+		{
+			point = AimCrosshairs();
+		}
+
+
+		AimGun(point);
 		controller.LookAt(point);
 		crosshairs.transform.position = point;
 
-		if (transform.position.y < -10)
+		CheckHeight();
+	}
+
+	public void OnChangeSheme()
+	{
+		if (playerInput.currentControlScheme != currentControlScheme)
 		{
-			TakeDamage(health);
+			currentControlScheme = playerInput.currentControlScheme;
+			if (currentControlScheme == "Gamepad")
+			{
+				isGamepad = true;
+			}
 		}
+	}
+
+	public void SelectWeapon(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			int delta = (int)context.ReadValue<float>();
+			currentGun = Mathf.Clamp(currentGun + delta, 0, gunController.GunCount - 1);
+			gunController.EquipGun(currentGun);
+		}
+	}
+
+	public void OnMovePlayer(InputAction.CallbackContext context)
+	{
+		moveDirection = context.ReadValue<Vector2>();
+	}
+
+	public void OnLookPlayer(InputAction.CallbackContext context)
+	{
+		Vector2 aim = context.ReadValue<Vector2>();
+		Vector3 lookPosition = new Vector3(aim.x, 0, aim.y);
+
+		if (lookPosition != Vector3.zero)
+		{
+			lastAimPosition = lookPosition.normalized * aimRadius;
+		}
+	}
+
+	public void OnFire(InputAction.CallbackContext context)
+	{
+		if (context.started)
+		{
+			isFire = true;
+			if (currentControlScheme == "Keyboard And Mouse")
+			{
+				isGamepad = false;
+			}
+		}
+	}
+
+	public void OnReload(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			gunController.Reload();
+		}
+	}
+
+	public void OnRelease(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			isFire = false;
+			gunController.OnTriggerRelease();
+		}		
 	}
 
 	private void Move(Vector2 direction)
@@ -70,7 +152,7 @@ public class PlayerMover : LivingEntity
 		controller.Move(moveVelocity);
 	}
 
-	private Vector3 AimCrosshair()
+	private Vector3 AimCrosshairs()
 	{
 		Vector3 mousePosition = Mouse.current.position.ReadValue();
 
@@ -83,12 +165,7 @@ public class PlayerMover : LivingEntity
 			Vector3 point = ray.GetPoint(rayDistance);
 			Debug.DrawLine(ray.origin, point, Color.red);
 
-			crosshairs.DetectTargets(ray);
-
-			if ((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).magnitude > 1)
-			{
-				gunController.Aim(point);
-			}
+			crosshairs.DetectTargets(ray);			
 
 			return point;
 		}
@@ -98,14 +175,22 @@ public class PlayerMover : LivingEntity
 
 	private Vector3 AnalogAim()
 	{
-		Vector2 aim = input.Player.Look.ReadValue<Vector2>();
-		Vector3 lookPosition = new Vector3(aim.x, 0, aim.y);
-
-		if (lookPosition != Vector3.zero)
-		{
-			lastAimPosition = lookPosition.normalized * aimRadius;
-		}
-
 		return transform.position + lastAimPosition;
+	}
+
+	private void AimGun(Vector3 point)
+	{
+		if ((new Vector2(point.x, point.z) - new Vector2(transform.position.x, transform.position.z)).magnitude > 1)
+		{
+			gunController.Aim(point);
+		}
+	}
+
+	private void CheckHeight()
+	{
+		if (transform.position.y < -10)
+		{
+			TakeDamage(health);
+		}
 	}
 }

@@ -6,15 +6,11 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
 	public float GunHeight => weaponHold.position.y;
+	public int GunCount => allGuns.Length;
 
 	public Transform weaponHold;
 	public Gun[] allGuns;
 	private Gun equippedGun;
-
-	void Start()
-	{
-		
-	}
 
 	public void EquipGun(Gun gunToEquip)
 	{
