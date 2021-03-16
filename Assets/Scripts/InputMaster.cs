@@ -27,9 +27,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""AnalogAim"",
                     ""type"": ""Value"",
                     ""id"": ""047d237f-507f-47a1-8fec-dc3de1d9b20c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""e908bbd8-b537-49be-acce-f6bdaaeaf1bc"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -40,15 +48,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""10fbc510-b389-465e-afcf-fcf4aa98f14b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""Release"",
-                    ""type"": ""Button"",
-                    ""id"": ""76963941-6556-407b-bbc3-12f0382efdf3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=1)""
+                    ""interactions"": ""Press(pressPoint=0.15,behavior=2)""
                 },
                 {
                     ""name"": ""Reload"",
@@ -185,7 +185,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Look"",
+                    ""action"": ""AnalogAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -245,39 +245,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""e00ba989-9a08-4157-88ca-b8d05655def1"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard And Mouse"",
-                    ""action"": ""Release"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a4fe26eb-69d7-494d-ac1b-7a990a919ac8"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Release"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""314034bd-af14-4786-ab71-6c593df683a8"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Release"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""ef95f879-641e-40f8-8504-85aae2712f27"",
                     ""path"": ""1DAxis"",
@@ -331,6 +298,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f61fb1da-1e48-4ee9-abc9-0837a129757e"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard And Mouse"",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -399,22 +377,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""26f9b057-5414-48db-b676-82eef4d060b3"",
                     ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TrackedDevicePosition"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""51a58759-d35c-481f-8bc0-e465e8b6a4c4"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""TrackedDeviceOrientation"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""78820af7-0197-4371-b720-28d87a432b69"",
-                    ""expectedControlType"": ""Quaternion"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -764,9 +726,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_AnalogAim = m_Player.FindAction("AnalogAim", throwIfNotFound: true);
+        m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_Release = m_Player.FindAction("Release", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Select = m_Player.FindAction("Select", throwIfNotFound: true);
         // UI
@@ -779,8 +741,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
-        m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
-        m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -831,9 +791,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_AnalogAim;
+    private readonly InputAction m_Player_MouseAim;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_Release;
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_Select;
     public struct PlayerActions
@@ -841,9 +801,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
         private @InputMaster m_Wrapper;
         public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @AnalogAim => m_Wrapper.m_Player_AnalogAim;
+        public InputAction @MouseAim => m_Wrapper.m_Player_MouseAim;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @Release => m_Wrapper.m_Player_Release;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @Select => m_Wrapper.m_Player_Select;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -858,15 +818,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @AnalogAim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogAim;
+                @AnalogAim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogAim;
+                @AnalogAim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAnalogAim;
+                @MouseAim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseAim;
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Release.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
-                @Release.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
-                @Release.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRelease;
                 @Reload.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReload;
@@ -880,15 +840,15 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
+                @AnalogAim.started += instance.OnAnalogAim;
+                @AnalogAim.performed += instance.OnAnalogAim;
+                @AnalogAim.canceled += instance.OnAnalogAim;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @Release.started += instance.OnRelease;
-                @Release.performed += instance.OnRelease;
-                @Release.canceled += instance.OnRelease;
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
@@ -911,8 +871,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_MiddleClick;
     private readonly InputAction m_UI_RightClick;
-    private readonly InputAction m_UI_TrackedDevicePosition;
-    private readonly InputAction m_UI_TrackedDeviceOrientation;
     public struct UIActions
     {
         private @InputMaster m_Wrapper;
@@ -925,8 +883,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
         public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
         public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
-        public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
-        public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -960,12 +916,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @RightClick.started -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
                 @RightClick.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
                 @RightClick.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnRightClick;
-                @TrackedDevicePosition.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDevicePosition;
-                @TrackedDevicePosition.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDevicePosition;
-                @TrackedDevicePosition.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDevicePosition;
-                @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
-                @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
-                @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -994,12 +944,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @RightClick.started += instance.OnRightClick;
                 @RightClick.performed += instance.OnRightClick;
                 @RightClick.canceled += instance.OnRightClick;
-                @TrackedDevicePosition.started += instance.OnTrackedDevicePosition;
-                @TrackedDevicePosition.performed += instance.OnTrackedDevicePosition;
-                @TrackedDevicePosition.canceled += instance.OnTrackedDevicePosition;
-                @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
-                @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
-                @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
             }
         }
     }
@@ -1025,9 +969,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnAnalogAim(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnRelease(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
     }
@@ -1041,7 +985,5 @@ public class @InputMaster : IInputActionCollection, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnMiddleClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
-        void OnTrackedDevicePosition(InputAction.CallbackContext context);
-        void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
     }
 }

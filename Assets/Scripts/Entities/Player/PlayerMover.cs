@@ -36,15 +36,15 @@ public class PlayerMover : LivingEntity
 		lastAimPosition = -Vector3.forward * aimRadius;
 	}
 
-	//private void OnEnable()
-	//{
-	//	playerInput.enabled = true;
-	//}
+	private void OnEnable()
+	{
+		playerInput.enabled = true;
+	}
 
-	//private void OnDisable()
-	//{
-	//	playerInput.enabled = false;
-	//}
+	private void OnDisable()
+	{
+		playerInput.enabled = false;
+	}
 
 	protected override void Start()
 	{
@@ -69,7 +69,6 @@ public class PlayerMover : LivingEntity
 		{
 			point = AimCrosshairs();
 		}
-
 
 		AimGun(point);
 		controller.LookAt(point);
@@ -126,6 +125,11 @@ public class PlayerMover : LivingEntity
 				isGamepad = false;
 			}
 		}
+		else if (context.canceled)
+		{
+			isFire = false;
+			gunController.OnTriggerRelease();
+		}
 	}
 
 	public void OnReload(InputAction.CallbackContext context)
@@ -134,15 +138,6 @@ public class PlayerMover : LivingEntity
 		{
 			gunController.Reload();
 		}
-	}
-
-	public void OnRelease(InputAction.CallbackContext context)
-	{
-		if (context.performed)
-		{
-			isFire = false;
-			gunController.OnTriggerRelease();
-		}		
 	}
 
 	private void Move(Vector2 direction)

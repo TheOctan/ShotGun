@@ -14,9 +14,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Look",
+                    "name": "AnalogAim",
                     "type": "Value",
                     "id": "047d237f-507f-47a1-8fec-dc3de1d9b20c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MouseAim",
+                    "type": "Value",
+                    "id": "e908bbd8-b537-49be-acce-f6bdaaeaf1bc",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -27,15 +35,7 @@
                     "id": "10fbc510-b389-465e-afcf-fcf4aa98f14b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "Release",
-                    "type": "Button",
-                    "id": "76963941-6556-407b-bbc3-12f0382efdf3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": "Press(pressPoint=0.15,behavior=2)"
                 },
                 {
                     "name": "Reload",
@@ -172,7 +172,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Look",
+                    "action": "AnalogAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -232,39 +232,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "e00ba989-9a08-4157-88ca-b8d05655def1",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard And Mouse",
-                    "action": "Release",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a4fe26eb-69d7-494d-ac1b-7a990a919ac8",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Release",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "314034bd-af14-4786-ab71-6c593df683a8",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Release",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "1D Axis",
                     "id": "ef95f879-641e-40f8-8504-85aae2712f27",
                     "path": "1DAxis",
@@ -318,6 +285,17 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f61fb1da-1e48-4ee9-abc9-0837a129757e",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "MouseAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -386,22 +364,6 @@
                     "type": "PassThrough",
                     "id": "26f9b057-5414-48db-b676-82eef4d060b3",
                     "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "TrackedDevicePosition",
-                    "type": "PassThrough",
-                    "id": "51a58759-d35c-481f-8bc0-e465e8b6a4c4",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "TrackedDeviceOrientation",
-                    "type": "PassThrough",
-                    "id": "78820af7-0197-4371-b720-28d87a432b69",
-                    "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": ""
                 }
