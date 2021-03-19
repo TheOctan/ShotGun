@@ -17,7 +17,17 @@ MonoBehaviour:
   icons:
     enabled: 1
     aligned: 0
-    pairs: []
+    pairs:
+    - iconToDraw: {fileID: 2800000, guid: 2fd6421f253b4ef1a19526541f9ffc0c, type: 3}
+      targetClasses:
+      - {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+      - {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+    - iconToDraw: {fileID: 2800000, guid: 3ee40aa79cd242a5b53b0b0ca4f13f0f, type: 3}
+      targetClasses:
+      - {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+    - iconToDraw: {fileID: 2800000, guid: a7ec9e7ad8b847b7ae4510af83c5d868, type: 3}
+      targetClasses:
+      - {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   prefabsData:
     enabled: 0
     prefabs: []
