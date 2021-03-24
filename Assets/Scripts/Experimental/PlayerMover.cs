@@ -21,7 +21,7 @@ namespace Assets.Scripts.Experimental
 		[SerializeField, Min(0)] private float moveSpeed = 5.0f;
 
 		private Camera viewCamera;
-		private Vector3 moveDirection;
+		private Vector2 moveDirection;
 		private Vector3 lastAimPosition;
 
 		private string currentControlScheme;
@@ -104,6 +104,7 @@ namespace Assets.Scripts.Experimental
 		public void OnMovePlayer(InputAction.CallbackContext context)
 		{
 			moveDirection = context.ReadValue<Vector2>();
+			Debug.Log(moveDirection);
 		}
 
 		public void OnLookPlayer(InputAction.CallbackContext context)
@@ -144,8 +145,8 @@ namespace Assets.Scripts.Experimental
 
 		private void Move(Vector2 direction)
 		{
-			Vector3 moveDirection = new Vector3(direction.x, 0, direction.y);
-			Vector3 moveVelocity = moveDirection * moveSpeed;
+			Vector3 targetDirectory = new Vector3(direction.x, 0, direction.y);
+			Vector3 moveVelocity = targetDirectory * moveSpeed;
 			controller.Move(moveVelocity);
 		}
 

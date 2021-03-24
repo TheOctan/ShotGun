@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +13,9 @@ public enum RotationType
 [RequireComponent(typeof(Rigidbody))]
 public class RotationOption : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 3f;
+    [SerializeField] private float turnSpeed = 100f;
     [SerializeField] private RotationType rotationType;
+	[SerializeField] private InterpolationType interpolation;
 
     private Rigidbody rigidbodyComponent;
 
@@ -30,7 +32,7 @@ public class RotationOption : MonoBehaviour
 				TransformRotate();
 				break;
 			case RotationType.TransformQuaternion:
-				TransformQuaternoinRotate();
+				TransformQuaternionRotate();
 				break;
 			case RotationType.Rigidbody:
 				RigigidbodyRotate();
@@ -45,7 +47,7 @@ public class RotationOption : MonoBehaviour
 		transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
 	}
 
-	private void TransformQuaternoinRotate()
+	private void TransformQuaternionRotate()
 	{
 
 	}

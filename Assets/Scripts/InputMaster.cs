@@ -48,7 +48,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""10fbc510-b389-465e-afcf-fcf4aa98f14b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=0.15,behavior=2)""
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Reload"",

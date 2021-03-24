@@ -321,8 +321,8 @@ GameObject:
   - component: {fileID: 374864000}
   - component: {fileID: 374864006}
   - component: {fileID: 374864005}
-  - component: {fileID: 1083546539}
   - component: {fileID: 1083546538}
+  - component: {fileID: 1083546539}
   - component: {fileID: 374864004}
   m_Layer: 9
   m_Name: CapsuleBlue
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374863999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39fb567205662cd46bb133165b73fa1b, type: 3}
   m_Name: 
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044745872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 839e4ac9cbfe34a408731eb9d7edf1bf, type: 3}
   m_Name: 
@@ -2252,37 +2252,37 @@ PrefabInstance:
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22826836
+      value: -0.63140017
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.70487
+      value: 12.919628
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.02787
+      value: -10.223217
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9104986
+      value: 0.8989327
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.413512
+      value: 0.43786928
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00021502098
+      value: 0.012439311
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00039976955
+      value: -0.0059908293
       objectReference: {fileID: 0}
     - target: {fileID: 2021576254824505372, guid: 0eb35b139add4804bacfc002be6e201f,
         type: 3}
@@ -5035,6 +5035,7 @@ GameObject:
   - component: {fileID: 8213738301643765857}
   - component: {fileID: 8213738301643765858}
   - component: {fileID: 8213738301643765859}
+  - component: {fileID: 8213738301643765871}
   m_Layer: 0
   m_Name: CapsuleRed
   m_TagString: Untagged
@@ -5042,6 +5043,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8213738301643765871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8213738301643765870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae245a9112a72914399c62a74d78f431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  acceleration: 6
+  accelerationType: 0
+  alignToCamera: 1
 --- !u!108 &8355773886731958686
 Light:
   m_ObjectHideFlags: 0
