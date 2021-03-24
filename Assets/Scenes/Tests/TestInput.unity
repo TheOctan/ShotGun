@@ -5056,9 +5056,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  acceleration: 6
+  acceleration: 12
   accelerationType: 0
   alignToCamera: 1
+  rotationSpeed: 12
 --- !u!108 &8355773886731958686
 Light:
   m_ObjectHideFlags: 0
