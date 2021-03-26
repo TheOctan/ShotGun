@@ -1,58 +1,104 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+namespace Assets.Scripts.Controllers
 {
-	public event Action<float> OnMove;
-
-	private Vector3 velocity;
-	private Vector3 lastPosition;
-	private Vector3 currentPosition;
-	private Rigidbody rigidbodyComponent;
-
-	private void Start()
+	[RequireComponent(typeof(Rigidbody))]
+	public class PlayerController : MonoBehaviour
 	{
-		rigidbodyComponent = GetComponent<Rigidbody>();
-	}
+		[Header("Movement")]
+		public float movementSpeed = 5f;
+		public float acceleration = 12f;
+		public AccelerationType accelerationType;
+		[Header("Rotation")]
+		public float rotationSpeed = 12f;
+		public RotationType rotationType;
 
-	private void FixedUpdate()
-	{
-		rigidbodyComponent.MovePosition(rigidbodyComponent.position + velocity * Time.fixedDeltaTime);
-	}
+		private Rigidbody rigidbodyComponent;
 
-	private void Update()
-	{
-		currentPosition = GetApproximatelyPosition();
-		if (currentPosition != lastPosition)
+		private Vector3 movementDirection;
+		private Vector3 rotationDirection;
+		private Vector3 targetDirection;
+		private Quaternion rotation;
+
+		public void SetDirection(Vector3 direction)
 		{
-			var distance = Vector3.Distance(currentPosition, lastPosition);
-			if (distance >= 0.09)
+			movementDirection = direction;
+		}
+		public void LookAt(Vector3 lookPoint)
+		{
+			rotationDirection = lookPoint;
+		}
+
+		private void Awake()
+		{
+			rotation = transform.rotation;
+		}
+		private void Start()
+		{
+			rigidbodyComponent = GetComponent<Rigidbody>();
+		}
+		private void FixedUpdate()
+		{
+			HandleMovement();
+			HadnleRotation();
+
+			DrawDebugLines();
+		}
+
+		private void HandleMovement()
+		{
+			targetDirection = Accelerate(targetDirection, movementDirection);
+			if (rotationDirection == Vector3.zero)
 			{
-				OnMove?.Invoke(distance);
+				if (rotationType == RotationType.MotionDependment)
+				{
+					RotateTowards(targetDirection);
+				}
+				else
+				{
+					RotateTowards(movementDirection);
+				}
+			}
+			rigidbodyComponent.MovePosition(rigidbodyComponent.position + targetDirection * movementSpeed * Time.deltaTime);
+		}
+		private void HadnleRotation()
+		{
+			RotateTowards(rotationDirection);
+			rigidbodyComponent.MoveRotation(rotation);
+		}
+		private Vector3 Accelerate(Vector3 direction, Vector3 targetDirection)
+		{
+			if (accelerationType == AccelerationType.Interpolation)
+			{
+				return Vector3.Lerp(direction, targetDirection, acceleration * Time.fixedDeltaTime);
+			}
+			else
+			{
+				return Vector3.MoveTowards(direction, targetDirection, acceleration * Time.deltaTime);
 			}
 		}
-		lastPosition = GetApproximatelyPosition();
-	}
-
-	private Vector3 GetApproximatelyPosition()
-	{
-		var position = rigidbodyComponent.transform.position;
-		position.y = 0;
-
-		return position;
-	}
-
-	public void Move(Vector3 velocity)
-	{
-		this.velocity = velocity;
-	}
-
-	public void LookAt(Vector3 lookPoint)
-	{
-		Vector3 heightCorrectedPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
-		transform.LookAt(heightCorrectedPoint);
+		private void RotateTowards(Vector3 direction)
+		{
+			if (direction.sqrMagnitude > 0.0025f)
+			{
+				Quaternion targetRotation = Quaternion.LookRotation(direction);
+				if (rotationSpeed > 0)
+				{
+					rotation = Quaternion.Slerp(rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
+				}
+				else
+				{
+					rotation = targetRotation;
+				}
+			}
+		}
+		private void DrawDebugLines()
+		{
+			Debug.DrawRay(rigidbodyComponent.position + Vector3.up, targetDirection * 2, Color.red);
+			Debug.DrawRay(rigidbodyComponent.position + Vector3.up, movementDirection * 2, Color.green);
+			Debug.DrawRay(rigidbodyComponent.position + Vector3.up, transform.forward * 2, Color.blue);
+		}
 	}
 }

@@ -5060,6 +5060,7 @@ MonoBehaviour:
   accelerationType: 0
   alignToCamera: 1
   rotationSpeed: 12
+  rotationType: 0
 --- !u!108 &8355773886731958686
 Light:
   m_ObjectHideFlags: 0
