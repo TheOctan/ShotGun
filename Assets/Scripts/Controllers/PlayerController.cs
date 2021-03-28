@@ -12,6 +12,7 @@ namespace Assets.Scripts.Controllers
 		public float acceleration = 12f;
 		public AccelerationType accelerationType;
 		[Header("Rotation")]
+		public bool rotatetWithMovement = true;
 		public float rotationSpeed = 12f;
 		public RotationType rotationType;
 
@@ -26,9 +27,15 @@ namespace Assets.Scripts.Controllers
 		{
 			movementDirection = direction;
 		}
-		public void LookAt(Vector3 lookPoint)
+		public void RotateAt(Vector3 direction)
 		{
-			rotationDirection = lookPoint;
+			rotationDirection = direction;
+		}
+
+		public void LookAt(Vector3 point)
+		{
+			Vector3 heightCorrectedPoint = new Vector3(point.x, transform.position.y, point.z);
+			rotationDirection = heightCorrectedPoint - transform.position;
 		}
 
 		private void Awake()
@@ -41,16 +48,8 @@ namespace Assets.Scripts.Controllers
 		}
 		private void FixedUpdate()
 		{
-			HandleMovement();
-			HadnleRotation();
-
-			DrawDebugLines();
-		}
-
-		private void HandleMovement()
-		{
 			targetDirection = Accelerate(targetDirection, movementDirection);
-			if (rotationDirection == Vector3.zero)
+			if (rotatetWithMovement && rotationDirection == Vector3.zero)
 			{
 				if (rotationType == RotationType.MotionDependment)
 				{
@@ -61,13 +60,14 @@ namespace Assets.Scripts.Controllers
 					RotateTowards(movementDirection);
 				}
 			}
-			rigidbodyComponent.MovePosition(rigidbodyComponent.position + targetDirection * movementSpeed * Time.deltaTime);
-		}
-		private void HadnleRotation()
-		{
 			RotateTowards(rotationDirection);
+
 			rigidbodyComponent.MoveRotation(rotation);
+			rigidbodyComponent.MovePosition(rigidbodyComponent.position + targetDirection * movementSpeed * Time.deltaTime);
+			
+			DrawDebugLines();
 		}
+
 		private Vector3 Accelerate(Vector3 direction, Vector3 targetDirection)
 		{
 			if (accelerationType == AccelerationType.Interpolation)

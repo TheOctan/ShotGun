@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Composites;
-using System.Linq;
+using Assets.Scripts.Controllers;
 
 namespace Assets.Scripts.Experimental
 {
@@ -11,7 +10,7 @@ namespace Assets.Scripts.Experimental
 	{
 
 		[Header("Components")]
-		[SerializeField] private PlayerController controller;
+		[SerializeField] private Legacy.PlayerController controller;
 		[SerializeField] private GunController gunController;
 		[SerializeField] private Crosshairs crosshairs;
 		[SerializeField] private PlayerInput playerInput;
@@ -35,17 +34,7 @@ namespace Assets.Scripts.Experimental
 
 			currentControlScheme = playerInput.currentControlScheme;
 			gunController.EquipGun(currentGun);
-			lastAimPosition = -Vector3.forward * aimRadius;
-		}
-
-		private void OnEnable()
-		{
-			playerInput.enabled = true;
-		}
-
-		private void OnDisable()
-		{
-			playerInput.enabled = false;
+			lastAimPosition = transform.forward * aimRadius;
 		}
 
 		protected override void Start()
@@ -104,7 +93,6 @@ namespace Assets.Scripts.Experimental
 		public void OnMovePlayer(InputAction.CallbackContext context)
 		{
 			moveDirection = context.ReadValue<Vector2>();
-			Debug.Log(moveDirection);
 		}
 
 		public void OnLookPlayer(InputAction.CallbackContext context)
