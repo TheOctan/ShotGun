@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-public class Extesions
+public class EditorExtesions
 {
 	[MenuItem("GameObject/Create Separator", false, 0)]
 	public static void CreateSeparator(MenuCommand menuCommand)
