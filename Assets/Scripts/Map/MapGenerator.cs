@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -67,7 +68,7 @@ public class MapGenerator : MonoBehaviour
 				allTileCoords.Add(new Coord(x, y));
 			}
 		}
-		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().Shuffle(currentMap.seed));
+		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().PhisherShuffle(currentMap.seed));
 
 		// Create map holder object
 		string holderName = "Generated Map";
@@ -131,7 +132,7 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 
-		shuffledOpenTileCoords = new Queue<Coord>(allOpenCoords.ToArray().Shuffle(currentMap.seed));
+		shuffledOpenTileCoords = new Queue<Coord>(allOpenCoords.ToArray().PhisherShuffle(currentMap.seed));
 
 		// Creating navmesh mask
 		Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity);
