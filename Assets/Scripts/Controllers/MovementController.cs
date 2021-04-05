@@ -98,13 +98,10 @@ namespace Assets.Scripts.Controllers
 
 		private Vector3 AlignToCamera(Vector3 direction)
 		{
-			var cameraForward = cameraTransform.forward;
-			var cameraRight = cameraTransform.right;
+			Vector3 cameraForward = cameraTransform.forward;
+			cameraForward.y = 0;
 
-			cameraForward.y = 0f;
-			cameraRight.y = 0f;
-
-			return cameraForward * direction.z + cameraRight * direction.x;
+			return Quaternion.LookRotation(cameraForward) * direction;
 		}
 
 		private void DrawDebugLines()
