@@ -8,7 +8,6 @@ namespace Assets.Scripts.Experimental
 {
 	public class PlayerMover : LivingEntity
 	{
-
 		[Header("Components")]
 		[SerializeField] private Legacy.PlayerController controller;
 		[SerializeField] private GunController gunController;
@@ -30,18 +29,15 @@ namespace Assets.Scripts.Experimental
 
 		private void Awake()
 		{
-			viewCamera = Camera.main;
-
 			currentControlScheme = playerInput.currentControlScheme;
-			gunController.EquipGun(currentGun);
 			lastAimPosition = transform.forward * aimRadius;
 		}
-
 		protected override void Start()
 		{
 			base.Start();
+			viewCamera = Camera.main;
+			gunController.EquipGun(currentGun);
 		}
-
 		private void Update()
 		{
 			if (isFire)
@@ -77,6 +73,10 @@ namespace Assets.Scripts.Experimental
 				{
 					isGamepad = true;
 				}
+				else if (currentControlScheme == "Keyboard And Mouse")
+				{
+					isGamepad = false;
+				}
 			}
 		}
 
@@ -111,10 +111,10 @@ namespace Assets.Scripts.Experimental
 			if (context.started)
 			{
 				isFire = true;
-				if (currentControlScheme == "Keyboard And Mouse")
-				{
-					isGamepad = false;
-				}
+				//if (currentControlScheme == "Keyboard And Mouse")
+				//{
+				//	isGamepad = false;
+				//}
 			}
 			else if (context.canceled)
 			{
@@ -141,12 +141,10 @@ namespace Assets.Scripts.Experimental
 		private Vector3 AimCrosshairs()
 		{
 			Vector3 mousePosition = Mouse.current.position.ReadValue();
-
 			Ray ray = viewCamera.ScreenPointToRay(mousePosition);
 			Plane groundPlane = new Plane(Vector3.up, Vector3.up * 0.3f);
-			float rayDistance;
 
-			if (groundPlane.Raycast(ray, out rayDistance))
+			if (groundPlane.Raycast(ray, out float rayDistance))
 			{
 				Vector3 point = ray.GetPoint(rayDistance);
 				Debug.DrawLine(ray.origin, point, Color.red);

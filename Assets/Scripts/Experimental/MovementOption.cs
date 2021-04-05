@@ -3,130 +3,130 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MovementType
+
+namespace Assets.Scripts.Experimental
 {
-	[InspectorName("Transform SetPosition()")]
-	SetPosition,
-	[InspectorName("Transform Translate()")]
-	Translate,
-	[InspectorName("Rigidbody AddForse()")]
-	RigidbodyAddForse,
-	[InspectorName("Rigidbody MovePosition()")]
-	RigidbodyMovePosition,
-	[InspectorName("Rigibody SetVelocity()")]
-	RigidbodySetVelocity
-}
-public enum DirectionType
-{
-
-}
-
-[RequireComponent(typeof(Rigidbody))]
-public class MovementOption : MonoBehaviour
-{
-	[SerializeField] private float speed = 5f;
-	[SerializeField] private MovementType movementType;
-	[SerializeField] private Space space = Space.Self;
-	[SerializeField] private InterpolationType interpolation;
-	[SerializeField] private UpdatingType updatingType;
-	[SerializeField] private TimeScale timeScale;
-
-	[Header("Debug")]
-	[SerializeField] private bool isShowGizmos = true;
-
-	private Rigidbody rigidbodyComponent;
-	private Vector3 direction;
-
-	private void Awake()
+	public enum MovementType
 	{
-		rigidbodyComponent = GetComponent<Rigidbody>();
-		direction = Vector3.forward;
+		[InspectorName("Transform SetPosition()")]
+		SetPosition,
+		[InspectorName("Transform Translate()")]
+		Translate,
+		[InspectorName("Rigidbody AddForse()")]
+		RigidbodyAddForse,
+		[InspectorName("Rigidbody MovePosition()")]
+		RigidbodyMovePosition,
+		[InspectorName("Rigibody SetVelocity()")]
+		RigidbodySetVelocity
 	}
 
-	private void Update()
+	[RequireComponent(typeof(Rigidbody))]
+	public class MovementOption : MonoBehaviour
 	{
-		if (updatingType == UpdatingType.Update)
+		[SerializeField] private float speed = 5f;
+		[SerializeField] private MovementType movementType;
+		[SerializeField] private Space space = Space.Self;
+		[SerializeField] private InterpolationType interpolation;
+		[SerializeField] private UpdatingType updatingType;
+		[SerializeField] private TimeScale timeScale;
+
+		[Header("Debug")]
+		[SerializeField] private bool isShowGizmos = true;
+
+		private Rigidbody rigidbodyComponent;
+		private Vector3 direction;
+
+		private void Awake()
 		{
-			float deltaTime = timeScale == TimeScale.Scaled ? Time.deltaTime : Time.unscaledDeltaTime;
-			HandleMovement(Time.deltaTime);
+			rigidbodyComponent = GetComponent<Rigidbody>();
+			direction = Vector3.forward;
 		}
-	}
 
-	private void FixedUpdate()
-	{
-		if (updatingType == UpdatingType.FixedUpdate)
+		private void Update()
 		{
-			float deltaTime = timeScale == TimeScale.Scaled ? Time.fixedDeltaTime : Time.fixedUnscaledDeltaTime;
-			HandleMovement(deltaTime);
+			if (updatingType == UpdatingType.Update)
+			{
+				float deltaTime = timeScale == TimeScale.Scaled ? Time.deltaTime : Time.unscaledDeltaTime;
+				HandleMovement(Time.deltaTime);
+			}
 		}
-	}
 
-	void HandleMovement(float deltaTime)
-	{
-		switch (movementType)
+		private void FixedUpdate()
 		{
-			case MovementType.SetPosition:
-				SetPosition(deltaTime);
-				break;
-			case MovementType.Translate:
-				Translate(deltaTime);
-				break;
-			case MovementType.RigidbodyAddForse:
-				AddForce();
-				break;
-			case MovementType.RigidbodySetVelocity:
-				SetVelocity();
-				break;
-			case MovementType.RigidbodyMovePosition:
-				MovePosition(deltaTime);
-				break;
-			default:
-				break;
+			if (updatingType == UpdatingType.FixedUpdate)
+			{
+				float deltaTime = timeScale == TimeScale.Scaled ? Time.fixedDeltaTime : Time.fixedUnscaledDeltaTime;
+				HandleMovement(deltaTime);
+			}
 		}
-	}
 
-	private void SetPosition(float deltaTime)
-	{
-		transform.position += GetSpaceDirection() * speed * deltaTime;
-	}
-
-	private void Translate(float deltaTime)
-	{
-		transform.Translate(direction * speed * deltaTime, space);
-	}
-
-	private void AddForce()
-	{
-		rigidbodyComponent.AddForce(GetSpaceDirection() * speed);
-	}
-
-	private void SetVelocity()
-	{
-		rigidbodyComponent.velocity = GetSpaceDirection() * speed;
-	}
-
-	private void MovePosition(float deltaTime)
-	{
-		rigidbodyComponent.MovePosition(rigidbodyComponent.position + GetSpaceDirection() * speed * deltaTime);
-	}
-
-	private Vector3 GetSpaceDirection()
-	{
-		if (space == Space.Self)
+		void HandleMovement(float deltaTime)
 		{
-			return transform.TransformDirection(direction);
+			switch (movementType)
+			{
+				case MovementType.SetPosition:
+					SetPosition(deltaTime);
+					break;
+				case MovementType.Translate:
+					Translate(deltaTime);
+					break;
+				case MovementType.RigidbodyAddForse:
+					AddForce();
+					break;
+				case MovementType.RigidbodySetVelocity:
+					SetVelocity();
+					break;
+				case MovementType.RigidbodyMovePosition:
+					MovePosition(deltaTime);
+					break;
+				default:
+					break;
+			}
 		}
-		else
+
+		private void SetPosition(float deltaTime)
 		{
-			return direction;
+			transform.position += GetSpaceDirection() * speed * deltaTime;
 		}
-	}
 
-	private void OnDrawGizmos()
-	{
-		if (isShowGizmos)
+		private void Translate(float deltaTime)
 		{
+			transform.Translate(direction * speed * deltaTime, space);
+		}
 
+		private void AddForce()
+		{
+			rigidbodyComponent.AddForce(GetSpaceDirection() * speed);
+		}
+
+		private void SetVelocity()
+		{
+			rigidbodyComponent.velocity = GetSpaceDirection() * speed;
+		}
+
+		private void MovePosition(float deltaTime)
+		{
+			rigidbodyComponent.MovePosition(rigidbodyComponent.position + GetSpaceDirection() * speed * deltaTime);
+		}
+
+		private Vector3 GetSpaceDirection()
+		{
+			if (space == Space.Self)
+			{
+				return transform.TransformDirection(direction);
+			}
+			else
+			{
+				return direction;
+			}
+		}
+
+		private void OnDrawGizmos()
+		{
+			if (isShowGizmos)
+			{
+
+			}
 		}
 	}
 }
