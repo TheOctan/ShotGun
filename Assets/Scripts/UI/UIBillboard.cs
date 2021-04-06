@@ -1,34 +1,37 @@
 ﻿using UnityEngine;
 
-[ExecuteAlways]
-public class UIBillboard : MonoBehaviour
+namespace UI
 {
-	public bool flipVerticalOrientation = true;
-
-	private Transform cameraTransform;
-
-	private void OnEnable()
+	[ExecuteAlways]
+	public class UIBillboard : MonoBehaviour
 	{
-		cameraTransform = Camera.main.transform;
-	}
+		public bool alignAnchor = true;
 
-	private void OnDisable()
-	{
-		cameraTransform = null;
-	}
+		private Transform cameraTransform;
 
-	private void LateUpdate()
-	{
-		if (cameraTransform)
+		private void OnEnable()
 		{
-			Vector3 lookDirection = transform.position + cameraTransform.forward;
-			if (flipVerticalOrientation)
+			cameraTransform = Camera.main.transform;
+		}
+
+		private void OnDisable()
+		{
+			cameraTransform = null;
+		}
+
+		private void LateUpdate()
+		{
+			if (cameraTransform)
 			{
-				transform.LookAt(lookDirection, cameraTransform.up);
-			}
-			else
-			{
-				transform.LookAt(lookDirection);
+				Vector3 lookDirection = transform.position + cameraTransform.forward;
+				if (alignAnchor)
+				{
+					transform.LookAt(lookDirection, cameraTransform.up);
+				}
+				else
+				{
+					transform.LookAt(lookDirection);
+				}
 			}
 		}
 	}

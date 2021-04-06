@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.febucci.custom-hierarchy": {
-      "version": "https://github.com/febucci/unitypackage-custom-hierarchy.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "b7da93eeda88ebeb82064b6d3fd9d22a0ed459eb"
-    },
     "com.unity.cinemachine": {
       "version": "2.7.2",
       "depth": 0,
