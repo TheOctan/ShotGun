@@ -25,7 +25,7 @@ namespace Assets.Scripts.Experimental
 		private string currentControlScheme;
 		private bool isFire;
 		private bool isGamepad;
-		private int currentGun;
+		private int currentGun = 0;
 
 		private void Awake()
 		{
@@ -79,7 +79,6 @@ namespace Assets.Scripts.Experimental
 				}
 			}
 		}
-
 		public void SelectWeapon(InputAction.CallbackContext context)
 		{
 			if (context.performed)
@@ -89,12 +88,10 @@ namespace Assets.Scripts.Experimental
 				gunController.EquipGun(currentGun);
 			}
 		}
-
 		public void OnMovePlayer(InputAction.CallbackContext context)
 		{
 			moveDirection = context.ReadValue<Vector2>();
 		}
-
 		public void OnLookPlayer(InputAction.CallbackContext context)
 		{
 			Vector2 aim = context.ReadValue<Vector2>();
@@ -105,7 +102,6 @@ namespace Assets.Scripts.Experimental
 				lastAimPosition = lookPosition.normalized * aimRadius;
 			}
 		}
-
 		public void OnFire(InputAction.CallbackContext context)
 		{
 			if (context.started)
@@ -122,7 +118,6 @@ namespace Assets.Scripts.Experimental
 				gunController.OnTriggerRelease();
 			}
 		}
-
 		public void OnReload(InputAction.CallbackContext context)
 		{
 			if (context.performed)

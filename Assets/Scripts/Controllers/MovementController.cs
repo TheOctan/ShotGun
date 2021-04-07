@@ -14,8 +14,9 @@ namespace Assets.Scripts.Controllers
 
 		[Header("Rotation")]
 		public float turnSpeed = 12f;
-		public RotationType rotationType;
+		public bool velocityDependent = true;
 		public bool rotateWithMovement = true;
+		public RotationType rotationType;
 
 		[Space]
 		public bool alignToCamera = true;
@@ -87,9 +88,14 @@ namespace Assets.Scripts.Controllers
 			if (direction.sqrMagnitude > 0.0025f)
 			{
 				Quaternion targetRotation = Quaternion.LookRotation(direction);
+				float turnStep = turnSpeed * Time.fixedDeltaTime;
+				if (velocityDependent)
+				{
+					turnStep *= direction.magnitude;
+				}
 
 				Quaternion rotation = (turnSpeed > 0) ?
-					Quaternion.Slerp(rigidbodyComponent.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime) :
+					Quaternion.Slerp(rigidbodyComponent.rotation, targetRotation, turnStep) :
 					targetRotation;
 
 				rigidbodyComponent.MoveRotation(rotation);

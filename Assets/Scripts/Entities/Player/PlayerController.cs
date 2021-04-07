@@ -15,16 +15,18 @@ public class PlayerController : MonoBehaviour
 	[Header("Input Settings")]
 	public PlayerInput playerInput;
 	[SerializeField] private float aimHeight;
-	[SerializeField, Min(0)] private float minAimRadius = 2f;
+	[SerializeField] private float minAimRadius = 2f;
 	[SerializeField] private bool useAimDistance = true;
 	[SerializeField, Min(0)] private float aimDistance = 2f;
 
-	[Space]
 	public AimEvent aimEvent;
+	public DetectEvent detectEvent;
 
 	private Camera viewCamera;
 	private Vector3 rawInputMovement;
 	private Vector3 rotationDirection;
+	private int currentGun = 0;
+	private bool isFire;
 
 	private string currentControlScheme;
 	private const string gamepadControlScheme = "Gamepad";
@@ -47,6 +49,17 @@ public class PlayerController : MonoBehaviour
 		Vector2 inputRotation = context.ReadValue<Vector2>();
 		rotationDirection = new Vector3(inputRotation.x, 0, inputRotation.y);
 	}
+	public void OnFire(InputAction.CallbackContext context)
+	{
+		if (context.started)
+		{
+			isFire = true;
+		}
+		else if (context.canceled)
+		{
+			isFire = false;
+		}
+	}
 	public void OnReload(InputAction.CallbackContext context)
 	{
 		if (context.performed)
@@ -54,34 +67,46 @@ public class PlayerController : MonoBehaviour
 			gunController.Reload();
 		}
 	}
+	public void OnSelectWeapon(InputAction.CallbackContext context)
+	{
+		if (context.performed)
+		{
+			int delta = (int)context.ReadValue<float>();
+			currentGun = Mathf.Clamp(currentGun + delta, 0, gunController.GunCount - 1);
+			gunController.EquipGun(currentGun);
+		}
+	}
+
+	public void AimGun(Vector3 point)
+	{
+		var aimPoint = new Vector2(point.x, point.z);
+		var positionPoint = new Vector2(transform.position.x, transform.position.z);
+
+		if ((aimPoint - positionPoint).sqrMagnitude > Mathf.Pow(minAimRadius, 2))
+		{
+			gunController.Aim(point);
+		}
+	}
 
 	private void Awake()
 	{
 		currentControlScheme = playerInput.currentControlScheme;
+		aimEvent.AddListener(AimGun);
 	}
 	private void Start()
 	{
 		viewCamera = Camera.main;
+		gunController.EquipGun(currentGun);
 	}
 	private void Update()
 	{
 		UpdatePlayerMovement();
-		if (currentControlScheme == keyboardControlScheme)
+		switch (currentControlScheme)
 		{
-			UpdateMouseAim();
+			case keyboardControlScheme: UpdateMouseAim(); break;
+			case gamepadControlScheme: UpdateAnalogAim(); break;
 		}
-		else if (currentControlScheme == gamepadControlScheme)
-		{
-			UpdateAnalogAim();
-		}
-	}
-	private void OnDrawGizmosSelected()
-	{
-		Handles.color = Color.red;
-		Handles.DrawWireDisc(transform.position, Vector3.up, minAimRadius);
-
-		Handles.color = Color.green;
-		Handles.DrawWireDisc(transform.position, Vector3.up, minAimRadius + aimDistance);
+		UpdatePlayerAttack();
 	}
 
 	private void UpdatePlayerMovement()
@@ -99,7 +124,9 @@ public class PlayerController : MonoBehaviour
 			Vector3 point = ray.GetPoint(rayDistance);
 			Debug.DrawLine(ray.origin, point, Color.red);
 
-			aimEvent.Invoke(point, ray);
+			aimEvent.Invoke(point);
+			detectEvent.Invoke(ray);
+
 			movementController.LookAt(point);
 		}
 	}
@@ -118,13 +145,31 @@ public class PlayerController : MonoBehaviour
 		Ray ray = new Ray(startPoint, rayDirection);
 		Debug.DrawLine(ray.origin, aimPoint, Color.red);
 
-		aimEvent.Invoke(aimPoint, ray);
+		aimEvent.Invoke(aimPoint);
+		detectEvent.Invoke(ray);
+
 		movementController.RotateAt(rotationDirection);
 	}
+	private void UpdatePlayerAttack()
+	{
+		if (isFire)
+		{
+			gunController.OnTriggerHold();
+		}
+		else
+		{
+			gunController.OnTriggerRelease();
+		}
+	}
+	
 }
 
 [System.Serializable]
-public class AimEvent : UnityEvent<Vector3, Ray>
+public class AimEvent : UnityEvent<Vector3>
 {
+}
 
+[System.Serializable]
+public class DetectEvent : UnityEvent<Ray>
+{
 }

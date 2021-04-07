@@ -14,12 +14,6 @@ public class Crosshairs : MonoBehaviour
 
 	private Color originalDotColor;
 
-	public void OnAim(Vector3 position, Ray ray)
-	{
-		transform.position = position;
-		DetectTargets(ray);
-	}
-
 	public void DetectTargets(Ray ray)
 	{
 		if (Physics.Raycast(ray, 100, targetMask))
@@ -34,7 +28,7 @@ public class Crosshairs : MonoBehaviour
 
 	private void Start()
 	{
-		Cursor.visible = false;
+		//Cursor.visible = false;
 		originalDotColor = dot.color;
 	}
 
