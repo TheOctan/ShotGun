@@ -39,13 +39,11 @@ public class PlayerControllerEditor : Editor
 		_detectEvent = serializedObject.FindProperty("detectEvent");
 
 		controller = target as PlayerController;
-		useAimDistanceFlag = new AnimBool(true, Repaint);
+		useAimDistanceFlag = new AnimBool(_useAimDistance.boolValue, Repaint);
 	}
 
 	public override void OnInspectorGUI()
 	{
-		//serializedObject.Update();
-
 		EditorGUI.BeginChangeCheck();
 
 		EditorGUILayout.PropertyField(_movementController);

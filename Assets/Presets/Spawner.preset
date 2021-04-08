@@ -1,0 +1,364 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Spawner
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 5ed82b3611e7f3b408a719386739697f,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: devMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].infinit
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].enemyCount
+    value: 30
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].timeBetweenSpawns
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].moveSpeed
+    value: 2.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].hitsToKillPlayer
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].enemyHealth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].skinColor.r
+    value: 0.21960784
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].skinColor.g
+    value: 0.7411765
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].skinColor.b
+    value: 0.08627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[0].skinColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].infinit
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].enemyCount
+    value: 40
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].timeBetweenSpawns
+    value: 0.65
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].moveSpeed
+    value: 2.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].hitsToKillPlayer
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].enemyHealth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].skinColor.r
+    value: 0.043137256
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].skinColor.g
+    value: 0.3372549
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].skinColor.b
+    value: 0.7411765
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[1].skinColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].infinit
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].enemyCount
+    value: 60
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].timeBetweenSpawns
+    value: 0.6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].moveSpeed
+    value: 2.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].hitsToKillPlayer
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].enemyHealth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].skinColor.r
+    value: 0.41960785
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].skinColor.g
+    value: 0.02745098
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].skinColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[2].skinColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].infinit
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].enemyCount
+    value: 70
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].timeBetweenSpawns
+    value: 0.55
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].moveSpeed
+    value: 3.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].hitsToKillPlayer
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].enemyHealth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].skinColor.r
+    value: 0.40784314
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].skinColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].skinColor.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[3].skinColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].infinit
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].enemyCount
+    value: -1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].timeBetweenSpawns
+    value: 0.4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].moveSpeed
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].hitsToKillPlayer
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].enemyHealth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].skinColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].skinColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].skinColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: waves.Array.data[4].skinColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: enemy
+    value: 
+    objectReference: {fileID: 789313055047176649, guid: 9fd790f43f5e09b499152e59166dc30b,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+    value: OnNewWave
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+    value: OnNewWave
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+    value: OnNewWave
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+    value: 2
+    objectReference: {fileID: 0}

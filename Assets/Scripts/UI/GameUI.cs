@@ -30,22 +30,22 @@ public class GameUI : MonoBehaviour
 	private GameOverEvent GameOverEvent = null;
 
 	private Spawner spawner;
-	private Player player;
+	private PlayerHealth player;
 
 	private bool isGameOver = false;
 
-	void Start()
-	{
-		allUI.SetActive(true);
-		player = FindObjectOfType<Player>();
-	}
-
-	void Awake()
+	private void Awake()
 	{
 		spawner = FindObjectOfType<Spawner>();
 	}
 
-	void Update()
+	private void Start()
+	{
+		allUI.SetActive(true);
+		player = FindObjectOfType<PlayerHealth>();
+	}
+
+	private void Update()
 	{
 		scoreUI.text = ScoreKeeper.score.ToString("D6");
 		float healthPercent = 0;

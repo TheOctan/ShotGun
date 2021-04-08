@@ -19,7 +19,7 @@ public class MovenentControllerEditor : Editor
 	private SerializedProperty _rotationType;
 	private SerializedProperty _alignToCamera;
 
-	private AnimBool customizeValues;
+	private AnimBool rotateWithMovemntGroup;
 
 	private void OnEnable()
 	{
@@ -32,7 +32,7 @@ public class MovenentControllerEditor : Editor
 		_rotationType = serializedObject.FindProperty("rotationType");
 		_alignToCamera = serializedObject.FindProperty("alignToCamera");
 
-		customizeValues = new AnimBool(true, Repaint);
+		rotateWithMovemntGroup = new AnimBool(_rotateWithMovement.boolValue, Repaint);
 	}
 
 	public override void OnInspectorGUI()
@@ -46,8 +46,8 @@ public class MovenentControllerEditor : Editor
 		EditorGUILayout.PropertyField(_velocityDependent);
 		EditorGUILayout.PropertyField(_rotateWithMovement);
 
-		customizeValues.target = _rotateWithMovement.boolValue;
-		if (EditorGUILayout.BeginFadeGroup(customizeValues.faded))
+		rotateWithMovemntGroup.target = _rotateWithMovement.boolValue;
+		if (EditorGUILayout.BeginFadeGroup(rotateWithMovemntGroup.faded))
 		{
 			EditorGUI.indentLevel++;
 			EditorGUILayout.PropertyField(_rotationType);

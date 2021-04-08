@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
 	public Enemy enemy;
 
 	[Header("Events")]
-	public NewWaveEvent newWaveEvent;
+	public NewWaveEvent NewWaveEvent;
 
 	private LivingEntity playerEntity;
 	private Transform playerT;
@@ -33,8 +33,8 @@ public class Spawner : MonoBehaviour
 	private bool isCamping;
 
 	private bool isDisabled;
-
-	void Start()
+	
+	private void Start()
 	{
 		playerEntity = FindObjectOfType<PlayerHealth>();
 		playerT = playerEntity.transform;
@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
 		NextWave();
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (!isDisabled)
 		{
@@ -145,7 +145,7 @@ public class Spawner : MonoBehaviour
 			enemiesRemainingToSpawn = currentWave.enemyCount;
 			enemiesRemainingAlive = enemiesRemainingToSpawn;
 
-			newWaveEvent.Invoke(currentWaveNumber);
+			NewWaveEvent.Invoke(currentWaveNumber);
 
 			ResetPlayerPosition();
 		}

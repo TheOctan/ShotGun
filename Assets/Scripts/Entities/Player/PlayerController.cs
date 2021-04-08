@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnControlsChanged()
 	{
+		Debug.LogWarning("With reloading scene, this method is no longer called.\nThis issue: https://forum.unity.com/threads/controls-changed-event-not-invoking-on-scene-change.885592/");
 		if (playerInput.currentControlScheme != currentControlScheme)
 		{
 			currentControlScheme = playerInput.currentControlScheme;
@@ -100,17 +101,18 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		viewCamera = Camera.main;
-		//gunController.EquipGun(currentGun);
+		gunController.EquipGun(currentGun);
 	}
 	private void Update()
 	{
+		UpdateControlScheme();
 		UpdatePlayerMovement();
+		UpdatePlayerAttack();
 		switch (currentControlScheme)
 		{
 			case keyboardControlScheme: UpdateMouseAim(); break;
 			case gamepadControlScheme: UpdateAnalogAim(); break;
 		}
-		UpdatePlayerAttack();
 	}
 
 	private void UpdatePlayerMovement()
@@ -164,6 +166,10 @@ public class PlayerController : MonoBehaviour
 		{
 			gunController.OnTriggerRelease();
 		}
+	}
+	private void UpdateControlScheme()
+	{
+		currentControlScheme = playerInput.currentControlScheme;
 	}
 }
 

@@ -62,32 +62,10 @@ MonoBehaviour:
   aimDistance: 1
   aimEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: set_position
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   detectEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: DetectTargets
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1123328537847640024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,18 +90,7 @@ MonoBehaviour:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1123328537847640026}
-        m_MethodName: OnControlsChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
@@ -190,18 +157,7 @@ MonoBehaviour:
     m_ActionId: 7f86807e-58fb-4b7f-9d22-7b83f070460b
     m_ActionName: Player/Reload[/Keyboard/r,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1123328537847640026}
-        m_MethodName: OnSelectWeapon
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 522c6396-ae22-453a-ad23-3a6f07442db5
     m_ActionName: Player/Select[/XInputControllerWindows/dpad/left,/Keyboard/q,/XInputControllerWindows/dpad/right,/Keyboard/e]
   - m_PersistentCalls:
@@ -237,7 +193,7 @@ MonoBehaviour:
     m_ActionId: 26f9b057-5414-48db-b676-82eef4d060b3
     m_ActionName: UI/RightClick[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard And Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -257,8 +213,8 @@ MonoBehaviour:
   movementSpeed: 5
   acceleration: 12
   turnSpeed: 12
-  velocityDependent: 1
-  rotateWithMovement: 1
+  velocityDependent: 0
+  rotateWithMovement: 0
   rotationType: 0
   alignToCamera: 1
 --- !u!114 &1123328537847640027
