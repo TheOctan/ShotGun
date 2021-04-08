@@ -8,20 +8,11 @@ public class Crosshairs : MonoBehaviour
 	public SpriteRenderer dot;
 	public Color dotHighlightColor;
 
+	[Header("Rotation")]
 	public float rotateSpeed = 40;
+	public bool clockwize;
 
 	private Color originalDotColor;
-
-	void Start()
-	{
-		Cursor.visible = false;
-		originalDotColor = dot.color;
-	}
-
-	void Update()
-	{
-		transform.Rotate(Vector3.forward * -rotateSpeed * Time.deltaTime);
-	}
 
 	public void DetectTargets(Ray ray)
 	{
@@ -33,5 +24,16 @@ public class Crosshairs : MonoBehaviour
 		{
 			dot.color = originalDotColor;
 		}
+	}
+
+	private void Start()
+	{
+		Cursor.visible = false;
+		originalDotColor = dot.color;
+	}
+
+	private void Update()
+	{
+		transform.Rotate(Vector3.forward * (clockwize ? rotateSpeed : -rotateSpeed) * Time.deltaTime);
 	}
 }

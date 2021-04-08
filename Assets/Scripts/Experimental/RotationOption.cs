@@ -3,21 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class RotationOption : MonoBehaviour
+namespace Assets.Scripts.Experimental
 {
-    [SerializeField] private float turnSpeed = 100f;
-	[SerializeField] private InterpolationType interpolation;
+	[RequireComponent(typeof(Rigidbody))]
+	public class RotationOption : MonoBehaviour
+	{
+		[SerializeField] private float turnSpeed = 100f;
+		[SerializeField] private InterpolationType interpolation;
 
-    private Rigidbody rigidbodyComponent;
+		private Rigidbody rigidbodyComponent;
 
-    private void Awake()
-    {
-        rigidbodyComponent = GetComponent<Rigidbody>();
-    }
+		private void Awake()
+		{
+			rigidbodyComponent = GetComponent<Rigidbody>();
+		}
 
-    private void Update()
-    {
-		transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
+		private void Update()
+		{
+			transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
+		}
 	}
 }

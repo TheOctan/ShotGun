@@ -2,33 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class LivingEntity : MonoBehaviour, IDamageable
 {
-    public float startingHealth;
-    public float health { get; protected set; }
-    protected bool dead;
+    public float startingHealth = 3;
+    public float Health { get; protected set; }
+    protected bool isDead;
 
-    public event Action OnDeath;
-	public event Action<float> OnHitDamage;
+    [Header("Events")]
+    public DeathEvent DeathEvent;
+    public HitDamageEvent HitDamageEvent;
 
 	protected virtual void Start()
     {
-        health = startingHealth;
+        Health = startingHealth;
     }
 
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
-        // Do some stuff here with hit
         TakeDamage(damage);
     }
 
     public virtual void TakeDamage(float damage)
     {
-        health -= damage;
-        OnHitDamage?.Invoke(damage);
+        Health -= damage;
+        HitDamageEvent.Invoke(damage);
 
-        if (health <= 0 && !dead)
+        if (Health <= 0 && !isDead)
         {
             Die();
         }
@@ -37,8 +38,18 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     [ContextMenu("Self Destruct")]
     protected virtual void Die()
     {
-        dead = true;
-        OnDeath?.Invoke();
+        isDead = true;
+        DeathEvent.Invoke();
         Destroy(gameObject);
     }
+}
+
+[System.Serializable]
+public class DeathEvent : UnityEvent
+{
+}
+
+[System.Serializable]
+public class HitDamageEvent : UnityEvent<float>
+{
 }

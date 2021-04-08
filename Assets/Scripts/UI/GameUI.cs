@@ -30,30 +30,28 @@ public class GameUI : MonoBehaviour
 	private GameOverEvent GameOverEvent = null;
 
 	private Spawner spawner;
-	private Player player;
+	private PlayerHealth player;
 
 	private bool isGameOver = false;
 
-	void Start()
-	{
-		allUI.SetActive(true);
-		player = FindObjectOfType<Player>();
-		player.OnDeath += OnGameOver;
-	}
-
-	void Awake()
+	private void Awake()
 	{
 		spawner = FindObjectOfType<Spawner>();
-		spawner.OnNewWave += OnNewWave;
 	}
 
-	void Update()
+	private void Start()
+	{
+		allUI.SetActive(true);
+		player = FindObjectOfType<PlayerHealth>();
+	}
+
+	private void Update()
 	{
 		scoreUI.text = ScoreKeeper.score.ToString("D6");
 		float healthPercent = 0;
 		if (player != null)
 		{
-			healthPercent = player.health / player.startingHealth;
+			healthPercent = player.Health / player.startingHealth;
 		}
 		healthBar.localScale = new Vector3(healthPercent, 1, 1);
 
@@ -73,7 +71,7 @@ public class GameUI : MonoBehaviour
 		}
 	}
 
-	void OnNewWave(int waveNumber)
+	public void OnNewWave(int waveNumber)
 	{
 		string[] numbers = { "One", "Two", "Three", "Four", "Five" };
 		newWaveTitle.text = "- Wave " + numbers[waveNumber - 1] + " -";
@@ -84,7 +82,7 @@ public class GameUI : MonoBehaviour
 		StartCoroutine("AnimateNewWaveBanner");
 	}
 
-	void OnGameOver()
+	public void OnGameOver()
 	{
 		Cursor.visible = true;
 		StartCoroutine(Fade(Color.clear, new Color(0, 0, 0, 0.75f), 1));

@@ -54,7 +54,7 @@ public class AudioManager : MonoBehaviour
 			newSfx2Dsource.transform.parent = transform;
 
 			audioListener = FindObjectOfType<AudioListener>().transform;
-			var player = FindObjectOfType<Player>();
+			var player = FindObjectOfType<PlayerController>();
 			if (player != null)
 			{
 				playerT = player.transform;
@@ -80,14 +80,14 @@ public class AudioManager : MonoBehaviour
 	{
 		if (playerT == null)
 		{
-			if (FindObjectOfType<Player>() != null)
+			if (FindObjectOfType<PlayerController>() != null)
 			{
-				playerT = FindObjectOfType<Player>().transform;
+				playerT = FindObjectOfType<PlayerController>().transform;
 			}
 		}
 	}
 
-	void Update()
+	void LateUpdate()
 	{
 		if (playerT != null)
 		{

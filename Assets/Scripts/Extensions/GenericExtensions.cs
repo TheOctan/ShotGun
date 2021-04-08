@@ -1,16 +1,16 @@
-﻿
+﻿using System;
 
 namespace Assets.Scripts.Extensions
 {
-	public static class GenericExte1nsions
+	public static class GenericExtensions
 	{
 		public static T[] Shuffle<T>(this T[] array)
 		{
-			return array.PhisherShuffle(System.DateTime.Now.Second);
+			return array.PhisherShuffle(DateTime.Now.Second);
 		}
 		public static T[] PhisherShuffle<T>(this T[] array, int seed)
 		{
-			System.Random random = new System.Random(seed);
+			Random random = new Random(seed);
 			for (int i = 0; i < array.Length - 1; i++)
 			{
 				int randomIndex = random.Next(i, array.Length);

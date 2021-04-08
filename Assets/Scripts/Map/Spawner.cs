@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Legacy;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class Spawner : MonoBehaviour
 
 	public Wave[] waves;
 	public Enemy enemy;
+
+	[Header("Events")]
+	public NewWaveEvent NewWaveEvent;
 
 	private LivingEntity playerEntity;
 	private Transform playerT;
@@ -30,23 +33,21 @@ public class Spawner : MonoBehaviour
 	private bool isCamping;
 
 	private bool isDisabled;
-
-	public event Action<int> OnNewWave;
-
-	void Start()
+	
+	private void Start()
 	{
-		playerEntity = FindObjectOfType<Player>();
+		playerEntity = FindObjectOfType<PlayerHealth>();
 		playerT = playerEntity.transform;
 
 		nextCampCheckTime = timeBetweenCampingChecks + Time.time;
 		campPositionOld = playerT.position;
-		playerEntity.OnDeath += OnPlayerDeath;
+		playerEntity.DeathEvent.AddListener(OnPlayerDeath);
 
 		map = FindObjectOfType<MapGenerator>();
 		NextWave();
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (!isDisabled)
 		{
@@ -105,7 +106,7 @@ public class Spawner : MonoBehaviour
 		}
 
 		Enemy spawnedEnemy = Instantiate(enemy, spawntile.position + Vector3.up, Quaternion.identity);
-		spawnedEnemy.OnDeath += OnEnemyDeath;
+		spawnedEnemy.DeathEvent.AddListener(OnEnemyDeath);
 		spawnedEnemy.SetCharacteristics(currentWave.moveSpeed, currentWave.hitsToKillPlayer, currentWave.enemyHealth, currentWave.skinColor);
 	}
 
@@ -144,7 +145,7 @@ public class Spawner : MonoBehaviour
 			enemiesRemainingToSpawn = currentWave.enemyCount;
 			enemiesRemainingAlive = enemiesRemainingToSpawn;
 
-			OnNewWave?.Invoke(currentWaveNumber);
+			NewWaveEvent.Invoke(currentWaveNumber);
 
 			ResetPlayerPosition();
 		}
@@ -162,4 +163,9 @@ public class Spawner : MonoBehaviour
 		public float enemyHealth;
 		public Color skinColor;
 	}
+}
+
+[System.Serializable]
+public class NewWaveEvent : UnityEvent<int>
+{
 }
