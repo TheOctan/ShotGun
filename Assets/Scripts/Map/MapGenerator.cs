@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour
 {
-	public bool autoGenerateInPlay;
-
-	public Text text;
+	public bool autoGenerateInGame;
 
 	public Map[] maps;
 	public int mapIndex;
@@ -33,20 +31,14 @@ public class MapGenerator : MonoBehaviour
 
 	private Map currentMap;
 
-	void Awake()
-	{
-		FindObjectOfType<Spawner>().OnNewWave += OnNewWave;
-	}
-
-	void OnNewWave(int waveNumber)
+	public void OnNewWave(int waveNumber)
 	{
 		mapIndex = waveNumber - 1;
 
-		if (autoGenerateInPlay)
+		if (autoGenerateInGame)
 		{
 			System.Random random = new System.Random();
 			maps[mapIndex].seed = random.Next();
-			
 		}
 
 		GenerateMap();

@@ -35,18 +35,18 @@ namespace Assets.Scripts.Legacy
 			gunController = GetComponent<GunController>();
 			viewCamera = Camera.main;
 
-			var spawner = FindObjectOfType<Spawner>();
-			if (spawner)
-			{
-				spawner.OnNewWave += OnNewWave;
-			}
-			else
-			{
-				OnNewWave(1);
-			}
+			//var spawner = FindObjectOfType<Spawner>();
+			//if (spawner)
+			//{
+			//	spawner.OnNewWave += OnNewWave;
+			//}
+			//else
+			//{
+			//	OnNewWave(1);
+			//}
 		}
 
-		void OnNewWave(int waveNumber)
+		public void OnNewWave(int waveNumber)
 		{
 			Health = startingHealth;
 			gunController.EquipGun(waveNumber - 1);

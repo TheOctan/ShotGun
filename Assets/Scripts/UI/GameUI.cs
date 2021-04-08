@@ -38,13 +38,11 @@ public class GameUI : MonoBehaviour
 	{
 		allUI.SetActive(true);
 		player = FindObjectOfType<Player>();
-		player.OnDeath += OnGameOver;
 	}
 
 	void Awake()
 	{
 		spawner = FindObjectOfType<Spawner>();
-		spawner.OnNewWave += OnNewWave;
 	}
 
 	void Update()
@@ -73,7 +71,7 @@ public class GameUI : MonoBehaviour
 		}
 	}
 
-	void OnNewWave(int waveNumber)
+	public void OnNewWave(int waveNumber)
 	{
 		string[] numbers = { "One", "Two", "Three", "Four", "Five" };
 		newWaveTitle.text = "- Wave " + numbers[waveNumber - 1] + " -";
@@ -84,7 +82,7 @@ public class GameUI : MonoBehaviour
 		StartCoroutine("AnimateNewWaveBanner");
 	}
 
-	void OnGameOver()
+	public void OnGameOver()
 	{
 		Cursor.visible = true;
 		StartCoroutine(Fade(Color.clear, new Color(0, 0, 0, 0.75f), 1));

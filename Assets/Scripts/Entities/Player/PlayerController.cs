@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		viewCamera = Camera.main;
-		gunController.EquipGun(currentGun);
+		//gunController.EquipGun(currentGun);
 	}
 	private void Update()
 	{

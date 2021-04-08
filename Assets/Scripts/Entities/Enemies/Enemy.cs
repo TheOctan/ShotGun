@@ -60,7 +60,7 @@ public class Enemy : LivingEntity
 		if(hasTarget)
 		{
 			currentState = State.Chasing;
-			targetEntity.OnDeath += OnTargetDeath;
+			targetEntity.DeathEvent.AddListener(OnTargetDeath);
 
 			StartCoroutine(UpdatePath());
 		}

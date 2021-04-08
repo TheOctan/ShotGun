@@ -28,7 +28,7 @@ public class Crosshairs : MonoBehaviour
 
 	private void Start()
 	{
-		//Cursor.visible = false;
+		Cursor.visible = false;
 		originalDotColor = dot.color;
 	}
 

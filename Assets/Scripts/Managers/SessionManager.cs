@@ -10,13 +10,13 @@ public class SessionManager : MonoBehaviour
 	public static SessionData SessionData { get; private set; } = new SessionData();
 
 	private Spawner spawner;
-    private Player player;
+    //private Player player;
     private Gun gun;
 
 	private void Start()
 	{
 		spawner = FindObjectOfType<Spawner>();
-		player = FindObjectOfType<Player>();
+		//player = FindObjectOfType<Player>();
 		gun = FindObjectOfType<Gun>();
 
 		SubscribeEvents();
@@ -33,11 +33,11 @@ public class SessionManager : MonoBehaviour
 	{
 		Enemy.OnHitDamageStatic += OnShootDamage;
 
-		spawner.OnNewWave += OnNewWave;
+		//spawner.OnNewWave += OnNewWave;
 
-		player.OnDeath += OnPlayerDeath;
-		player.OnHitDamage += OnHitDamage;
-		player.OnMove += OnPlayerMove;
+		//player.OnDeath += OnPlayerDeath;
+		//player.OnHitDamage += OnHitDamage;
+		//player.OnMove += OnPlayerMove;
 
 		SubscribeGunEvents();
 	}	
@@ -51,7 +51,7 @@ public class SessionManager : MonoBehaviour
 	{
 		Enemy.OnHitDamageStatic -= OnShootDamage;
 
-		spawner.OnNewWave -= OnNewWave;
+		//spawner.OnNewWave -= OnNewWave;
 
 		gun.OnShoot -= OnGunShoot;
 		gun.OnReload -= OnGunReload;

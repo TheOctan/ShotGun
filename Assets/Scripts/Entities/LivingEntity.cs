@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class LivingEntity : MonoBehaviour, IDamageable
 {
@@ -9,8 +10,9 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     public float Health { get; protected set; }
     protected bool isDead;
 
-    public event Action OnDeath;
-	public event Action<float> OnHitDamage;
+    [Header("Events")]
+    public DeathEvent DeathEvent;
+    public HitDamageEvent HitDamageEvent;
 
 	protected virtual void Start()
     {
@@ -25,7 +27,7 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     public virtual void TakeDamage(float damage)
     {
         Health -= damage;
-        OnHitDamage?.Invoke(damage);
+        HitDamageEvent.Invoke(damage);
 
         if (Health <= 0 && !isDead)
         {
@@ -37,7 +39,17 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     protected virtual void Die()
     {
         isDead = true;
-        OnDeath?.Invoke();
+        DeathEvent.Invoke();
         Destroy(gameObject);
     }
+}
+
+[System.Serializable]
+public class DeathEvent : UnityEvent
+{
+}
+
+[System.Serializable]
+public class HitDamageEvent : UnityEvent<float>
+{
 }

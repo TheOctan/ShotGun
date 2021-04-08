@@ -87,7 +87,7 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	void Update()
+	void LateUpdate()
 	{
 		if (playerT != null)
 		{
