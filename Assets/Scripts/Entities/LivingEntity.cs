@@ -5,30 +5,29 @@ using UnityEngine;
 
 public abstract class LivingEntity : MonoBehaviour, IDamageable
 {
-    public float startingHealth;
-    public float health { get; protected set; }
-    protected bool dead;
+    public float startingHealth = 3;
+    public float Health { get; protected set; }
+    protected bool isDead;
 
     public event Action OnDeath;
 	public event Action<float> OnHitDamage;
 
 	protected virtual void Start()
     {
-        health = startingHealth;
+        Health = startingHealth;
     }
 
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
     {
-        // Do some stuff here with hit
         TakeDamage(damage);
     }
 
     public virtual void TakeDamage(float damage)
     {
-        health -= damage;
+        Health -= damage;
         OnHitDamage?.Invoke(damage);
 
-        if (health <= 0 && !dead)
+        if (Health <= 0 && !isDead)
         {
             Die();
         }
@@ -37,7 +36,7 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
     [ContextMenu("Self Destruct")]
     protected virtual void Die()
     {
-        dead = true;
+        isDead = true;
         OnDeath?.Invoke();
         Destroy(gameObject);
     }

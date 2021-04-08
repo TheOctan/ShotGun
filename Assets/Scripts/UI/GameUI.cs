@@ -53,7 +53,7 @@ public class GameUI : MonoBehaviour
 		float healthPercent = 0;
 		if (player != null)
 		{
-			healthPercent = player.health / player.startingHealth;
+			healthPercent = player.Health / player.startingHealth;
 		}
 		healthBar.localScale = new Vector3(healthPercent, 1, 1);
 

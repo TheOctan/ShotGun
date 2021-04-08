@@ -87,6 +87,10 @@ public class PlayerController : MonoBehaviour
 			gunController.Aim(point);
 		}
 	}
+	public void OnNewWave(int waveNumber)
+	{
+		gunController.EquipGun(waveNumber - 1);
+	}
 
 	private void Awake()
 	{
@@ -161,7 +165,6 @@ public class PlayerController : MonoBehaviour
 			gunController.OnTriggerRelease();
 		}
 	}
-	
 }
 
 [System.Serializable]

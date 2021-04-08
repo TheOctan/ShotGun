@@ -48,7 +48,7 @@ namespace Assets.Scripts.Legacy
 
 		void OnNewWave(int waveNumber)
 		{
-			health = startingHealth;
+			Health = startingHealth;
 			gunController.EquipGun(waveNumber - 1);
 		}
 
@@ -97,7 +97,7 @@ namespace Assets.Scripts.Legacy
 
 			if (transform.position.y < -10)
 			{
-				TakeDamage(health);
+				TakeDamage(Health);
 			}
 		}
 
