@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Controllers;
+﻿using OctanGames.Controllers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,16 +34,6 @@ namespace Assets.Scripts.Legacy
 			controller = GetComponent<PlayerController>();
 			gunController = GetComponent<GunController>();
 			viewCamera = Camera.main;
-
-			//var spawner = FindObjectOfType<Spawner>();
-			//if (spawner)
-			//{
-			//	spawner.OnNewWave += OnNewWave;
-			//}
-			//else
-			//{
-			//	OnNewWave(1);
-			//}
 		}
 
 		public void OnNewWave(int waveNumber)

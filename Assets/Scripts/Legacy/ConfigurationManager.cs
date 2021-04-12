@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace OctanGames.Managers
+namespace Assets.Scripts.Legacy
 {
 	public class ConfigurationManager : MonoBehaviour
 	{
 		public static ConfigData ConfigData { get; set; } = new ConfigData();
+		public static LoginData LoginData { get; private set; } = new LoginData();
 
 		public Slider[] volumeSliders;
 		public Toggle[] resolutionToggles;
@@ -38,11 +39,13 @@ namespace OctanGames.Managers
 		public void LoadConfig()
 		{
 			ConfigData.ResolutionIndex = PlayerPrefs.GetInt(SCREEN_RES_KEY);
-			ConfigData.IsFullScreen = PlayerPrefs.GetInt(FULLSCREEN_KEY) == 1;
+			ConfigData.IsFullScreen = PlayerPrefs.GetInt(FULLSCREEN_KEY) == 1 ? true : false;
 
-			ConfigData.MasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 1f);
-			ConfigData.SoundVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1f);
-			ConfigData.MusicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 1f);
+			ConfigData.MasterVolume = PlayerPrefs.GetFloat(MASTER_VOLUME_KEY, 1);
+			ConfigData.SoundVolume = PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1);
+			ConfigData.MusicVolume = PlayerPrefs.GetFloat(MUSIC_VOLUME_KEY, 1);
+
+			LoginData.Nickname = PlayerPrefs.GetString(NICKNAME_KEY);
 		}
 
 		public void InitializeConfig()
@@ -72,6 +75,7 @@ namespace OctanGames.Managers
 				PlayerPrefs.Save();
 			}
 		}
+
 		public void SetFullscreen(bool isFullscreen)
 		{
 			for (int i = 0; i < resolutionToggles.Length; i++)
@@ -94,6 +98,7 @@ namespace OctanGames.Managers
 			PlayerPrefs.SetInt(FULLSCREEN_KEY, isFullscreen ? 1 : 0);
 			PlayerPrefs.Save();
 		}
+
 		public void SetMasterVolume(float value)
 		{
 			AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Master);
@@ -102,6 +107,7 @@ namespace OctanGames.Managers
 			PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, value);
 			PlayerPrefs.Save();
 		}
+
 		public void SetMusicVolume(float value)
 		{
 			AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Music);
@@ -110,6 +116,7 @@ namespace OctanGames.Managers
 			PlayerPrefs.SetFloat(MUSIC_VOLUME_KEY, value);
 			PlayerPrefs.Save();
 		}
+
 		public void SetSoundVolume(float value)
 		{
 			AudioManager.instance.SetVolume(value, AudioManager.AudioChannel.Sfx);

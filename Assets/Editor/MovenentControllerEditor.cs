@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts;
-using Assets.Scripts.Controllers;
+using OctanGames.Controllers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;

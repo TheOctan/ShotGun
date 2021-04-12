@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.Data;
 using System.Collections.Generic;
 using Assets.Scripts.Receivers;
+using Assets.Scripts.Legacy;
 
 public class HighScoreManager : TimeoutBehaviour
 {

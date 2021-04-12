@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UI
+namespace OctanGames.UI
 {
 	[ExecuteAlways]
 	public class UIBillboard : MonoBehaviour

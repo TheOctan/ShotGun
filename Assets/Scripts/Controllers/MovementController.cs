@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Controllers
+namespace OctanGames.Controllers
 {
 	public class MovementController : MonoBehaviour
 	{
@@ -94,7 +95,7 @@ namespace Assets.Scripts.Controllers
 					turnStep *= direction.magnitude;
 				}
 
-				Quaternion rotation = (turnSpeed > 0) ?
+				Quaternion rotation = turnSpeed > 0 ?
 					Quaternion.Slerp(rigidbodyComponent.rotation, targetRotation, turnStep) :
 					targetRotation;
 

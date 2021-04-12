@@ -30,7 +30,51 @@ public class AudioManager : MonoBehaviour
 
 	private SoundLibrary library;
 
-	void Awake()
+	public void SetVolume(float volumePercent, AudioChannel channel)
+	{
+		switch (channel)
+		{
+			case AudioChannel.Master:
+				masterVolumePercent = volumePercent;
+				break;
+			case AudioChannel.Sfx:
+				sfxVolumePercent = volumePercent;
+				break;
+			case AudioChannel.Music:
+				musicVolumePercent = volumePercent;
+				break;
+			default:
+				break;
+		}
+
+		musicSources[0].volume = musicVolumePercent * masterVolumePercent;
+		musicSources[1].volume = musicVolumePercent * masterVolumePercent;
+	}
+	public void PlayMusic(AudioClip clip, float fadeDuration = 1)
+	{
+		activeMusicSourceIndex = 1 - activeMusicSourceIndex;
+		musicSources[activeMusicSourceIndex].clip = clip;
+		musicSources[activeMusicSourceIndex].Play();
+
+		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
+	}
+	public void PlaySound(AudioClip clip, Vector3 pos)
+	{
+		if (clip != null)
+		{
+			AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
+		}
+	}
+	public void PlaySound(string soundName, Vector3 pos)
+	{
+		PlaySound(library.GetClipFromName(soundName), pos);
+	}
+	public void PlaySound2D(string soundName)
+	{
+		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
+	}
+
+	private void Awake()
 	{
 		if (instance != null)
 		{
@@ -67,18 +111,23 @@ public class AudioManager : MonoBehaviour
 			musicVolumePercent = 1;
 		}
 	}
-
-	void OnEnable()
+	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnLevelFinishedLoading;
 	}
-
-	void OnDisable()
+	private void OnDisable()
 	{
 		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 	}
+	private void LateUpdate()
+	{
+		if (playerT != null)
+		{
+			audioListener.position = playerT.position + listenerOffset;
+		}
+	}
 
-	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
 	{
 		if (playerT == null)
 		{
@@ -88,65 +137,7 @@ public class AudioManager : MonoBehaviour
 			}
 		}
 	}
-
-	void LateUpdate()
-	{
-		if (playerT != null)
-		{
-			audioListener.position = playerT.position + listenerOffset;
-		}
-	}
-
-	public void SetVolume(float volumePercent, AudioChannel channel)
-	{
-		switch (channel)
-		{
-			case AudioChannel.Master:
-				masterVolumePercent = volumePercent;
-				break;
-			case AudioChannel.Sfx:
-				sfxVolumePercent = volumePercent;
-				break;
-			case AudioChannel.Music:
-				musicVolumePercent = volumePercent;
-				break;
-			default:
-				break;
-		}
-
-		musicSources[0].volume = musicVolumePercent * masterVolumePercent;
-		musicSources[1].volume = musicVolumePercent * masterVolumePercent;
-	}
-
-	public void PlayMusic(AudioClip clip, float fadeDuration = 1)
-	{
-		activeMusicSourceIndex = 1 - activeMusicSourceIndex;
-		musicSources[activeMusicSourceIndex].clip = clip;
-		musicSources[activeMusicSourceIndex].Play();
-
-		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
-	}
-
-	public void PlaySound(AudioClip clip, Vector3 pos)
-	{
-		if (clip != null)
-		{
-			AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
-		}
-	}
-
-	public void PlaySound(string soundName, Vector3 pos)
-	{
-		PlaySound(library.GetClipFromName(soundName), pos);
-	}
-
-	public void PlaySound2D(string soundName)
-	{
-		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
-	}
-
-
-	IEnumerator AnimateMusicCrossfade(float duration)
+	private IEnumerator AnimateMusicCrossfade(float duration)
 	{
 		float percent = 0;
 

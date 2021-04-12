@@ -5,22 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
+	[Header("Scenes")]
+	public string firstSceneName = "ModernMainMenu";
+	public string secondSceneName = "Game";
+
+	[Header("Audio clips")]
 	public AudioClip mainTheme;
 	public AudioClip menuTheme;
 
 	string sceneName;
 
-	void OnEnable()
+	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnLevelFinishedLoading;
 	}
 
-	void OnDisable()
+	private void OnDisable()
 	{
 		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
 	}
 
-	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+	private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
 	{
 		string newSceneName = scene.name;
 		if (newSceneName != sceneName)
@@ -30,15 +35,15 @@ public class MusicManager : MonoBehaviour
 		}
 	}
 
-	void PlayMusic()
+	private void PlayMusic()
 	{
 		AudioClip clipToPlay = null;
 
-		if(sceneName == "Menu")
+		if(sceneName == firstSceneName)
 		{
 			clipToPlay = menuTheme;
 		}
-		else if(sceneName == "Game")
+		else if(sceneName == secondSceneName)
 		{
 			clipToPlay = mainTheme;
 		}
