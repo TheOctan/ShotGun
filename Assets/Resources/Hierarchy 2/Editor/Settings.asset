@@ -74,7 +74,7 @@ MonoBehaviour:
   applyStaticTargetAndChild: 1
   applyTagTargetAndChild: 1
   applyLayerTargetAndChild: 1
-  headerPrefix: $h
+  headerPrefix: $
   headerDefaultTag: EditorOnly
   onlyDisplayWhileMouseEnter: 1
   contentDisplay: 6

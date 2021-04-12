@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
 	public float sfxVolumePercent { get; private set; }
 	public float musicVolumePercent { get; private set; }
 
+	[SerializeField] private Vector3 listenerOffset = Vector3.up;
+
 	private AudioSource sfx2DSource;
 	private AudioSource[] musicSources;
 	private int activeMusicSourceIndex;
@@ -91,7 +93,7 @@ public class AudioManager : MonoBehaviour
 	{
 		if (playerT != null)
 		{
-			audioListener.position = playerT.position;
+			audioListener.position = playerT.position + listenerOffset;
 		}
 	}
 
