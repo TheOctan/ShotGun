@@ -35,6 +35,7 @@ namespace Hierarchy2
 
         public void Flatten()
         {
+            Debug.Log("OnFlatten");
             if (flattenMode == FlattenMode.None)
                 return;
 
