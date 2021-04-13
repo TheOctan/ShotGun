@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MuzzleFlash : MonoBehaviour
+namespace OctanGames.Props
 {
-	public GameObject flashHolder;
-	public Sprite[] flashSprites;
-	public SpriteRenderer[] spriteRenderers;
-
-	public float flashTime;
-
-	void Start()
+	public class MuzzleFlash : MonoBehaviour
 	{
-		Deactivate();
-	}
+		public GameObject flashHolder;
+		public Sprite[] flashSprites;
+		public SpriteRenderer[] spriteRenderers;
 
-	public void Activate()
-	{
-		flashHolder.SetActive(true);
+		public float flashTime;
 
-		int flashSpriteIndex = Random.Range(0, flashSprites.Length);
-		for (int i = 0; i < spriteRenderers.Length; i++)
+		void Start()
 		{
-			spriteRenderers[i].sprite = flashSprites[flashSpriteIndex];
+			Deactivate();
 		}
 
-		Invoke("Deactivate", flashTime);
-	}
+		public void Activate()
+		{
+			flashHolder.SetActive(true);
 
-	void Deactivate()
-	{
-		flashHolder.SetActive(false);
+			int flashSpriteIndex = Random.Range(0, flashSprites.Length);
+			for (int i = 0; i < spriteRenderers.Length; i++)
+			{
+				spriteRenderers[i].sprite = flashSprites[flashSpriteIndex];
+			}
+
+			Invoke("Deactivate", flashTime);
+		}
+
+		void Deactivate()
+		{
+			flashHolder.SetActive(false);
+		}
 	}
 }

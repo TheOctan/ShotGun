@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundLibrary : MonoBehaviour
+namespace OctanGames.Managers
 {
-	public SoundGroup[] soundGroups;
-
-	private Dictionary<string, AudioClip[]> groupDictionary = new Dictionary<string, AudioClip[]>();
-
-	void Awake()
+	public class SoundLibrary : MonoBehaviour
 	{
-		foreach (var soundGroup in soundGroups)
+		public SoundGroup[] soundGroups;
+
+		private Dictionary<string, AudioClip[]> groupDictionary = new Dictionary<string, AudioClip[]>();
+
+		void Awake()
 		{
-			groupDictionary.Add(soundGroup.groupID, soundGroup.group);
+			foreach (var soundGroup in soundGroups)
+			{
+				groupDictionary.Add(soundGroup.groupID, soundGroup.group);
+			}
 		}
-	}
 
-	public AudioClip GetClipFromName(string name)
-	{
-		if (groupDictionary.ContainsKey(name))
+		public AudioClip GetClipFromName(string name)
 		{
-			AudioClip[] sounds = groupDictionary[name];
-			return sounds[Random.Range(0, sounds.Length)];
+			if (groupDictionary.ContainsKey(name))
+			{
+				AudioClip[] sounds = groupDictionary[name];
+				return sounds[Random.Range(0, sounds.Length)];
+			}
+			return null;
 		}
-		return null;
-	}
 
-	[System.Serializable]
-	public class SoundGroup
-	{
-		public string groupID;
-		public AudioClip[] group;
+		[System.Serializable]
+		public class SoundGroup
+		{
+			public string groupID;
+			public AudioClip[] group;
+		}
 	}
 }

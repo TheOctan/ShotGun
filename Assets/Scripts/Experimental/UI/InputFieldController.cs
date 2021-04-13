@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Legacy
+namespace OctanGames.Experimental.UI
 {
 	[RequireComponent(typeof(Image))]
 	[RequireComponent(typeof(InputField))]

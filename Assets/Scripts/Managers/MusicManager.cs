@@ -3,55 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MusicManager : MonoBehaviour
+namespace OctanGames.Managers
 {
-	[Header("Scenes")]
-	public string firstSceneName = "ModernMainMenu";
-	public string secondSceneName = "Game";
-
-	[Header("Audio clips")]
-	public AudioClip mainTheme;
-	public AudioClip menuTheme;
-
-	string sceneName;
-
-	private void OnEnable()
+	public class MusicManager : MonoBehaviour
 	{
-		SceneManager.sceneLoaded += OnLevelFinishedLoading;
-	}
+		[Header("Scenes")]
+		public string firstSceneName = "ModernMainMenu";
+		public string secondSceneName = "Game";
 
-	private void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-	}
+		[Header("Audio clips")]
+		public AudioClip mainTheme;
+		public AudioClip menuTheme;
 
-	private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-	{
-		string newSceneName = scene.name;
-		if (newSceneName != sceneName)
+		string sceneName;
+
+		private void OnEnable()
 		{
-			sceneName = newSceneName;
-			Invoke("PlayMusic", 0.2f);
-		}
-	}
-
-	private void PlayMusic()
-	{
-		AudioClip clipToPlay = null;
-
-		if(sceneName == firstSceneName)
-		{
-			clipToPlay = menuTheme;
-		}
-		else if(sceneName == secondSceneName)
-		{
-			clipToPlay = mainTheme;
+			SceneManager.sceneLoaded += OnLevelFinishedLoading;
 		}
 
-		if(clipToPlay != null)
+		private void OnDisable()
 		{
-			AudioManager.instance.PlayMusic(clipToPlay, 2);
-			Invoke("PlayMusic", clipToPlay.length);
+			SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+		}
+
+		private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+		{
+			string newSceneName = scene.name;
+			if (newSceneName != sceneName)
+			{
+				sceneName = newSceneName;
+				Invoke("PlayMusic", 0.2f);
+			}
+		}
+
+		private void PlayMusic()
+		{
+			AudioClip clipToPlay = null;
+
+			if (sceneName == firstSceneName)
+			{
+				clipToPlay = menuTheme;
+			}
+			else if (sceneName == secondSceneName)
+			{
+				clipToPlay = mainTheme;
+			}
+
+			if (clipToPlay != null)
+			{
+				AudioManager.instance.PlayMusic(clipToPlay, 2);
+				Invoke("PlayMusic", clipToPlay.length);
+			}
 		}
 	}
 }

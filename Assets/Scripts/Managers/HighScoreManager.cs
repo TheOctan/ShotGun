@@ -3,87 +3,90 @@ using System.Collections;
 using Assets.Scripts.Data;
 using System.Collections.Generic;
 using Assets.Scripts.Receivers;
-using Assets.Scripts.Legacy;
+using OctanGames.Experimental.Managers;
 
-public class HighScoreManager : TimeoutBehaviour
+namespace OctanGames.Managers
 {
-	public GameObject loadIndicator;
-	public RectTransform content;
-	public ScoreItemView scoreElementPrefab;
-
-	[Header("Receiver")]
-	public int scoreCount = 10;
-	[SerializeField] private BaseScoreReceiver scoreReceiver = null;
-
-	public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
-
-	private bool IsMarkPlayerScore = false;
-
-	public void UpdateScore()
+	public class HighScoreManager : TimeoutBehaviour
 	{
-		loadIndicator.SetActive(true);
+		public GameObject loadIndicator;
+		public RectTransform content;
+		public ScoreItemView scoreElementPrefab;
 
-		ClearScore();
+		[Header("Receiver")]
+		public int scoreCount = 10;
+		[SerializeField] private BaseScoreReceiver scoreReceiver = null;
 
-		if (ConfigurationManager.LoginData.IsLogined)
+		public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
+
+		private bool IsMarkPlayerScore = false;
+
+		public void UpdateScore()
 		{
-			var login = ConfigurationManager.LoginData.Nickname;
-			var session = SessionManager.SessionData;
+			loadIndicator.SetActive(true);
 
-			InvokeTimeoutAction(scoreReceiver.GetScore(login, session, scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
-		}
-		else
-		{
-			InvokeTimeoutAction(scoreReceiver.GetScore(scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
-		}
-	}
+			ClearScore();
 
-	protected override void OnTimeout()
-	{
-		base.OnTimeout();
-		loadIndicator.SetActive(false);
-	}
+			if (Experimental.ConfigurationManager.LoginData.IsLogined)
+			{
+				var login = Experimental.ConfigurationManager.LoginData.Nickname;
+				var session = SessionManager.SessionData;
 
-	private void OnReceiveModels(IEnumerable<ScoreData> models)
-	{
-		if (timeoutCoroutine != null)
-			StopCoroutine(timeoutCoroutine);
-
-		foreach (var model in models)
-		{
-			var instance = Instantiate(scoreElementPrefab, content);
-			InitializeScoreItemView(instance, model);
+				InvokeTimeoutAction(scoreReceiver.GetScore(login, session, scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
+			}
+			else
+			{
+				InvokeTimeoutAction(scoreReceiver.GetScore(scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
+			}
 		}
 
-		loadIndicator.SetActive(false);
-	}
-
-	private void ClearScore()
-	{
-		foreach (Transform child in content)
+		protected override void OnTimeout()
 		{
-			Destroy(child.gameObject);
+			base.OnTimeout();
+			loadIndicator.SetActive(false);
 		}
-		content.DetachChildren();
-	}
 
-	private void InitializeScoreItemView(ScoreItemView itemView, ScoreData data)
-	{
-		itemView.Position = (itemView.transform.GetSiblingIndex() + 1).ToString();
-		itemView.Name = data.Name;
-		itemView.Score = data.Score.ToString("D6");
-
-		var nickname = ConfigurationManager.LoginData.Nickname;
-		var score = SessionManager.SessionData.Score;
-
-		if (ConfigurationManager.LoginData.IsLogined && !IsMarkPlayerScore && data.Name == nickname && data.Score == score)
+		private void OnReceiveModels(IEnumerable<ScoreData> models)
 		{
-			IsMarkPlayerScore = true;
-			itemView.BackgroundColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
+			if (timeoutCoroutine != null)
+				StopCoroutine(timeoutCoroutine);
+
+			foreach (var model in models)
+			{
+				var instance = Instantiate(scoreElementPrefab, content);
+				InitializeScoreItemView(instance, model);
+			}
+
+			loadIndicator.SetActive(false);
 		}
-		else
+
+		private void ClearScore()
 		{
-			itemView.Transparency = content.childCount % 2 == 0 ? 0f : 0.5f;
+			foreach (Transform child in content)
+			{
+				Destroy(child.gameObject);
+			}
+			content.DetachChildren();
+		}
+
+		private void InitializeScoreItemView(ScoreItemView itemView, ScoreData data)
+		{
+			itemView.Position = (itemView.transform.GetSiblingIndex() + 1).ToString();
+			itemView.Name = data.Name;
+			itemView.Score = data.Score.ToString("D6");
+
+			var nickname = Experimental.ConfigurationManager.LoginData.Nickname;
+			var score = SessionManager.SessionData.Score;
+
+			if (Experimental.ConfigurationManager.LoginData.IsLogined && !IsMarkPlayerScore && data.Name == nickname && data.Score == score)
+			{
+				IsMarkPlayerScore = true;
+				itemView.BackgroundColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
+			}
+			else
+			{
+				itemView.Transparency = content.childCount % 2 == 0 ? 0f : 0.5f;
+			}
 		}
 	}
 }

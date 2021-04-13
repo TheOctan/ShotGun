@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Legacy
 {
+	[Obsolete("Class PlayerController has been depricated: Use class OctanGames.Controllers.MovementController")]
 	[RequireComponent(typeof(Rigidbody))]
 	public class PlayerController : MonoBehaviour
 	{

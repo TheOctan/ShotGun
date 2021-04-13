@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAround : MonoBehaviour
+namespace OctanGames
 {
-    [SerializeField] private float turnSpeed = 5;
-    [SerializeField] private bool isClockwise = true;
+	public class RotateAround : MonoBehaviour
+	{
+		[SerializeField] private float turnSpeed = 5;
+		[SerializeField] private bool isClockwise = true;
 
-    private void Update()
-    {
-        transform.Rotate(Vector3.up * (isClockwise ? turnSpeed : -turnSpeed) * Time.deltaTime);
-    }
+		private void Update()
+		{
+			transform.Rotate(Vector3.up * (isClockwise ? turnSpeed : -turnSpeed) * Time.deltaTime);
+		}
+	}
 }

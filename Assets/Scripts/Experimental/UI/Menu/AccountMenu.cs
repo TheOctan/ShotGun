@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using Assets.Scripts.Data;
 
-namespace Assets.Scripts.Legacy
+namespace OctanGames.Experimental.UI.Menu
 {
 	public class AccountMenu : TimeoutBehaviour
 	{

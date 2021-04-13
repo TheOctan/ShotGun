@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Legacy
+namespace OctanGames.Experimental.UI.Menu
 {
-	public class RegistrationMenu : TimeoutBehaviour
+	public class LoginMenu : TimeoutBehaviour
 	{
 		[Header("Input")]
 		public InputField nickname;
 		public InputField password;
-		public InputField dublicatePassword;
 
 		[Header("Sender"), SerializeField]
 		private BaseReceiver sender = null;
@@ -22,7 +21,18 @@ namespace Assets.Scripts.Legacy
 		[Header("UI elements")]
 		public GameObject loadingWindow;
 		public Text prompt;
-		public void OnRegister()
+
+		private void Awake()
+		{
+			password.asteriskChar = '•';
+		}
+		private void OnDisable()
+		{
+			ResetMenu();
+			prompt.text = "";
+		}
+
+		public void OnLogin()
 		{
 			if (ValidateNickname() && ValidatePassword())
 			{
@@ -43,17 +53,6 @@ namespace Assets.Scripts.Legacy
 			loadingWindow.SetActive(false);
 		}
 
-		private void Awake()
-		{
-			password.asteriskChar = '•';
-			dublicatePassword.asteriskChar = '•';
-		}
-		private void OnDisable()
-		{
-			ResetMenu();
-			prompt.text = "";
-		}
-
 		private bool ValidateNickname()
 		{
 			if (nickname.text != string.Empty)
@@ -70,32 +69,17 @@ namespace Assets.Scripts.Legacy
 		}
 		private bool ValidatePassword()
 		{
-			if (password.text == string.Empty)
+			if (password.text != string.Empty)
+			{
+				return true;
+			}
+			else
 			{
 				password.image.color = Color.red;
 				prompt.text = "You must input password";
-				return false;
-			}
-			if (password.text.Length < 8)
-			{
-				password.image.color = Color.red;
-				prompt.text = "Passwords length must greater or equal 8 signs";
-				return false;
-			}
-			if (dublicatePassword.text == string.Empty)
-			{
-				dublicatePassword.image.color = Color.red;
-				prompt.text = "You must dublicate password";
-				return false;
-			}
-			if (password.text.Length != dublicatePassword.text.Length || password.text != dublicatePassword.text)
-			{
-				dublicatePassword.image.color = Color.red;
-				prompt.text = "Passwords do not match";
-				return false;
 			}
 
-			return true;
+			return false;
 		}
 		private void Verificate(bool isVerified)
 		{
@@ -109,8 +93,7 @@ namespace Assets.Scripts.Legacy
 			}
 			else
 			{
-				nickname.image.color = Color.red;
-				prompt.text = "This login is already taken";
+				prompt.text = "Incorrect password or username";
 			}
 
 			loadingWindow.SetActive(false);
@@ -119,7 +102,6 @@ namespace Assets.Scripts.Legacy
 		{
 			nickname.text = string.Empty;
 			password.text = string.Empty;
-			dublicatePassword.text = string.Empty;
 		}
 	}
 }

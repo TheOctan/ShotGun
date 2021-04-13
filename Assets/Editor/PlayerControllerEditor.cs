@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using OctanGames.Entities.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.AnimatedValues;

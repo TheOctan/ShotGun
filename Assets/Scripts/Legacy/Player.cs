@@ -1,4 +1,8 @@
 ﻿using OctanGames.Controllers;
+using OctanGames.Entities;
+using OctanGames.Managers;
+using OctanGames.Props;
+using OctanGames.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +10,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Legacy
 {
+	[Obsolete("Class Player has been depricated: Use class OctanGames.Entities.Player.PlayerController")]
 	[RequireComponent(typeof(PlayerController))]
 	[RequireComponent(typeof(GunController))]
 	public class Player : LivingEntity

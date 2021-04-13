@@ -5,18 +5,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace OctanGames.UI
+namespace OctanGames.UI.Menu
 {
 	public class MainMenu : MonoBehaviour
 	{
-		public Selectable firstSelectedItem = null;
-
 		public void OnPlay()
 		{
 			SceneManager.LoadScene("Game");
 		}
 
-		public void OnQuit()
+		public void OnExit()
 		{
 #if UNITY_EDITOR
 			EditorApplication.isPlaying = false;

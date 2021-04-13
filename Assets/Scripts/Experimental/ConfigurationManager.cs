@@ -1,10 +1,12 @@
 ﻿using Assets.Scripts.Data;
+using OctanGames.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Legacy
+namespace OctanGames.Experimental
 {
 	public class ConfigurationManager : MonoBehaviour
 	{
