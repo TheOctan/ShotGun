@@ -11,7 +11,7 @@ namespace Assets.Scripts.Receivers
 	public interface IScoreReceiver
 	{
 		int ConnectionTimeout { get; }
-		IEnumerator GetScore(int minCount, Action<IEnumerable<ScoreData>> callback);
-		IEnumerator GetScore(string nickname, SessionData session, int minCount, Action<IEnumerable<ScoreData>> callback);
+		IEnumerator GetScore(int maxCount, Action<IEnumerable<ScoreData>> callback);
+		IEnumerator GetScore(int maxCount, Action<IEnumerable<ScoreData>> callback, ScoreData score);
 	}
 }

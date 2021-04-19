@@ -2,8 +2,8 @@
 using System.Collections;
 using Assets.Scripts.Data;
 using System.Collections.Generic;
-using Assets.Scripts.Receivers;
 using OctanGames.Experimental.Managers;
+using System;
 
 namespace OctanGames.Managers
 {
@@ -15,6 +15,7 @@ namespace OctanGames.Managers
 
 		[Header("Receiver")]
 		public int scoreCount = 10;
+		public string defaultNickname = "Player 1";
 		[SerializeField] private BaseScoreReceiver scoreReceiver = null;
 
 		public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
@@ -24,20 +25,19 @@ namespace OctanGames.Managers
 		public void UpdateScore()
 		{
 			loadIndicator.SetActive(true);
-
 			ClearScore();
 
-			if (Experimental.ConfigurationManager.LoginData.IsLogined)
+			IEnumerator scoreRoutine;
+			if (ScoreKeeperManager.score != 0)
 			{
-				var login = Experimental.ConfigurationManager.LoginData.Nickname;
-				var session = SessionManager.SessionData;
-
-				InvokeTimeoutAction(scoreReceiver.GetScore(login, session, scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
+				scoreRoutine = scoreReceiver.GetScore(scoreCount, OnReceiveModels, new ScoreData() { Name = defaultNickname, Score = ScoreKeeperManager.score });
 			}
 			else
 			{
-				InvokeTimeoutAction(scoreReceiver.GetScore(scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
+				scoreRoutine = scoreReceiver.GetScore(scoreCount, OnReceiveModels);
 			}
+
+			InvokeTimeoutAction(scoreRoutine, scoreReceiver.ConnectionTimeout);
 		}
 
 		protected override void OnTimeout()
@@ -53,13 +53,12 @@ namespace OctanGames.Managers
 
 			foreach (var model in models)
 			{
-				var instance = Instantiate(scoreElementPrefab, content);
+				ScoreItemView instance = Instantiate(scoreElementPrefab, content);
 				InitializeScoreItemView(instance, model);
 			}
 
 			loadIndicator.SetActive(false);
 		}
-
 		private void ClearScore()
 		{
 			foreach (Transform child in content)
@@ -68,17 +67,15 @@ namespace OctanGames.Managers
 			}
 			content.DetachChildren();
 		}
-
 		private void InitializeScoreItemView(ScoreItemView itemView, ScoreData data)
 		{
 			itemView.Position = (itemView.transform.GetSiblingIndex() + 1).ToString();
 			itemView.Name = data.Name;
 			itemView.Score = data.Score.ToString("D6");
 
-			var nickname = Experimental.ConfigurationManager.LoginData.Nickname;
 			var score = SessionManager.SessionData.Score;
 
-			if (Experimental.ConfigurationManager.LoginData.IsLogined && !IsMarkPlayerScore && data.Name == nickname && data.Score == score)
+			if (!IsMarkPlayerScore && data.Score == score)
 			{
 				IsMarkPlayerScore = true;
 				itemView.BackgroundColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);

@@ -1,5 +1,6 @@
 ﻿using SaveSystems.Serialization;
 using SaveSystems.Serialization.Format;
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace SaveSystems
 {
 	public class SaveSystem
 	{
-		private static ISerializationFileSystem serializationFileSystem = new BinarySerializationSystem(Application.dataPath + "/Saves/");
+		private static ISerializationFileSystem serializationFileSystem = new BinarySerializationSystem(Application.persistentDataPath + "/Saves/");
 
 		public static bool Save<T>(string saveName, T saveData)
 		{
@@ -19,6 +20,11 @@ namespace SaveSystems
 			{
 				return serializationFileSystem.DeserializeObject<T>(path);
 			}
+			catch (InvalidCastException e)
+			{
+				Debug.LogError(e.Message);
+				return default;
+			}
 			catch
 			{
 				Debug.LogError($"Failed to load file at {path}");
@@ -27,7 +33,8 @@ namespace SaveSystems
 		}
 		public static bool HasKey(string key)
 		{
-			return File.Exists(serializationFileSystem.DirectoryName + key + serializationFileSystem.Extension);
+			var targetPath = $"{serializationFileSystem.DirectoryName}{key}.{serializationFileSystem.Extension}";
+			return File.Exists(targetPath);
 		}
 		public static bool ResetSave(string key)
 		{
