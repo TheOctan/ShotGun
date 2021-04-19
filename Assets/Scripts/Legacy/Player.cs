@@ -49,7 +49,7 @@ namespace Assets.Scripts.Legacy
 
 		void Update()
 		{
-			if (GameUI.GameIsPaused)
+			if (GameUI.IsPaused)
 				return;
 
 			// Movement input

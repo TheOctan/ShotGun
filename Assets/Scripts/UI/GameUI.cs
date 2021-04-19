@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,8 +14,7 @@ namespace OctanGames.UI
 {
 	public class GameUI : MonoBehaviour
 	{
-		public static bool GameIsPaused = false;
-		public bool HierarhyMenu { get; set; } = false;
+		public static bool IsPaused = false;
 
 		[Header("UI groups")]
 		public Image fadePlane;
@@ -29,49 +30,34 @@ namespace OctanGames.UI
 		public Text gameOverScoreUI;
 		public RectTransform healthBar;
 
-		[SerializeField]
-		private GameOverEvent GameOverEvent;
+		[Header("Events")]
+		[SerializeField] private GameOverEvent gameOverEvent;
+		[SerializeField] private TogglePauseEvent togglePauseEvent;
 
 		private Spawner spawner;
 		private PlayerHealth player;
 
-		private bool isGameOver = false;
-
-		private void Awake()
+		public void TogglePlayerPause(InputAction.CallbackContext context)
 		{
-			spawner = FindObjectOfType<Spawner>();
-		}
-		private void Start()
-		{
-			allUI.SetActive(true);
-			player = FindObjectOfType<PlayerHealth>();
-		}
-		private void Update()
-		{
-			scoreUI.text = ScoreKeeperManager.score.ToString("D6");
-			float healthPercent = 0;
-			if (player != null)
+			if (context.started)
 			{
-				healthPercent = player.Health / player.startingHealth;
-			}
-			healthBar.localScale = new Vector3(healthPercent, 1, 1);
-
-			if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
-			{
-				if (!HierarhyMenu)
-				{
-					if (GameIsPaused)
-					{
-						Resume();
-					}
-					else
-					{
-						Pause();
-					}
-				}
+				TogglePauseState();
 			}
 		}
+		public void TogglePauseState()
+		{
+			IsPaused = !IsPaused;
 
+			ToggleTimeScale();
+			ToggleUI();
+			togglePauseEvent.Invoke(IsPaused);
+		}
+		public void SelectButton(Selectable selectable)
+		{
+			EventSystem.current.SetSelectedGameObject(selectable.gameObject);
+			selectable.Select();
+			selectable.OnSelect(null);
+		}
 		public void OnNewWave(int waveNumber)
 		{
 			string[] numbers = { "One", "Two", "Three", "Four", "Five" };
@@ -92,9 +78,7 @@ namespace OctanGames.UI
 			healthBar.transform.parent.gameObject.SetActive(false);
 			gameOverUI.SetActive(true);
 
-			GameOverEvent.Invoke();
-
-			isGameOver = true;
+			gameOverEvent.Invoke();
 		}
 		public void OnRestart()
 		{
@@ -102,9 +86,9 @@ namespace OctanGames.UI
 		}
 		public void OnReturnMainMenu()
 		{
-			GameIsPaused = false;
+			IsPaused = false;
 			Time.timeScale = 1f;
-			SceneManager.LoadScene("Menu");
+			SceneManager.LoadScene("ModernMainMenu");
 		}
 		public void OnExit()
 		{
@@ -115,19 +99,38 @@ namespace OctanGames.UI
 #endif
 		}
 
-		private void Resume()
+		private void Awake()
 		{
-			Cursor.visible = false;
-			pauseMenuUI.SetActive(false);
-			Time.timeScale = 1f;
-			GameIsPaused = false;
+			spawner = FindObjectOfType<Spawner>();
 		}
-		private void Pause()
+		private void Start()
 		{
-			Cursor.visible = true;
-			pauseMenuUI.SetActive(true);
-			Time.timeScale = 0f;
-			GameIsPaused = true;
+			allUI.SetActive(true);
+			player = FindObjectOfType<PlayerHealth>();
+		}
+		private void Update()
+		{
+			UpdateUI();
+		}
+
+		private void UpdateUI()
+		{
+			scoreUI.text = ScoreKeeperManager.score.ToString("D6");
+			float healthPercent = 0;
+			if (player != null)
+			{
+				healthPercent = player.Health / player.startingHealth;
+			}
+			healthBar.localScale = new Vector3(healthPercent, 1, 1);
+		}
+		private void ToggleTimeScale()
+		{
+			Time.timeScale = IsPaused ? 0f : 1f;
+		}
+		private void ToggleUI()
+		{
+			Cursor.visible = IsPaused;
+			pauseMenuUI.SetActive(IsPaused);
 		}
 
 		private IEnumerator AnimateNewWaveBanner()
@@ -173,6 +176,10 @@ namespace OctanGames.UI
 	[System.Serializable]
 	public class GameOverEvent : UnityEvent
 	{
+	}
 
+	[System.Serializable]
+	public class TogglePauseEvent : UnityEvent<bool>
+	{
 	}
 }

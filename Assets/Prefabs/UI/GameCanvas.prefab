@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2353862515339539523}
   - component: {fileID: 2353862515339539527}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,20 +198,12 @@ MonoBehaviour:
   scoreUI: {fileID: 2353862517250720488}
   gameOverScoreUI: {fileID: 2353862516176559800}
   healthBar: {fileID: 2353862516849851836}
-  GameOverEvent:
+  gameOverEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2353862515368816754}
-        m_MethodName: UpdateScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  togglePauseEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2353862515341932709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,7 +2680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2353862516850928730
 RectTransform:
   m_ObjectHideFlags: 0

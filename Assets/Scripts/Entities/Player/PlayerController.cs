@@ -1,7 +1,6 @@
 ﻿using OctanGames.Controllers;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -27,12 +26,15 @@ namespace OctanGames.Entities.Player
 		private Camera viewCamera;
 		private Vector3 rawInputMovement;
 		private Vector3 rotationDirection;
+		private Vector2 mousePosition;
 		private int currentGun = 0;
 		private bool isFire;
 
 		private string currentControlScheme;
-		private const string gamepadControlScheme = "Gamepad";
-		private const string keyboardControlScheme = "Keyboard And Mouse";
+		public const string gamepadControlScheme = "Gamepad";
+		public const string keyboardControlScheme = "Keyboard And Mouse";
+		public const string actionMapPlayerControls = "Player";
+		public const string actionMapMenuControls = "UI";
 
 		public void OnControlsChanged()
 		{
@@ -46,6 +48,10 @@ namespace OctanGames.Entities.Player
 		{
 			Vector2 inputDirection = context.ReadValue<Vector2>();
 			rawInputMovement = new Vector3(inputDirection.x, 0, inputDirection.y);
+		}
+		public void OnMouseAimPlayer(InputAction.CallbackContext context)
+		{
+			mousePosition = context.ReadValue<Vector2>();
 		}
 		public void OnAnalogAimPlayer(InputAction.CallbackContext context)
 		{
@@ -94,6 +100,27 @@ namespace OctanGames.Entities.Player
 		{
 			gunController.EquipGun(waveNumber - 1);
 		}
+		public void SwitchFocusedPlayerControlScheme(bool isPaused)
+		{
+			switch (isPaused)
+			{
+				case true:
+					EnablePauseMenuControls();
+					break;
+
+				case false:
+					EnableGameplayControls();
+					break;
+			}
+		}
+		public void EnableGameplayControls()
+		{
+			playerInput.SwitchCurrentActionMap(actionMapPlayerControls);
+		}
+		public void EnablePauseMenuControls()
+		{
+			playerInput.SwitchCurrentActionMap(actionMapMenuControls);
+		}
 
 		private void Awake()
 		{
@@ -123,7 +150,6 @@ namespace OctanGames.Entities.Player
 		}
 		private void UpdateMouseAim()
 		{
-			Vector3 mousePosition = Mouse.current.position.ReadValue();
 			Ray ray = viewCamera.ScreenPointToRay(mousePosition);
 			Plane groundPlane = new Plane(Vector3.up, Vector3.up * aimHeight);
 
