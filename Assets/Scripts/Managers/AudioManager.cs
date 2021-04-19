@@ -1,162 +1,157 @@
-﻿using Assets.Scripts.Legacy;
+﻿using OctanGames.Entities.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+namespace OctanGames.Managers
 {
-	public enum AudioChannel
+	public class AudioManager : MonoBehaviour
 	{
-		Master = 0,
-		Sfx,
-		Music
-	}
-
-	public float masterVolumePercent { get; private set; }
-	public float sfxVolumePercent { get; private set; }
-	public float musicVolumePercent { get; private set; }
-
-	private AudioSource sfx2DSource;
-	private AudioSource[] musicSources;
-	private int activeMusicSourceIndex;
-
-	public static AudioManager instance;
-
-	private Transform audioListener;
-	private Transform playerT;
-
-	private SoundLibrary library;
-
-	void Awake()
-	{
-		if (instance != null)
+		public enum AudioChannel
 		{
-			Destroy(gameObject);
+			Master = 0,
+			Sfx,
+			Music
 		}
-		else
+		public float masterVolumePercent { get; private set; }
+		public float sfxVolumePercent { get; private set; }
+		public float musicVolumePercent { get; private set; }
+
+		[SerializeField] private Vector3 listenerOffset = Vector3.up;
+
+		private AudioSource sfx2DSource;
+		private AudioSource[] musicSources;
+		private int activeMusicSourceIndex;
+
+		public static AudioManager instance;
+
+		private Transform audioListener;
+		private Transform playerT;
+
+		private SoundLibrary library;
+
+		public void SetVolume(float volumePercent, AudioChannel channel)
 		{
-			instance = this;
-			DontDestroyOnLoad(gameObject);
-
-			library = GetComponent<SoundLibrary>();
-
-			musicSources = new AudioSource[2];
-			for (int i = 0; i < musicSources.Length; i++)
+			switch (channel)
 			{
-				GameObject newMusicSource = new GameObject("Music source " + (i + 1));
-				musicSources[i] = newMusicSource.AddComponent<AudioSource>();
-				newMusicSource.transform.parent = transform;
+				case AudioChannel.Master:
+					masterVolumePercent = volumePercent;
+					break;
+				case AudioChannel.Sfx:
+					sfxVolumePercent = volumePercent;
+					break;
+				case AudioChannel.Music:
+					musicVolumePercent = volumePercent;
+					break;
+				default:
+					break;
 			}
 
-			GameObject newSfx2Dsource = new GameObject("2D sfx source");
-			sfx2DSource = newSfx2Dsource.AddComponent<AudioSource>();
-			newSfx2Dsource.transform.parent = transform;
-
-			audioListener = FindObjectOfType<AudioListener>().transform;
-			var player = FindObjectOfType<PlayerController>();
-			if (player != null)
-			{
-				playerT = player.transform;
-			}
-
-			masterVolumePercent = 1;
-			sfxVolumePercent = 1;
-			musicVolumePercent = 1;
+			musicSources[0].volume = musicVolumePercent * masterVolumePercent;
+			musicSources[1].volume = musicVolumePercent * masterVolumePercent;
 		}
-	}
-
-	void OnEnable()
-	{
-		SceneManager.sceneLoaded += OnLevelFinishedLoading;
-	}
-
-	void OnDisable()
-	{
-		SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-	}
-
-	void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-	{
-		if (playerT == null)
+		public void PlayMusic(AudioClip clip, float fadeDuration = 1)
 		{
-			if (FindObjectOfType<PlayerController>() != null)
+			activeMusicSourceIndex = 1 - activeMusicSourceIndex;
+			musicSources[activeMusicSourceIndex].clip = clip;
+			musicSources[activeMusicSourceIndex].Play();
+
+			StartCoroutine(AnimateMusicCrossfade(fadeDuration));
+		}
+		public void PlaySound(AudioClip clip, Vector3 pos)
+		{
+			if (clip != null)
 			{
-				playerT = FindObjectOfType<PlayerController>().transform;
+				AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
 			}
 		}
-	}
-
-	void LateUpdate()
-	{
-		if (playerT != null)
+		public void PlaySound(string soundName, Vector3 pos)
 		{
-			audioListener.position = playerT.position;
+			PlaySound(library.GetClipFromName(soundName), pos);
 		}
-	}
-
-	public void SetVolume(float volumePercent, AudioChannel channel)
-	{
-		switch (channel)
+		public void PlaySound2D(string soundName)
 		{
-			case AudioChannel.Master:
-				masterVolumePercent = volumePercent;
-				break;
-			case AudioChannel.Sfx:
-				sfxVolumePercent = volumePercent;
-				break;
-			case AudioChannel.Music:
-				musicVolumePercent = volumePercent;
-				break;
-			default:
-				break;
+			sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
 		}
 
-		musicSources[0].volume = musicVolumePercent * masterVolumePercent;
-		musicSources[1].volume = musicVolumePercent * masterVolumePercent;
-	}
-
-	public void PlayMusic(AudioClip clip, float fadeDuration = 1)
-	{
-		activeMusicSourceIndex = 1 - activeMusicSourceIndex;
-		musicSources[activeMusicSourceIndex].clip = clip;
-		musicSources[activeMusicSourceIndex].Play();
-
-		StartCoroutine(AnimateMusicCrossfade(fadeDuration));
-	}
-
-	public void PlaySound(AudioClip clip, Vector3 pos)
-	{
-		if (clip != null)
+		private void Awake()
 		{
-			AudioSource.PlayClipAtPoint(clip, pos, sfxVolumePercent * masterVolumePercent);
+			if (instance != null)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				instance = this;
+				DontDestroyOnLoad(gameObject);
+
+				library = GetComponent<SoundLibrary>();
+
+				musicSources = new AudioSource[2];
+				for (int i = 0; i < musicSources.Length; i++)
+				{
+					GameObject newMusicSource = new GameObject("Music source " + (i + 1));
+					musicSources[i] = newMusicSource.AddComponent<AudioSource>();
+					newMusicSource.transform.parent = transform;
+				}
+
+				GameObject newSfx2Dsource = new GameObject("2D sfx source");
+				sfx2DSource = newSfx2Dsource.AddComponent<AudioSource>();
+				newSfx2Dsource.transform.parent = transform;
+
+				audioListener = FindObjectOfType<AudioListener>().transform;
+				var player = FindObjectOfType<PlayerController>();
+				if (player != null)
+				{
+					playerT = player.transform;
+				}
+
+				masterVolumePercent = 1;
+				sfxVolumePercent = 1;
+				musicVolumePercent = 1;
+			}
 		}
-	}
-
-	public void PlaySound(string soundName, Vector3 pos)
-	{
-		PlaySound(library.GetClipFromName(soundName), pos);
-	}
-
-	public void PlaySound2D(string soundName)
-	{
-		sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
-	}
-
-
-	IEnumerator AnimateMusicCrossfade(float duration)
-	{
-		float percent = 0;
-
-		while (percent < 1)
+		private void OnEnable()
 		{
-			percent += Time.deltaTime * 1 / duration;
-			musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
-			musicSources[1 - activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
-			
-			yield return null;
+			SceneManager.sceneLoaded += OnLevelFinishedLoading;
+		}
+		private void OnDisable()
+		{
+			SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+		}
+		private void LateUpdate()
+		{
+			if (playerT != null)
+			{
+				audioListener.position = playerT.position + listenerOffset;
+			}
 		}
 
-		musicSources[1 - activeMusicSourceIndex].clip = null;
+		private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+		{
+			if (playerT == null)
+			{
+				if (FindObjectOfType<PlayerController>() != null)
+				{
+					playerT = FindObjectOfType<PlayerController>().transform;
+				}
+			}
+		}
+		private IEnumerator AnimateMusicCrossfade(float duration)
+		{
+			float percent = 0;
+
+			while (percent < 1)
+			{
+				percent += Time.deltaTime * 1 / duration;
+				musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
+				musicSources[1 - activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
+
+				yield return null;
+			}
+
+			musicSources[1 - activeMusicSourceIndex].clip = null;
+		}
 	}
 }

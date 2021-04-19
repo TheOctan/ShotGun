@@ -4,52 +4,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class LivingEntity : MonoBehaviour, IDamageable
+namespace OctanGames.Entities
 {
-    public float startingHealth = 3;
-    public float Health { get; protected set; }
-    protected bool isDead;
-
-    [Header("Events")]
-    public DeathEvent DeathEvent;
-    public HitDamageEvent HitDamageEvent;
-
-	protected virtual void Start()
+    public abstract class LivingEntity : MonoBehaviour, IDamageable
     {
-        Health = startingHealth;
-    }
+        public float startingHealth = 3;
+        public float Health { get; protected set; }
+        protected bool isDead;
 
-    public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
-    {
-        TakeDamage(damage);
-    }
+        [Header("Events")]
+        public DeathEvent DeathEvent;
+        public HitDamageEvent HitDamageEvent;
 
-    public virtual void TakeDamage(float damage)
-    {
-        Health -= damage;
-        HitDamageEvent.Invoke(damage);
-
-        if (Health <= 0 && !isDead)
+        protected virtual void Start()
         {
-            Die();
+            Health = startingHealth;
+        }
+
+        public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection)
+        {
+            TakeDamage(damage);
+        }
+
+        public virtual void TakeDamage(float damage)
+        {
+            Health -= damage;
+            HitDamageEvent.Invoke(damage);
+
+            if (Health <= 0 && !isDead)
+            {
+                Die();
+            }
+        }
+
+        [ContextMenu("Self Destruct")]
+        protected virtual void Die()
+        {
+            isDead = true;
+            DeathEvent.Invoke();
+            Destroy(gameObject);
         }
     }
 
-    [ContextMenu("Self Destruct")]
-    protected virtual void Die()
+    [System.Serializable]
+    public class DeathEvent : UnityEvent
     {
-        isDead = true;
-        DeathEvent.Invoke();
-        Destroy(gameObject);
     }
-}
 
-[System.Serializable]
-public class DeathEvent : UnityEvent
-{
-}
-
-[System.Serializable]
-public class HitDamageEvent : UnityEvent<float>
-{
+    [System.Serializable]
+    public class HitDamageEvent : UnityEvent<float>
+    {
+    }
 }

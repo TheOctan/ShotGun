@@ -2,38 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crosshairs : MonoBehaviour
+namespace OctanGames.Props
 {
-	public LayerMask targetMask;
-	public SpriteRenderer dot;
-	public Color dotHighlightColor;
-
-	[Header("Rotation")]
-	public float rotateSpeed = 40;
-	public bool clockwize;
-
-	private Color originalDotColor;
-
-	public void DetectTargets(Ray ray)
+	public class Crosshairs : MonoBehaviour
 	{
-		if (Physics.Raycast(ray, 100, targetMask))
+		public LayerMask targetMask;
+		public SpriteRenderer dot;
+		public Color dotHighlightColor;
+
+		[Header("Rotation")]
+		public float rotateSpeed = 40;
+		public bool clockwize;
+
+		private Color originalDotColor;
+
+		public void DetectTargets(Ray ray)
 		{
-			dot.color = dotHighlightColor;
+			if (Physics.Raycast(ray, 100, targetMask))
+			{
+				dot.color = dotHighlightColor;
+			}
+			else
+			{
+				dot.color = originalDotColor;
+			}
 		}
-		else
+
+		private void Start()
 		{
-			dot.color = originalDotColor;
+			Cursor.visible = false;
+			originalDotColor = dot.color;
 		}
-	}
 
-	private void Start()
-	{
-		Cursor.visible = false;
-		originalDotColor = dot.color;
-	}
-
-	private void Update()
-	{
-		transform.Rotate(Vector3.forward * (clockwize ? rotateSpeed : -rotateSpeed) * Time.deltaTime);
+		private void Update()
+		{
+			transform.Rotate(Vector3.forward * (clockwize ? rotateSpeed : -rotateSpeed) * Time.deltaTime);
+		}
 	}
 }

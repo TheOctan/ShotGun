@@ -2,87 +2,89 @@
 using System.Collections;
 using Assets.Scripts.Data;
 using System.Collections.Generic;
-using Assets.Scripts.Receivers;
+using OctanGames.Experimental.Managers;
+using System;
 
-public class HighScoreManager : TimeoutBehaviour
+namespace OctanGames.Managers
 {
-	public GameObject loadIndicator;
-	public RectTransform content;
-	public ScoreItemView scoreElementPrefab;
-
-	[Header("Receiver")]
-	public int scoreCount = 10;
-	[SerializeField] private BaseScoreReceiver scoreReceiver = null;
-
-	public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
-
-	private bool IsMarkPlayerScore = false;
-
-	public void UpdateScore()
+	public class HighScoreManager : TimeoutBehaviour
 	{
-		loadIndicator.SetActive(true);
+		public GameObject loadIndicator;
+		public RectTransform content;
+		public ScoreItemView scoreElementPrefab;
+		public Color leaderColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
 
-		ClearScore();
+		[Header("Receiver")]
+		public int scoreCount = 10;
+		public string defaultNickname = "Player 1";
+		[SerializeField] private BaseScoreReceiver scoreReceiver = null;
 
-		if (ConfigurationManager.LoginData.IsLogined)
+		public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
+
+		private bool IsMarkPlayerScore = false;
+
+		public void UpdateScore()
 		{
-			var login = ConfigurationManager.LoginData.Nickname;
-			var session = SessionManager.SessionData;
+			loadIndicator.SetActive(true);
+			ClearScore();
 
-			InvokeTimeoutAction(scoreReceiver.GetScore(login, session, scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
-		}
-		else
-		{
-			InvokeTimeoutAction(scoreReceiver.GetScore(scoreCount, OnReceiveModels), scoreReceiver.ConnectionTimeout);
-		}
-	}
+			IEnumerator scoreRoutine;
+			if (ScoreKeeperManager.score != 0)
+			{
+				scoreRoutine = scoreReceiver.GetScore(scoreCount, OnReceiveModels, new ScoreData() { Name = defaultNickname, Score = ScoreKeeperManager.score });
+			}
+			else
+			{
+				scoreRoutine = scoreReceiver.GetScore(scoreCount, OnReceiveModels);
+			}
 
-	protected override void OnTimeout()
-	{
-		base.OnTimeout();
-		loadIndicator.SetActive(false);
-	}
-
-	private void OnReceiveModels(IEnumerable<ScoreData> models)
-	{
-		if (timeoutCoroutine != null)
-			StopCoroutine(timeoutCoroutine);
-
-		foreach (var model in models)
-		{
-			var instance = Instantiate(scoreElementPrefab, content);
-			InitializeScoreItemView(instance, model);
+			InvokeTimeoutAction(scoreRoutine, scoreReceiver.ConnectionTimeout);
 		}
 
-		loadIndicator.SetActive(false);
-	}
-
-	private void ClearScore()
-	{
-		foreach (Transform child in content)
+		protected override void OnTimeout()
 		{
-			Destroy(child.gameObject);
+			base.OnTimeout();
+			loadIndicator.SetActive(false);
 		}
-		content.DetachChildren();
-	}
 
-	private void InitializeScoreItemView(ScoreItemView itemView, ScoreData data)
-	{
-		itemView.Position = (itemView.transform.GetSiblingIndex() + 1).ToString();
-		itemView.Name = data.Name;
-		itemView.Score = data.Score.ToString("D6");
-
-		var nickname = ConfigurationManager.LoginData.Nickname;
-		var score = SessionManager.SessionData.Score;
-
-		if (ConfigurationManager.LoginData.IsLogined && !IsMarkPlayerScore && data.Name == nickname && data.Score == score)
+		private void OnReceiveModels(IEnumerable<ScoreData> models)
 		{
-			IsMarkPlayerScore = true;
-			itemView.BackgroundColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
+			if (timeoutCoroutine != null)
+				StopCoroutine(timeoutCoroutine);
+
+			foreach (var model in models)
+			{
+				ScoreItemView instance = Instantiate(scoreElementPrefab, content);
+				InitializeScoreItemView(instance, model);
+			}
+
+			loadIndicator.SetActive(false);
 		}
-		else
+		private void ClearScore()
 		{
-			itemView.Transparency = content.childCount % 2 == 0 ? 0f : 0.5f;
+			foreach (Transform child in content)
+			{
+				Destroy(child.gameObject);
+			}
+			content.DetachChildren();
+		}
+		private void InitializeScoreItemView(ScoreItemView itemView, ScoreData data)
+		{
+			itemView.Position = (itemView.transform.GetSiblingIndex() + 1).ToString();
+			itemView.Name = data.Name;
+			itemView.Score = data.Score.ToString("D6");
+
+			var score = ScoreKeeperManager.score;
+
+			if (!IsMarkPlayerScore && data.Score == score)
+			{
+				IsMarkPlayerScore = true;
+				itemView.BackgroundColor = leaderColor;
+			}
+			else
+			{
+				itemView.Transparency = content.childCount % 2 == 0 ? 0f : 0.5f;
+			}
 		}
 	}
 }

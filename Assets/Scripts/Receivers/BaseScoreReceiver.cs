@@ -8,6 +8,6 @@ using UnityEngine;
 public abstract class BaseScoreReceiver : ScriptableObject, IScoreReceiver
 {
 	public virtual int ConnectionTimeout => -1;
-	public abstract IEnumerator GetScore(int minCount, Action<IEnumerable<ScoreData>> callback);
-	public abstract IEnumerator GetScore(string nickname, SessionData session, int minCount, Action<IEnumerable<ScoreData>> callback);
+	public abstract IEnumerator GetScore(int maxCount, Action<IEnumerable<ScoreData>> callback);
+	public abstract IEnumerator GetScore(int maxCount, Action<IEnumerable<ScoreData>> callback, ScoreData score);
 }

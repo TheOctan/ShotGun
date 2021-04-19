@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 
-public class LockRotation : MonoBehaviour
+namespace OctanGames
 {
-	private Quaternion startRotation;
-
-	private void Awake()
+	public class LockRotation : MonoBehaviour
 	{
-		startRotation = transform.rotation;
-	}
+		private Quaternion startRotation;
 
-	private void Update()
-    {
-		transform.rotation = startRotation;
+		private void Awake()
+		{
+			startRotation = transform.rotation;
+		}
+
+		private void Update()
+		{
+			transform.rotation = startRotation;
+		}
 	}
 }

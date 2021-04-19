@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Receiver/TestRegistration")]
+[CreateAssetMenu(menuName = "Receiver/Test/Registration")]
 public class TestRegistrationReceiver : BaseReceiver
 {
 	public override int ConnectionTimeout => connectionTimeout;

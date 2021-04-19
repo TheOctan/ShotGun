@@ -1,4 +1,8 @@
-﻿using Assets.Scripts.Controllers;
+﻿using OctanGames.Controllers;
+using OctanGames.Entities;
+using OctanGames.Managers;
+using OctanGames.Props;
+using OctanGames.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +10,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Legacy
 {
+	[Obsolete("Class Player has been depricated: Use class OctanGames.Entities.Player.PlayerController")]
 	[RequireComponent(typeof(PlayerController))]
 	[RequireComponent(typeof(GunController))]
 	public class Player : LivingEntity
@@ -34,16 +39,6 @@ namespace Assets.Scripts.Legacy
 			controller = GetComponent<PlayerController>();
 			gunController = GetComponent<GunController>();
 			viewCamera = Camera.main;
-
-			//var spawner = FindObjectOfType<Spawner>();
-			//if (spawner)
-			//{
-			//	spawner.OnNewWave += OnNewWave;
-			//}
-			//else
-			//{
-			//	OnNewWave(1);
-			//}
 		}
 
 		public void OnNewWave(int waveNumber)
@@ -54,7 +49,7 @@ namespace Assets.Scripts.Legacy
 
 		void Update()
 		{
-			if (GameUI.GameIsPaused)
+			if (GameUI.IsPaused)
 				return;
 
 			// Movement input

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Receiver/TestConfig")]
+[CreateAssetMenu(menuName = "Receiver/Test/Config")]
 public class TestConfigReceiver : BaseConfigReceiver
 {
 	public override int ConnectionTimeout => connectionTimeout;

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Receiver/TestAuthorization")]
+[CreateAssetMenu(menuName = "Receiver/Test/Authorization")]
 public class TestAuthorizationReceiver : BaseReceiver
 {
 	public override int ConnectionTimeout => connectionTimeout;

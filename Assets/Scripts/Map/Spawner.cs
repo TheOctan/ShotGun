@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OctanGames.Entities;
+using OctanGames.Entities.Player;
+using OctanGames.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
