@@ -1918,7 +1918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &183138621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4811,8 +4811,10 @@ MonoBehaviour:
   content: {fileID: 1488241031}
   scoreElementPrefab: {fileID: 2594123703940619112, guid: fc6d11232af2e1144bdffc1debfe09e6,
     type: 3}
+  leaderColor: {r: 0.2, g: 0.5, b: 0.2, a: 0.5}
   scoreCount: 10
-  scoreReceiver: {fileID: 11400000, guid: 4b86540c00766544cb8723001b8e7faa, type: 2}
+  defaultNickname: Player 1
+  scoreReceiver: {fileID: 11400000, guid: 2360e4afa3d19984cb106576a9a2e7ed, type: 2}
 --- !u!1 &507513823
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace OctanGames.Managers
 		public GameObject loadIndicator;
 		public RectTransform content;
 		public ScoreItemView scoreElementPrefab;
+		public Color leaderColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
 
 		[Header("Receiver")]
 		public int scoreCount = 10;
@@ -73,12 +74,12 @@ namespace OctanGames.Managers
 			itemView.Name = data.Name;
 			itemView.Score = data.Score.ToString("D6");
 
-			var score = SessionManager.SessionData.Score;
+			var score = ScoreKeeperManager.score;
 
 			if (!IsMarkPlayerScore && data.Score == score)
 			{
 				IsMarkPlayerScore = true;
-				itemView.BackgroundColor = new Color(0.2f, 0.5f, 0.2f, 0.5f);
+				itemView.BackgroundColor = leaderColor;
 			}
 			else
 			{
