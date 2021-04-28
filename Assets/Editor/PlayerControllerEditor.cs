@@ -13,6 +13,7 @@ public class PlayerControllerEditor : Editor
 	private SerializedProperty _movementController;
 	private SerializedProperty _gunController;
 	private SerializedProperty _playerInput;
+	private SerializedProperty _useWeaponAim;
 	private SerializedProperty _aimHeight;
 	private SerializedProperty _minAimRadius;
 	private SerializedProperty _useAimDistance;
@@ -31,6 +32,7 @@ public class PlayerControllerEditor : Editor
 		_movementController = serializedObject.FindProperty("movementController");
 		_gunController = serializedObject.FindProperty("gunController");
 		_playerInput = serializedObject.FindProperty("playerInput");
+		_useWeaponAim = serializedObject.FindProperty("useWeaponAim");
 		_aimHeight = serializedObject.FindProperty("aimHeight");
 		_minAimRadius = serializedObject.FindProperty("minAimRadius");
 		_useAimDistance = serializedObject.FindProperty("useAimDistance");
@@ -49,6 +51,7 @@ public class PlayerControllerEditor : Editor
 		EditorGUILayout.PropertyField(_movementController);
 		EditorGUILayout.PropertyField(_gunController);
 		EditorGUILayout.PropertyField(_playerInput);
+		EditorGUILayout.PropertyField(_useWeaponAim);
 		EditorGUILayout.PropertyField(_aimHeight);
 		EditorGUILayout.PropertyField(_minAimRadius);
 		EditorGUILayout.PropertyField(_useAimDistance);

@@ -55,11 +55,12 @@ namespace OctanGames.Controllers
 
 		private void MovePlayer()
 		{
-			movementDirection = Accelerate(movementDirection, rawMovementDirection);
+			float tangentSpeed = acceleration * Time.fixedDeltaTime;
+			movementDirection = AccelerateDirection(movementDirection, rawMovementDirection, tangentSpeed);
 			Vector3 movement = movementDirection * movementSpeed * Time.fixedDeltaTime;
+
 			rigidbodyComponent.MovePosition(rigidbodyComponent.position + movement);
 		}
-
 		private void RotatePlayer()
 		{
 			if (rotateWithMovement && rotationDirection == Vector3.zero)
@@ -79,30 +80,31 @@ namespace OctanGames.Controllers
 			}
 		}
 
-		private Vector3 Accelerate(Vector3 direction, Vector3 targetDirection)
-		{
-			return Vector3.Lerp(direction, targetDirection, acceleration * Time.fixedDeltaTime);
-		}
-
 		private void RotateTowards(Vector3 direction)
 		{
 			if (direction.sqrMagnitude > 0.0025f)
 			{
 				Quaternion targetRotation = Quaternion.LookRotation(direction);
+
 				float turnStep = turnSpeed * Time.fixedDeltaTime;
 				if (velocityDependent)
 				{
 					turnStep *= direction.magnitude;
 				}
 
-				Quaternion rotation = turnSpeed > 0 ?
-					Quaternion.Slerp(rigidbodyComponent.rotation, targetRotation, turnStep) :
-					targetRotation;
+				Quaternion rotation = AccelerateRotation(rigidbodyComponent.rotation, targetRotation, turnStep);
 
 				rigidbodyComponent.MoveRotation(rotation);
 			}
 		}
-
+		private Vector3 AccelerateDirection(Vector3 direction, Vector3 targetDirection, float tangentSpeed)
+		{
+			return tangentSpeed > 0 ? Vector3.Lerp(direction, targetDirection, tangentSpeed) : targetDirection;
+		}
+		private Quaternion AccelerateRotation(Quaternion rotation, Quaternion targetRotation, float turnSpeed)
+		{
+			return turnSpeed > 0 ? Quaternion.Slerp(rotation, targetRotation, turnSpeed) : targetRotation;
+		}
 		private Vector3 AlignToCamera(Vector3 direction)
 		{
 			Vector3 cameraForward = cameraTransform.forward;

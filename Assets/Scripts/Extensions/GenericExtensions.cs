@@ -1,23 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Extensions
 {
 	public static class GenericExtensions
 	{
-		public static T[] Shuffle<T>(this T[] array)
+		public static IList<T> Shuffle<T>(this IList<T> list)
 		{
-			return array.PhisherShuffle(DateTime.Now.Second);
+			return list.Shuffle(DateTime.Now.Second);
 		}
-		public static T[] PhisherShuffle<T>(this T[] array, int seed)
+		public static IList<T> Shuffle<T>(this IList<T> list, int seed)
 		{
 			Random random = new Random(seed);
-			for (int i = 0; i < array.Length - 1; i++)
+			for (int i = 0; i < list.Count - 1; i++)
 			{
-				int randomIndex = random.Next(i, array.Length);
-				Swap(ref array[randomIndex], ref array[i]);
+				int randomIndex = random.Next(i, list.Count);
+
+				T temp = list[randomIndex];
+				list[randomIndex] = list[i];
+				list[i] = temp;
 			}
 
-			return array;
+			return list;
 		}
 
 		public static void Swap<T>(ref T left, ref T right)

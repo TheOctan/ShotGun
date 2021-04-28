@@ -29,6 +29,7 @@ namespace OctanGames.UI
 		public Text scoreUI;
 		public Text gameOverScoreUI;
 		public RectTransform healthBar;
+		public Selectable selectedElement;
 
 		[Header("Events")]
 		[SerializeField] private GameOverEvent gameOverEvent;
@@ -52,9 +53,10 @@ namespace OctanGames.UI
 			ToggleUI();
 			togglePauseEvent.Invoke(IsPaused);
 		}
-		public void SelectButton(Selectable selectable)
+		public void SelectUIElement(Selectable selectable)
 		{
 			EventSystem.current.SetSelectedGameObject(selectable.gameObject);
+			
 			selectable.Select();
 			selectable.OnSelect(null);
 		}

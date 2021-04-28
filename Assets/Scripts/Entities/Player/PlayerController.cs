@@ -15,6 +15,7 @@ namespace OctanGames.Entities.Player
 
 		[Header("Input Settings")]
 		public PlayerInput playerInput;
+		[SerializeField] private bool useWeaponAim = true;
 		[SerializeField] private float aimHeight;
 		[SerializeField] private float minAimRadius = 2f;
 		[SerializeField] private bool useAimDistance = true;
@@ -91,7 +92,7 @@ namespace OctanGames.Entities.Player
 			var aimPoint = new Vector2(point.x, point.z);
 			var positionPoint = new Vector2(transform.position.x, transform.position.z);
 
-			if ((aimPoint - positionPoint).sqrMagnitude > Mathf.Pow(minAimRadius, 2))
+			if (useWeaponAim && (aimPoint - positionPoint).sqrMagnitude > Mathf.Pow(minAimRadius, 2))
 			{
 				gunController.Aim(point);
 			}
@@ -113,13 +114,13 @@ namespace OctanGames.Entities.Player
 					break;
 			}
 		}
-		public void EnableGameplayControls()
-		{
-			playerInput.SwitchCurrentActionMap(actionMapPlayerControls);
-		}
 		public void EnablePauseMenuControls()
 		{
 			playerInput.SwitchCurrentActionMap(actionMapMenuControls);
+		}
+		public void EnableGameplayControls()
+		{
+			playerInput.SwitchCurrentActionMap(actionMapPlayerControls);
 		}
 
 		private void Awake()
@@ -166,7 +167,7 @@ namespace OctanGames.Entities.Player
 		}
 		private void UpdateAnalogAim()
 		{
-			Vector3 aimPoint = transform.position + (transform.forward * minAimRadius);
+			Vector3 aimPoint = transform.position + (rotationDirection * minAimRadius);
 			if (useAimDistance)
 			{
 				aimPoint += (rotationDirection * aimDistance);

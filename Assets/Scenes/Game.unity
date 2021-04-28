@@ -1679,7 +1679,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -1689,7 +1689,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -1739,12 +1739,12 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -5146,6 +5146,7 @@ MonoBehaviour:
   scoreUI: {fileID: 1837511058}
   gameOverScoreUI: {fileID: 765439426}
   healthBar: {fileID: 1168182982}
+  selectedElement: {fileID: 1869654527}
   gameOverEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5161,7 +5162,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 532383549}
-        m_MethodName: SelectButton
+        m_MethodName: SelectUIElement
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1869654527}
@@ -5171,12 +5172,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  togglePauseEvent:
-    m_PersistentCalls:
-      m_Calls:
       - m_Target: {fileID: 810894822}
         m_MethodName: SwitchFocusedPlayerControlScheme
-        m_Mode: 0
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5185,12 +5183,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  togglePauseEvent:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 532383549}
-        m_MethodName: SelectButton
+        m_MethodName: SelectUIElement
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 461756701}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 810894822}
+        m_MethodName: SwitchFocusedPlayerControlScheme
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7379,7 +7391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 41.360855}
+  m_AnchoredPosition: {x: 0, y: 41.360817}
   m_SizeDelta: {x: 0, y: 82.72171}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861146417
@@ -14042,7 +14054,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -14052,7 +14064,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -14102,12 +14114,12 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -16367,7 +16379,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -16377,7 +16389,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
@@ -16427,7 +16439,7 @@ PrefabInstance:
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4128617405646758107, guid: fc6d11232af2e1144bdffc1debfe09e6,
         type: 3}

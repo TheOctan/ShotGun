@@ -60,7 +60,8 @@ public class MapGenerator : MonoBehaviour
 				allTileCoords.Add(new Coord(x, y));
 			}
 		}
-		shuffledTileCoords = new Queue<Coord>(allTileCoords.ToArray().PhisherShuffle(currentMap.seed));
+
+		shuffledTileCoords = new Queue<Coord>(allTileCoords.Shuffle(currentMap.seed));
 
 		// Create map holder object
 		string holderName = "Generated Map";
@@ -124,7 +125,7 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 
-		shuffledOpenTileCoords = new Queue<Coord>(allOpenCoords.ToArray().PhisherShuffle(currentMap.seed));
+		shuffledOpenTileCoords = new Queue<Coord>(allOpenCoords.ToArray().Shuffle(currentMap.seed));
 
 		// Creating navmesh mask
 		Transform maskLeft = Instantiate(navmeshMaskPrefab, Vector3.left * (currentMap.mapSize.x + maxMapSize.x) / 4f * tileSize, Quaternion.identity);

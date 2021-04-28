@@ -56,6 +56,7 @@ MonoBehaviour:
   movementController: {fileID: 1123328537847640025}
   gunController: {fileID: 1123328537847640027}
   playerInput: {fileID: 1123328537847640024}
+  useWeaponAim: 1
   aimHeight: 1
   minAimRadius: 2
   useAimDistance: 1
@@ -414,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123328538770111909}
   m_Layer: 9
-  m_Name: Weapon_Hold
+  m_Name: Weapon_Holder
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
