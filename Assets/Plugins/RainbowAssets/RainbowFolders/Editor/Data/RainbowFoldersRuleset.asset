@@ -350,80 +350,8 @@ MonoBehaviour:
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 0
-    Key: VFX
-    Ordinal: 28
-    Priority: 0
-    IconType: 1200
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 200
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 0
-    Key: Palette
-    Ordinal: 29
-    Priority: 0
-    IconType: 1120
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 120
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 0
-    Key: Weapons
-    Ordinal: 30
-    Priority: 0
-    IconType: 1160
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 160
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 1
-    Key: Assets/Prefabs/UI
-    Ordinal: 31
-    Priority: 0
-    IconType: 1050
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 50
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 1
-    Key: Assets/Prefabs/Entities
-    Ordinal: 32
-    Priority: 0
-    IconType: 1030
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 30
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 1
-    Key: Assets/Prefabs/Map
-    Ordinal: 33
-    Priority: 0
-    IconType: 1070
-    SmallIcon: {fileID: 0}
-    LargeIcon: {fileID: 0}
-    IsIconRecursive: 0
-    BackgroundType: 70
-    BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
-    IsHidden: 0
-  - Type: 0
     Key: Controls
-    Ordinal: 34
+    Ordinal: 28
     Priority: 0
     IconType: 1
     SmallIcon: {fileID: 2800000, guid: 26a8bda6e48bf524e88003050a8dcf34, type: 3}
@@ -433,9 +361,93 @@ MonoBehaviour:
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
+  - Type: 0
+    Key: Presets
+    Ordinal: 29
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 9262a8dcca9a6264b9d0c6de09a4027b, type: 3}
+    LargeIcon: {fileID: 2800000, guid: cfbefbc70315ee7439c2d12037ccda57, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: Art
+    Ordinal: 30
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 538cb61254a59814c96eaf53424d0195, type: 3}
+    LargeIcon: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: Sprites
+    Ordinal: 31
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 3cf9f2f4787f58d4b9e15f11375e3026, type: 3}
+    LargeIcon: {fileID: 2800000, guid: e604d45d83287904194e9a2d5ff85755, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: Documentation
+    Ordinal: 32
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 090051137e62546479f14653b6b1aa76, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 3b5d01eb1796d52408e0a9496be056d4, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: _NoVersionControl
+    Ordinal: 33
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: 19bad7787b5d27b44919b885235dc123, type: 3}
+    LargeIcon: {fileID: 2800000, guid: b0bdac6198341634fbeb4124f770f8b9, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: StreamingAssets
+    Ordinal: 34
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 2800000, guid: 9dc818673f5f0664fb2b277e4d3a12ba, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: ThirdPartyAssets
+    Ordinal: 35
+    Priority: 0
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: e8fee121dff5cdd4bb37d0a9be43899a, type: 3}
+    LargeIcon: {fileID: 2800000, guid: 3b210ce8c3a863547a31caa66a8c0421, type: 3}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
   - Type: 1
     Key: Assets/Scripts/Legacy
-    Ordinal: 35
+    Ordinal: 36
     Priority: 0
     IconType: 10
     SmallIcon: {fileID: 0}
@@ -447,7 +459,7 @@ MonoBehaviour:
     IsHidden: 0
   - Type: 1
     Key: Assets/Scripts/Experimental
-    Ordinal: 36
+    Ordinal: 37
     Priority: 0
     IconType: 90
     SmallIcon: {fileID: 0}
@@ -458,38 +470,86 @@ MonoBehaviour:
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 0
-    Key: Presets
-    Ordinal: 37
+    Key: Props
+    Ordinal: 38
     Priority: 0
-    IconType: 1
-    SmallIcon: {fileID: 2800000, guid: 9262a8dcca9a6264b9d0c6de09a4027b, type: 3}
-    LargeIcon: {fileID: 2800000, guid: 1afee3ca60cdc3a44a9e757f1f86c408, type: 3}
+    IconType: 1160
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
     IsIconRecursive: 0
-    BackgroundType: 0
+    BackgroundType: 160
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 0
-    Key: Art
-    Ordinal: 38
+    Key: Characters
+    Ordinal: 39
     Priority: 0
-    IconType: 1
-    SmallIcon: {fileID: 2800000, guid: 538cb61254a59814c96eaf53424d0195, type: 3}
-    LargeIcon: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
+    IconType: 1090
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
     IsIconRecursive: 0
-    BackgroundType: 0
+    BackgroundType: 90
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
     IsHidden: 0
-  - Type: 1
-    Key: Assets/Project/Sprites
-    Ordinal: 39
+  - Type: 0
+    Key: Palette
+    Ordinal: 40
+    Priority: 0
+    IconType: 1120
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 120
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: VFX
+    Ordinal: 41
+    Priority: 0
+    IconType: 1200
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 200
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: UI
+    Ordinal: 42
+    Priority: 0
+    IconType: 1050
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 50
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: Map
+    Ordinal: 43
+    Priority: 0
+    IconType: 1070
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 70
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+    IsHidden: 0
+  - Type: 0
+    Key: Gizmos
+    Ordinal: 44
     Priority: 0
     IconType: 1
-    SmallIcon: {fileID: 2800000, guid: 3cf9f2f4787f58d4b9e15f11375e3026, type: 3}
-    LargeIcon: {fileID: 2800000, guid: e604d45d83287904194e9a2d5ff85755, type: 3}
+    SmallIcon: {fileID: 2800000, guid: 905b660a64caa4f459f825b43286d32d, type: 3}
+    LargeIcon: {fileID: 2800000, guid: dfdd338cf4b9c1741952a66cfc5760c4, type: 3}
     IsIconRecursive: 0
     BackgroundType: 0
     BackgroundTexture: {fileID: 0}
-    IsBackgroundRecursive: 0
+    IsBackgroundRecursive: 1
     IsHidden: 0
