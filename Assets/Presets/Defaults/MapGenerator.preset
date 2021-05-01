@@ -1,0 +1,358 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MapGenerator
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 5ad28166761599b4ba09db915bffbcdb,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: autoGenerateInGame
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].mapSize.x
+    value: 9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].mapSize.y
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].obstaclePercent
+    value: 0.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].seed
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].minObstacleHeight
+    value: 1.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].maxObstacleHeight
+    value: 1.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].foregroundColor.r
+    value: 0.9098039
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].foregroundColor.g
+    value: 0.05882354
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].foregroundColor.b
+    value: 0.126038
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].foregroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].backgroundColor.r
+    value: 0.4117647
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].backgroundColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].backgroundColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[0].backgroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].mapSize.x
+    value: 13
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].mapSize.y
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].obstaclePercent
+    value: 0.29
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].seed
+    value: 37
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].minObstacleHeight
+    value: 1.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].maxObstacleHeight
+    value: 0.51
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].foregroundColor.r
+    value: 0.0627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].foregroundColor.g
+    value: 0.2901961
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].foregroundColor.b
+    value: 0.6627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].foregroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].backgroundColor.r
+    value: 0.3019608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].backgroundColor.g
+    value: 0.57254905
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].backgroundColor.b
+    value: 0.8392157
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[1].backgroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].mapSize.x
+    value: 15
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].mapSize.y
+    value: 9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].obstaclePercent
+    value: 0.322
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].seed
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].minObstacleHeight
+    value: 0.94
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].maxObstacleHeight
+    value: 1.99
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].foregroundColor.r
+    value: 0.10980392
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].foregroundColor.g
+    value: 0.53333336
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].foregroundColor.b
+    value: 0.039215688
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].foregroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].backgroundColor.r
+    value: 0.95686275
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].backgroundColor.g
+    value: 0.69411767
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].backgroundColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[2].backgroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].mapSize.x
+    value: 22
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].mapSize.y
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].obstaclePercent
+    value: 0.225
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].seed
+    value: 62
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].minObstacleHeight
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].maxObstacleHeight
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].foregroundColor.r
+    value: 0.08627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].foregroundColor.g
+    value: 0.02745098
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].foregroundColor.b
+    value: 0.19215687
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].foregroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].backgroundColor.r
+    value: 0.8156863
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].backgroundColor.g
+    value: 0.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].backgroundColor.b
+    value: 0.3882353
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[3].backgroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].mapSize.x
+    value: 21
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].mapSize.y
+    value: 12
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].obstaclePercent
+    value: 0.151
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].seed
+    value: 88
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].minObstacleHeight
+    value: 0.31
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].maxObstacleHeight
+    value: 1.41
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].foregroundColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].foregroundColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].foregroundColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].foregroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].backgroundColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].backgroundColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].backgroundColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maps.Array.data[4].backgroundColor.a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: mapIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: tilePrefab
+    value: 
+    objectReference: {fileID: 3775338572594619400, guid: c131909b6d752f748a50cf027176ffaf,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: obstaclePrefab
+    value: 
+    objectReference: {fileID: 715421260398904058, guid: 64d8a8754f0b8d94a9a2a984696cc585,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: mapFloor
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: navmeshFloor
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: navmeshMaskPrefab
+    value: 
+    objectReference: {fileID: 1496675192929059853, guid: 39cbbc7ce261ad84aba8a1cafa4257b5,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: maxMapSize.x
+    value: 25
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: maxMapSize.y
+    value: 20.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: outlinePercent
+    value: 0.04
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: tileSize
+    value: 1.57
+    objectReference: {fileID: 0}
