@@ -167,7 +167,7 @@ namespace OctanGames.Entities.Player
 		}
 		private void UpdateAnalogAim()
 		{
-			Vector3 aimPoint = transform.position + (rotationDirection * minAimRadius);
+			Vector3 aimPoint = transform.position + (transform.forward * minAimRadius);
 			if (useAimDistance)
 			{
 				aimPoint += (rotationDirection * aimDistance);
