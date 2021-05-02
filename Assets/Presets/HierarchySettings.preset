@@ -1,0 +1,671 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HierarchySettings
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 8b7bbe92ee6f2f74ab6bb3656648fd63,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowEven.r
+    value: 0.7607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowEven.g
+    value: 0.7607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowEven.b
+    value: 0.7607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowEven.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowOdd.r
+    value: 0.7830189
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowOdd.g
+    value: 0.7830189
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowOdd.b
+    value: 0.7830189
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorRowOdd.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorGrid.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorGrid.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorGrid.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorGrid.a
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorTreeView.r
+    value: 0.47843137
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorTreeView.g
+    value: 0.47843137
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorTreeView.b
+    value: 0.47843137
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorTreeView.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorLockIcon.r
+    value: 0.31764707
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorLockIcon.g
+    value: 0.31764707
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorLockIcon.b
+    value: 0.31764707
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorLockIcon.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.tagColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.tagColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.tagColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.tagColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.layerColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.layerColor.g
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.layerColor.b
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.layerColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.comSelBGColor.r
+    value: 0.9198113
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.comSelBGColor.g
+    value: 0.9645067
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.comSelBGColor.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.comSelBGColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.selectionColor.r
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.selectionColor.g
+    value: 0.54901963
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.selectionColor.b
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.selectionColor.a
+    value: 0.5019608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderTitle.r
+    value: 0.078431375
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderTitle.g
+    value: 0.078431375
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderTitle.b
+    value: 0.078431375
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderTitle.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderBackground.r
+    value: 0.9098039
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderBackground.g
+    value: 0.9098039
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderBackground.b
+    value: 0.9098039
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: personalTheme.colorHeaderBackground.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowEven.r
+    value: 0.21176471
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowEven.g
+    value: 0.21176471
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowEven.b
+    value: 0.21176471
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowEven.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowOdd.r
+    value: 0.21960784
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowOdd.g
+    value: 0.21960784
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowOdd.b
+    value: 0.21960784
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorRowOdd.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorGrid.r
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorGrid.g
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorGrid.b
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorGrid.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorTreeView.r
+    value: 0.41960785
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorTreeView.g
+    value: 0.41960785
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorTreeView.b
+    value: 0.41960785
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorTreeView.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorLockIcon.r
+    value: 0.69803923
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorLockIcon.g
+    value: 0.69803923
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorLockIcon.b
+    value: 0.69803923
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorLockIcon.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.tagColor.r
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.tagColor.g
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.tagColor.b
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.tagColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.layerColor.r
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.layerColor.g
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.layerColor.b
+    value: 0.7058824
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.layerColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.comSelBGColor.r
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.comSelBGColor.g
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.comSelBGColor.b
+    value: 0.16078432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.comSelBGColor.a
+    value: 0.5529412
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.selectionColor.r
+    value: 0.17254902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.selectionColor.g
+    value: 0.3647059
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.selectionColor.b
+    value: 0.5294118
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.selectionColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderTitle.r
+    value: 0.8235295
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderTitle.g
+    value: 0.8235295
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderTitle.b
+    value: 0.8235295
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderTitle.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderBackground.r
+    value: 0.5019608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderBackground.g
+    value: 0.5019608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderBackground.b
+    value: 0.5019608
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: professionalTheme.colorHeaderBackground.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowEven.r
+    value: 0.10388456
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowEven.g
+    value: 0.10388456
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowEven.b
+    value: 0.10388456
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowEven.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowOdd.r
+    value: 0.10773214
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowOdd.g
+    value: 0.10773214
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowOdd.b
+    value: 0.10773214
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorRowOdd.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorGrid.r
+    value: 0.07887532
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorGrid.g
+    value: 0.07887532
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorGrid.b
+    value: 0.07887532
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorGrid.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorTreeView.r
+    value: 0.20584534
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorTreeView.g
+    value: 0.20584534
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorTreeView.b
+    value: 0.20584534
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorTreeView.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorLockIcon.r
+    value: 0.34243432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorLockIcon.g
+    value: 0.34243432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorLockIcon.b
+    value: 0.34243432
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorLockIcon.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.tagColor.r
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.tagColor.g
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.tagColor.b
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.tagColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.layerColor.r
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.layerColor.g
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.layerColor.b
+    value: 0.3462819
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.layerColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.comSelBGColor.r
+    value: 0.490566
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.comSelBGColor.g
+    value: 0.07887532
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.comSelBGColor.b
+    value: 0.07887532
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.comSelBGColor.a
+    value: 0.5529412
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.selectionColor.r
+    value: 0.08464668
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.selectionColor.g
+    value: 0.17891231
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.selectionColor.b
+    value: 0.2597114
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.selectionColor.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderTitle.r
+    value: 0.40399554
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderTitle.g
+    value: 0.40399554
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderTitle.b
+    value: 0.40399554
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderTitle.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderBackground.r
+    value: 0.2462449
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderBackground.g
+    value: 0.2462449
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderBackground.b
+    value: 0.2462449
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playmodeTheme.colorHeaderBackground.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeHierarchy
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: autoCreateHLD
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: pingHierarchyLocalDataObject
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayVersion
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayCustomObjectIcon
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayTreeView
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayRowBackground
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayGrid
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayStaticButton
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: offSetIconAfterName
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayComponents
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: componentAlignment
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: componentDisplayMode
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: components.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: components.Array.data[0]
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: componentLimited
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: componentSize
+    value: 16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: componentSpacing
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayTag
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: tagAlignment
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: displayLayer
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: layerAlignment
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: applyStaticTargetAndChild
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: applyTagTargetAndChild
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: applyLayerTargetAndChild
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: headerPrefix
+    value: $
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: headerDefaultTag
+    value: EditorOnly
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: onlyDisplayWhileMouseEnter
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: contentDisplay
+    value: 6
+    objectReference: {fileID: 0}
