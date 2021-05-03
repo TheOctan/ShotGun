@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ProjectRuleset
+  m_Name: ProjectRulesetDefault
   m_TargetType:
     m_NativeTypeID: 114
     m_ManagedTypePPtr: {fileID: -1979333959, guid: 3bcb0d35ddf493043aaa14715c4ae5dc,
@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.size
-    value: 42
+    value: 41
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].Type
@@ -47,7 +47,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].IconType
-    value: 2510
+    value: 2010
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].SmallIcon
@@ -95,7 +95,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[1].IconType
-    value: 2520
+    value: 2020
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[1].SmallIcon
@@ -287,7 +287,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[5].IconType
-    value: 2540
+    value: 2040
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[5].SmallIcon
@@ -335,7 +335,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[6].IconType
-    value: 2560
+    value: 2060
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[6].SmallIcon
@@ -383,7 +383,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[7].IconType
-    value: 2690
+    value: 2190
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[7].SmallIcon
@@ -431,7 +431,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[8].IconType
-    value: 2570
+    value: 2070
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[8].SmallIcon
@@ -479,7 +479,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[9].IconType
-    value: 2580
+    value: 2080
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[9].SmallIcon
@@ -527,7 +527,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[10].IconType
-    value: 2600
+    value: 2100
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[10].SmallIcon
@@ -575,7 +575,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[11].IconType
-    value: 2610
+    value: 2110
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[11].SmallIcon
@@ -623,7 +623,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[12].IconType
-    value: 2620
+    value: 2120
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[12].SmallIcon
@@ -767,7 +767,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[15].IconType
-    value: 2650
+    value: 2150
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[15].SmallIcon
@@ -815,7 +815,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[16].IconType
-    value: 2660
+    value: 2160
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[16].SmallIcon
@@ -863,7 +863,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[17].IconType
-    value: 2670
+    value: 2170
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[17].SmallIcon
@@ -911,7 +911,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[18].IconType
-    value: 2680
+    value: 2180
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[18].SmallIcon
@@ -959,7 +959,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[19].IconType
-    value: 2690
+    value: 2190
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[19].SmallIcon
@@ -1007,7 +1007,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[20].IconType
-    value: 2590
+    value: 2090
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[20].SmallIcon
@@ -1055,7 +1055,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[21].IconType
-    value: 2550
+    value: 2050
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[21].SmallIcon
@@ -1352,7 +1352,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: b0bdac6198341634fbeb4124f770f8b9, type: 3}
+    objectReference: {fileID: 2800000, guid: 7e382c9f3dcbe464d92ce683e5340883, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].IsIconRecursive
     value: 0
@@ -1396,11 +1396,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 905b660a64caa4f459f825b43286d32d, type: 3}
+    objectReference: {fileID: 2800000, guid: a20d6afb658eddc49b46c45e35ab1886, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: dfdd338cf4b9c1741952a66cfc5760c4, type: 3}
+    objectReference: {fileID: 2800000, guid: 0ebbcbe528cd65841b4a45ce5a9c63bc, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].IsIconRecursive
     value: 0
@@ -1448,7 +1448,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: cfbefbc70315ee7439c2d12037ccda57, type: 3}
+    objectReference: {fileID: 2800000, guid: 1afee3ca60cdc3a44a9e757f1f86c408, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].IsIconRecursive
     value: 0
@@ -1492,11 +1492,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 30591f7b7513fc34cae65b941d0f7895, type: 3}
+    objectReference: {fileID: 2800000, guid: 01a380703866afa45bf964326dad9c6d, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 9c0a46ff3c635214ea2e31d138aa3f0c, type: 3}
+    objectReference: {fileID: 2800000, guid: 01a380703866afa45bf964326dad9c6d, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].IsIconRecursive
     value: 0
@@ -1540,11 +1540,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: c8ffe1155813db04b80fbdffd7d2ce1a, type: 3}
+    objectReference: {fileID: 2800000, guid: 3f24ced882e64094dae82aea7c0717f4, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: afdc822f52e42b44b983bc7429715da6, type: 3}
+    objectReference: {fileID: 2800000, guid: 9dc818673f5f0664fb2b277e4d3a12ba, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].IsIconRecursive
     value: 0
@@ -1588,11 +1588,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: e8fee121dff5cdd4bb37d0a9be43899a, type: 3}
+    objectReference: {fileID: 2800000, guid: 1fb814ad81a506f4db2f573999405a1a, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 3b210ce8c3a863547a31caa66a8c0421, type: 3}
+    objectReference: {fileID: 2800000, guid: 77b31e99da963574d891a49749221aec, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].IsIconRecursive
     value: 0
@@ -1780,11 +1780,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 3cf9f2f4787f58d4b9e15f11375e3026, type: 3}
+    objectReference: {fileID: 2800000, guid: f6594e3a668982b4691fb38d35b8513c, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: e604d45d83287904194e9a2d5ff85755, type: 3}
+    objectReference: {fileID: 2800000, guid: 8213855560d0c024595e6ecca3f2f348, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].IsIconRecursive
     value: 0
@@ -1828,11 +1828,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 538cb61254a59814c96eaf53424d0195, type: 3}
+    objectReference: {fileID: 2800000, guid: 8f402afa6370d014ba6da4980e37e7af, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
+    objectReference: {fileID: 2800000, guid: d4bf0c4617b322440aa5478bd37ad2a2, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].IsIconRecursive
     value: 0
@@ -1859,7 +1859,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Key
-    value: Assets/Project/Controls
+    value: Controls
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Ordinal
@@ -1876,11 +1876,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 26a8bda6e48bf524e88003050a8dcf34, type: 3}
+    objectReference: {fileID: 2800000, guid: 8d3e2e39688b4b344bd3c11ba6e4c044, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 2aa03530a206e1b479e9e2385acfb765, type: 3}
+    objectReference: {fileID: 2800000, guid: 2078a51b7c1007d43a459b076f0b6668, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].IsIconRecursive
     value: 0
@@ -1924,11 +1924,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 4f5331955dd85184a977262bd2631b82, type: 3}
+    objectReference: {fileID: 2800000, guid: cba86d7d97ae57448a40797a2bf89316, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 833b7094b2a338b4e84174884b0d7a97, type: 3}
+    objectReference: {fileID: 2800000, guid: f4bfdfa9744624b41967d697a3fac4de, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].IsIconRecursive
     value: 0
@@ -1967,7 +1967,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[40].IconType
-    value: 2560
+    value: 2060
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[40].SmallIcon
@@ -1997,51 +1997,4 @@ Preset:
     propertyPath: Rules.Array.data[40].IsHidden
     value: 0
     objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Type
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Key
-    value: Assets/Project/Controls
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Ordinal
-    value: 41
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IconType
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].SmallIcon
-    value: 
-    objectReference: {fileID: 2800000, guid: 26a8bda6e48bf524e88003050a8dcf34, type: 3}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].LargeIcon
-    value: 
-    objectReference: {fileID: 2800000, guid: 2aa03530a206e1b479e9e2385acfb765, type: 3}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].BackgroundType
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
