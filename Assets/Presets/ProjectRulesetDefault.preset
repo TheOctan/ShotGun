@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.size
-    value: 41
+    value: 42
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].Type
@@ -1995,6 +1995,54 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[40].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].Key
+    value: Common
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].Ordinal
+    value: 40
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].IconType
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].SmallIcon
+    value: 
+    objectReference: {fileID: 2800000, guid: eb71b9bb7aaddeb4da458e7b9df47e1f, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].LargeIcon
+    value: 
+    objectReference: {fileID: 2800000, guid: d5d32659ab70add419c8a3b3cc5a6719, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].BackgroundType
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[41].IsHidden
     value: 0
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
