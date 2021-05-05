@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.size
-    value: 42
+    value: 47
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].Type
@@ -1475,7 +1475,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Key
-    value: StandardAssets
+    value: Standard Assets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Ordinal
@@ -2043,6 +2043,246 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[41].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].Key
+    value: VFX
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].Ordinal
+    value: 42
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].IconType
+    value: 1200
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].BackgroundType
+    value: 200
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[42].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].Key
+    value: Characters
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].Ordinal
+    value: 43
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].IconType
+    value: 1030
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].BackgroundType
+    value: 40
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[43].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].Key
+    value: Environment
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].Ordinal
+    value: 44
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].IconType
+    value: 1080
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].BackgroundType
+    value: 80
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[44].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].Key
+    value: Props
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].Ordinal
+    value: 45
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].IconType
+    value: 1150
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].BackgroundType
+    value: 150
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[45].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].Key
+    value: UI
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].Ordinal
+    value: 46
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].IconType
+    value: 1010
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].BackgroundType
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[46].IsHidden
     value: 0
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
