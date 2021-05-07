@@ -1859,7 +1859,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Key
-    value: Assets/Project/Controls
+    value: Controls
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Ordinal
