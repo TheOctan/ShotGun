@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.octangames.save-system": "https://github.com/TheOctan/save-system.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation.components": "https://github.com/Unity-Technologies/NavMeshComponents.git#package",
     "com.unity.cinemachine": "2.7.3",
