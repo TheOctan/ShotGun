@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.octangames.save-system": {
+      "version": "https://github.com/TheOctan/save-system.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "0d0f7156a509facb8b96e21848c886e3789a5473"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -80,7 +87,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.1",
+      "version": "3.0.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {

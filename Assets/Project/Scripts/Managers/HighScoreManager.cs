@@ -4,6 +4,8 @@ using Assets.Scripts.Data;
 using System.Collections.Generic;
 using OctanGames.Experimental.Managers;
 using System;
+using OctanGames.SaveModule;
+using OctanGames.SaveModule.Serialization.Format;
 
 namespace OctanGames.Managers
 {
@@ -22,6 +24,11 @@ namespace OctanGames.Managers
 		public static List<ScoreData> ScoreData { get; private set; } = new List<ScoreData>();
 
 		private bool IsMarkPlayerScore = false;
+
+		private void Awake()
+		{
+			SaveSystem.SetSerializationSystem(new BinarySerializationSystem(Application.persistentDataPath + "/Saves/"));
+		}
 
 		public void UpdateScore()
 		{
