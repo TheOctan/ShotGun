@@ -62,7 +62,8 @@ MonoBehaviour:
   componentAlignment: 1
   componentDisplayMode: 3
   components:
-  - 
+  - ParticleSystemRenderer
+  - HierarchyFolder
   componentLimited: 0
   componentSize: 16
   componentSpacing: 2
