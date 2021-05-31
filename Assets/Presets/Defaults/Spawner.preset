@@ -43,7 +43,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: waves.Array.data[0].timeBetweenSpawns
-    value: 0.7
+    value: 0.9
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: waves.Array.data[0].moveSpeed
@@ -240,10 +240,14 @@ Preset:
       type: 3}
   - target: {fileID: 0}
     propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.size
-    value: 3
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
@@ -287,6 +291,10 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
     value: OnNewWave
     objectReference: {fileID: 0}
@@ -327,6 +335,10 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
     value: OnNewWave
     objectReference: {fileID: 0}
@@ -362,3 +374,48 @@ Preset:
     propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
     value: 2
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+    value: OnNewWave
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    value: UnityEngine.Object, UnityEngine
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_IntArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_FloatArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: NewWaveEvent.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+    value: 2
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
