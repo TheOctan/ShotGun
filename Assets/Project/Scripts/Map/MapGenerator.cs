@@ -49,7 +49,7 @@ public class MapGenerator : MonoBehaviour
 		currentMap = maps[mapIndex];
 		tileMap = new Transform[currentMap.mapSize.x, currentMap.mapSize.y];
 		System.Random random = new System.Random(currentMap.seed);
-		
+
 
 		// Generating coords
 		allTileCoords = new List<Coord>();
@@ -220,8 +220,8 @@ public class MapGenerator : MonoBehaviour
 	[System.Serializable]
 	public struct Coord : System.IEquatable<Coord>
 	{
-		public int x;
-		public int y;
+		[Min(1)] public int x;
+		[Min(1)] public int y;
 
 		public Coord(int x, int y)
 		{
@@ -263,11 +263,10 @@ public class MapGenerator : MonoBehaviour
 	public class Map
 	{
 		public Coord mapSize;
-		[Range(0, 1)]
-		public float obstaclePercent;
+		[Range(0, 1)] public float obstaclePercent;
 		public int seed;
-		public float minObstacleHeight;
-		public float maxObstacleHeight;
+		[Min(0)] public float minObstacleHeight;
+		[Min(0)] public float maxObstacleHeight;
 		public Color foregroundColor;
 		public Color backgroundColor;
 
