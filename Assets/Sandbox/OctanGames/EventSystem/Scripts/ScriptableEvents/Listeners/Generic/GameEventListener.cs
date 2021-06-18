@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace OctanGames.Listeners.Generic
 {
-	public class GameEventListener<T> : MonoBehaviour, IGameEventListener<T>
+	public abstract class GameEventListener<T> : MonoBehaviour, IGameEventListener<T>
     {
 		[Tooltip("Event to register with.")]
 		[SerializeField] private GameEvent<T> _gameEvent;
@@ -23,12 +23,12 @@ namespace OctanGames.Listeners.Generic
 			remove => _eventResponse.RemoveListener(value);
 		}
 
-		private void OnDisable()
+		private void OnEnable()
 		{
 			_gameEvent.RegisterListener(this);
 		}
 
-		private void OnEnable()
+		private void OnDisable()
 		{
 			_gameEvent.UnregisterListener(this);
 		}

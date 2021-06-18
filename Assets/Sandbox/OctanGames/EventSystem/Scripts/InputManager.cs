@@ -1,4 +1,5 @@
 using OctanGames.Events;
+using OctanGames.Events.Generic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,16 @@ namespace OctanGames
 {
     public class InputManager : MonoBehaviour
     {
-        public GameEvent InputEvent;
+        public GameEvent<bool> InputEvent;
+
+        private bool trigger = true;
 
     	private void Update()
     	{
 			if (Keyboard.current[Key.Space].wasPressedThisFrame)
 			{
-                InputEvent.Raise();
+                trigger = !trigger;
+                InputEvent.Raise(trigger);
 			}
     	}
     }
