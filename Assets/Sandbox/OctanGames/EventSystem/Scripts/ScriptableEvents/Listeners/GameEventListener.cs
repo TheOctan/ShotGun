@@ -1,9 +1,10 @@
-using OctanGames.Events;
+using OctanGames.ScriptableEvents.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace OctanGames.Listeners
+namespace OctanGames.ScriptableEvents.Listeners
 {
+	[AddComponentMenu("Event Listener/Event Listener")]
 	public class GameEventListener : MonoBehaviour, IGameEventListener
 	{
 		[Tooltip("Event to register with.")]

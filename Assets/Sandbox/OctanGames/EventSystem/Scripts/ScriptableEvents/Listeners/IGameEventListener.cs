@@ -1,5 +1,5 @@
 
-namespace OctanGames.Listeners
+namespace OctanGames.ScriptableEvents.Listeners
 {
 	public interface IGameEventListener
 	{

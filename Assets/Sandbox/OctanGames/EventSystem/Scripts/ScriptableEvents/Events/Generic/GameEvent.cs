@@ -1,8 +1,8 @@
-using OctanGames.Listeners.Generic;
+using OctanGames.ScriptableEvents.Listeners.Generic;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OctanGames.Events.Generic
+namespace OctanGames.ScriptableEvents.Events.Generic
 {
 	public abstract class GameEvent<T> : ScriptableObject
 	{

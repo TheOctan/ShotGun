@@ -1,5 +1,4 @@
-using OctanGames.Events;
-using OctanGames.Events.Generic;
+using OctanGames.ScriptableEvents.Events.Generic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace OctanGames
 {
-    public class InputManager : MonoBehaviour
+	public class InputManager : MonoBehaviour
     {
         public GameEvent<bool> InputEvent;
 

@@ -1,11 +1,11 @@
-using OctanGames.Events.Generic;
+using OctanGames.ScriptableEvents.Events.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace OctanGames.Listeners.Generic
+namespace OctanGames.ScriptableEvents.Listeners.Generic
 {
 	public abstract class GameEventListener<T> : MonoBehaviour, IGameEventListener<T>
-    {
+	{
 		[Tooltip("Event to register with.")]
 		[SerializeField] private GameEvent<T> _gameEvent;
 
@@ -39,4 +39,4 @@ namespace OctanGames.Listeners.Generic
 		}
 
 	}
-} 
+}
