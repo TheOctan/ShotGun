@@ -1,23 +1,24 @@
-using OctanGames.ScriptableEvents.Events.Generic;
+using OctanGames.ScriptableEvents.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace OctanGames.ScriptableEvents.Listeners.Generic
+namespace OctanGames.ScriptableEvents.Listeners
 {
-	public abstract class GameEventListener<T> : MonoBehaviour, IGameEventListener<T>
+	[AddComponentMenu("Event Listener/Event Listener")]
+	public class EventListener : MonoBehaviour, IGameEventListener
 	{
 		[Tooltip("Event to register with.")]
-		[SerializeField] private GameEvent<T> _gameEvent;
+		[SerializeField] private GameEvent _gameEvent;
 
 		[Tooltip("Response to invoke when Event is raised.")]
-		[SerializeField] private UnityEvent<T> _eventResponse;
+		[SerializeField] private UnityEvent _eventResponse;
 
-		public GameEvent<T> GameEvent
+		public GameEvent GameEvent
 		{
 			get => _gameEvent;
 			set => _gameEvent = value;
 		}
-		public event UnityAction<T> EventResponce
+		public event UnityAction EventResponce
 		{
 			add => _eventResponse.AddListener(value);
 			remove => _eventResponse.RemoveListener(value);
@@ -27,16 +28,14 @@ namespace OctanGames.ScriptableEvents.Listeners.Generic
 		{
 			_gameEvent.RegisterListener(this);
 		}
-
 		private void OnDisable()
 		{
 			_gameEvent.UnregisterListener(this);
 		}
 
-		public void OnEventRaised(T param)
+		public void OnEventRaised()
 		{
-			_eventResponse.Invoke(param);
+			_eventResponse.Invoke();
 		}
-
 	}
 }

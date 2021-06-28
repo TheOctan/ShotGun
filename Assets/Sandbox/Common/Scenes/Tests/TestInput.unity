@@ -143,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 863565011124543871, guid: d01b771008242ec4bbe5f995cb10c749,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 863565011124543871, guid: d01b771008242ec4bbe5f995cb10c749,
         type: 3}
@@ -231,7 +231,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479963177
 GameObject:
@@ -243,7 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479963178}
   m_Layer: 0
-  m_Name: $Standart
+  m_Name: $Setup
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1507120209
 GameObject:
@@ -837,7 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507120210}
   m_Layer: 0
-  m_Name: $hManagers
+  m_Name: $Managers
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +855,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593308488
 GameObject:
@@ -912,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 6606521107486861583, guid: fbfac370c39412d4f8f93c8d9e300b60,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6606521107486861583, guid: fbfac370c39412d4f8f93c8d9e300b60,
         type: 3}
@@ -1186,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 1123328537847640029, guid: 6cd71c95a8bf07a48b9269d7c1b134fc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1123328537847640029, guid: 6cd71c95a8bf07a48b9269d7c1b134fc,
         type: 3}

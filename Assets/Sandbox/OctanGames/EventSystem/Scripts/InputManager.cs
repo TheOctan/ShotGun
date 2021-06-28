@@ -8,7 +8,7 @@ namespace OctanGames
 {
 	public class InputManager : MonoBehaviour
     {
-        public GameEvent<bool> InputEvent;
+        public BaseGameEvent<bool> InputEvent;
 
         private bool trigger = true;
 
