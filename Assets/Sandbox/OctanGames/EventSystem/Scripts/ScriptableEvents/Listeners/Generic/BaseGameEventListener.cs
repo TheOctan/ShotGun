@@ -7,12 +7,12 @@ namespace OctanGames.ScriptableEvents.Listeners.Generic
 	public abstract class BaseGameEventListener<T> : MonoBehaviour, IGameEventListener<T>
 	{
 		[Tooltip("Event to register with.")]
-		[SerializeField] private BaseGameEvent<T> _gameEvent;
+		[SerializeField] private GameEvent<T> _gameEvent;
 
 		[Tooltip("Response to invoke when Event is raised.")]
 		[SerializeField] private UnityEvent<T> _eventResponse;
 
-		public BaseGameEvent<T> GameEvent
+		public GameEvent<T> GameEvent
 		{
 			get => _gameEvent;
 			set => _gameEvent = value;
@@ -35,7 +35,8 @@ namespace OctanGames.ScriptableEvents.Listeners.Generic
 
 		public void OnEventRaised(T param)
 		{
-			_eventResponse.Invoke(param);
+			if (_eventResponse != null)
+				_eventResponse.Invoke(param);
 		}
 
 	}

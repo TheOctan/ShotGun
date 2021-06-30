@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace OctanGames.Controllers
 {
+	[AddComponentMenu("Player/Movement Controller")]
 	public class MovementController : MonoBehaviour
 	{
 		public Rigidbody rigidbodyComponent;

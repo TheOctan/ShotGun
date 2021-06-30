@@ -35,7 +35,8 @@ namespace OctanGames.ScriptableEvents.Listeners
 
 		public void OnEventRaised()
 		{
-			_eventResponse.Invoke();
+			if (_eventResponse != null)
+				_eventResponse.Invoke();
 		}
 	}
 }

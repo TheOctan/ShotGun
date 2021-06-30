@@ -6,9 +6,9 @@ using UnityEngine.InputSystem;
 
 namespace OctanGames
 {
-	public class InputManager : MonoBehaviour
+    public class InputManager : MonoBehaviour
     {
-        public BaseGameEvent<bool> InputEvent;
+        public GameEvent<bool> InputEvent;
 
         private bool trigger = true;
 

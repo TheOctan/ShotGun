@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OctanGames.ScriptableEvents.Events.Generic
 {
-	public abstract class BaseGameEvent<T> : ScriptableObject
+	public abstract class GameEvent<T> : ScriptableObject
 	{
 		private readonly List<IGameEventListener<T>> eventListeners = new List<IGameEventListener<T>>();
 

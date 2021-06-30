@@ -3,7 +3,7 @@ using UnityEngine;
 namespace OctanGames.ScriptableEvents.Events.Generic
 {
 	[CreateAssetMenu(menuName = "Game Events/Int Event")]
-	public class IntEvent : BaseGameEvent<int>
+	public class IntEvent : GameEvent<int>
 	{
 	}
 }
