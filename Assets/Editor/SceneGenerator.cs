@@ -19,7 +19,7 @@ namespace OctanGames
 			//var camera = Camera.main.transform;
 			//var light = GameObject.Find("Directional Light").transform;
 
-			var setupSplitter = CreateSplitter("$Setup");
+			CreateSplitter("$Setup");
 			var camerasFolder = CreateFolder("Cameras");
 			CreateFolder("Managers");
 			//camera.parent = camerasFolder;
@@ -34,6 +34,8 @@ namespace OctanGames
 
 			CreateSplitter("$Characters");
 			CreateFolder("Dynamic");
+
+			EditorSceneManager.MarkSceneDirty(scene);
 
 			Debug.Log("New scene created");
 		}
