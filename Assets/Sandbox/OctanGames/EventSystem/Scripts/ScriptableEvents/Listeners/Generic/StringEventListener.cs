@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace OctanGames.ScriptableEvents.Listeners.Generic
 {
-	[AddComponentMenu("Event Listener/String Event Listener")]
+	[AddComponentMenu(ScriptableEventsUtility.EVENT_LISTENER + "String Event Listener")]
 	public class StringEventListener : BaseGameEventListener<string>
 	{
 	}

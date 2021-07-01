@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace OctanGames.ScriptableEvents.Events
 {
-	[CreateAssetMenu(menuName = "Game Events/Void Event")]
+	[CreateAssetMenu(menuName = ScriptableEventsUtility.SCRIPTABLE_EVENT + "Void Event")]
 	public class GameEvent : ScriptableObject, IGameEvent
 	{
 		private readonly List<IGameEventListener> _eventListeners = new List<IGameEventListener>();

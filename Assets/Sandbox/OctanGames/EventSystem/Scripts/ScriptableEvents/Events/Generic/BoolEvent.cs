@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace OctanGames.ScriptableEvents.Events.Generic
 {
-	[CreateAssetMenu(menuName = "Game Events/Bool Event")]
+	[CreateAssetMenu(menuName = ScriptableEventsUtility.SCRIPTABLE_EVENT + "Bool Event")]
 	public class BoolEvent : GameEvent<bool>
 	{
 	}

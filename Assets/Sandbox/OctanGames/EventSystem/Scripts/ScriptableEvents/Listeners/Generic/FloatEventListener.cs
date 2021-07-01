@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace OctanGames.ScriptableEvents.Listeners.Generic
 {
-	[AddComponentMenu("Event Listener/Float Event Listener")]
+	[AddComponentMenu(ScriptableEventsUtility.EVENT_LISTENER + "Float Event Listener")]
 	public class FloatEventListener : BaseGameEventListener<float>
 	{
 	}
