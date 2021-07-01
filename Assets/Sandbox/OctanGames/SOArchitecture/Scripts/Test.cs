@@ -7,11 +7,11 @@ namespace OctanGames
 {
     public class Test : MonoBehaviour
     {
-        public IntReference intRef;
+        public IntReference count;
 
         private void Start()
         {
-        
+
         }
 
         private void Update()
