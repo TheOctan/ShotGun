@@ -26,11 +26,11 @@ namespace OctanGames.ScriptableEvents.Listeners
 
 		private void OnEnable()
 		{
-			_gameEvent.RegisterListener(this);
+			_gameEvent.AddListener(this);
 		}
 		private void OnDisable()
 		{
-			_gameEvent.UnregisterListener(this);
+			_gameEvent.RemoveListener(this);
 		}
 
 		public void OnEventRaised()
