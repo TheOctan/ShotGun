@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class Spawner : MonoBehaviour
 {
@@ -73,7 +74,7 @@ public class Spawner : MonoBehaviour
 
 		if (devMode)
 		{
-			if (Input.GetKeyDown(KeyCode.Return))
+			if (Gamepad.current.selectButton.wasPressedThisFrame)
 			{
 				StopCoroutine("SpawnEnemy");
 				foreach (var enemy in FindObjectsOfType<Enemy>())

@@ -3,6 +3,7 @@
 namespace OctanGames.UI
 {
 	[ExecuteAlways]
+	[AddComponentMenu("Layout/UI Billboard")]
 	public class UIBillboard : MonoBehaviour
 	{
 		public bool alignAnchor = true;

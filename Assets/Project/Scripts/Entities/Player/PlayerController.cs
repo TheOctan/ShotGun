@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 namespace OctanGames.Entities.Player
 {
+	[AddComponentMenu("Player/Player Controller")]
 	public class PlayerController : MonoBehaviour
 	{
 		[Header("Sub Behaviours")]
