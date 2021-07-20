@@ -73,6 +73,6 @@ InitTestScene*.unity
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
 
-# Custom
+# Custom preferences
 *NoVersionControl*
 [Aa]ssets/[Pp]lugins*
