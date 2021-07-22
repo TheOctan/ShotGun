@@ -20,8 +20,6 @@ namespace OctanGames
 		{
 			SceneGenerate();
 			EditorSceneManager.MarkSceneDirty(scene);
-
-			Debug.Log("New scene created");
 		}
 
 		[MenuItem("Tools/Scene/Update", priority = 1)]
@@ -34,19 +32,19 @@ namespace OctanGames
 
 		private static void SceneGenerate()
 		{
-			CreateSplitter("$Setup");
-			Transform camerasFolder = CreateFolder("Cameras");
-			CreateFolder("Managers");
+			TryCreateSplitter("$Setup");
+			Transform camerasFolder = TryCreateFolder("Cameras");
+			TryCreateFolder("Managers");
 
-			CreateSplitter("$Environment");
-			Transform lightsFolder = CreateFolder("Lights");
-			CreateFolder("World");
+			TryCreateSplitter("$Environment");
+			Transform lightsFolder = TryCreateFolder("Lights");
+			TryCreateFolder("World");
 
-			CreateSplitter("$Characters");
-			CreateFolder("Dynamic");
+			TryCreateSplitter("$Characters");
+			TryCreateFolder("Dynamic");
 
-			CreateSplitter("$UI");
-			CreateFolder("UI");
+			TryCreateSplitter("$UI");
+			TryCreateFolder("UI");
 
 			var camera = Camera.main;
 			if (camera != null)
@@ -61,7 +59,35 @@ namespace OctanGames
 			}
 		}
 
-		private static Transform CreateSplitter(string name)
+		public static Transform TryCreateSplitter(string name)
+		{
+			var splitter = GameObject.Find(name);
+
+			if (splitter == null)
+			{
+				return CreateSplitter(name);
+			}
+			else
+			{
+				return splitter.transform;
+			}
+		}
+
+		public static Transform TryCreateFolder(string name)
+		{
+			var splitter = GameObject.Find(name);
+
+			if (splitter == null)
+			{
+				return CreateFolder(name);
+			}
+			else
+			{
+				return splitter.transform;
+			}
+		}
+
+		public static Transform CreateSplitter(string name)
 		{
 			var splitter = new GameObject(name) { tag = EDITOR_ONLY_TAG };
 			Undo.RegisterCreatedObjectUndo(splitter, name);
@@ -69,7 +95,7 @@ namespace OctanGames
 			return splitter.transform;
 		}
 
-		private static Transform CreateFolder(string name)
+		public static Transform CreateFolder(string name)
 		{
 			var folder = new GameObject(name, typeof(HierarchyFolder));
 			Undo.RegisterCreatedObjectUndo(folder, name);
