@@ -12,7 +12,11 @@ namespace OctanGames
 	public class SceneGenerator
 	{
 		private const string EDITOR_ONLY_TAG = "EditorOnly";
+		private const string PLAYER_TAG = "Player";
+
 		private const string UI_LAYER = "UI";
+		private const string PLAYER_LAYER = PLAYER_TAG;
+
 		private const string SET_PARENT_COMMAND = "Set new parent";
 
 		static SceneGenerator()
@@ -37,11 +41,18 @@ namespace OctanGames
 		private static void SceneGenerate()
 		{
 			var rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-			
 			var uiObjects = rootObjects.Where(e => e.layer.Equals(LayerMask.NameToLayer(UI_LAYER))).ToArray();
+			var players = rootObjects.Where(e => e.tag.Equals(PLAYER_TAG) || e.layer.Equals(LayerMask.NameToLayer(PLAYER_LAYER))).ToArray();
 			var cameras = rootObjects.Where(e => e.TryGetComponent(out Camera c)).ToArray();
 			var lights = rootObjects.Where(e => e.TryGetComponent(out Light l)).ToArray();
+			var staticObjects = rootObjects.Where(e => e.isStatic).ToArray();
 			var eventSystem = Object.FindObjectOfType<EventSystem>();
+
+			//var entities = rootObjects
+			//	.Except(uiObjects)
+			//	.Except(staticObjects)
+			//	.Except(cameras)
+			//	.Except(lights);
 
 			TryCreateSplitter("$Setup");
 			Transform cameraFolder = TryCreateFolder("Cameras");
@@ -49,27 +60,23 @@ namespace OctanGames
 
 			TryCreateSplitter("$Environment");
 			Transform lightFolder = TryCreateFolder("Lights");
-			TryCreateFolder("World");
+			Transform worldFolder = TryCreateFolder("World");
 
-			TryCreateSplitter("$Characters");
+			TryCreateSplitter("$Entities");
 			TryCreateFolder("Dynamic");
+			Transform characterFoloder = TryCreateFolder("Characters");
 
 			TryCreateSplitter("$UI");
 			Transform uiFolder = TryCreateFolder("UI");
 
-			Undo.SetTransformParent(eventSystem.transform, managerFolder, SET_PARENT_COMMAND);
-
-			for (int i = uiObjects.Length - 1; i >= 0; i--)
+			AttachToParent(cameras, cameraFolder);
+			AttachToParent(lights, lightFolder);
+			AttachToParent(staticObjects, worldFolder);
+			AttachToParent(players, characterFoloder);
+			AttachToParent(uiObjects, uiFolder);
+			if (eventSystem != null)
 			{
-				Undo.SetTransformParent(uiObjects[i].transform, uiFolder, SET_PARENT_COMMAND);
-			}
-			for (int i = lights.Length - 1; i >= 0; i--)
-			{
-				Undo.SetTransformParent(lights[i].transform, lightFolder, SET_PARENT_COMMAND);
-			}
-			for (int i = cameras.Length - 1; i >= 0; i--)
-			{
-				Undo.SetTransformParent(cameras[i].transform, cameraFolder, SET_PARENT_COMMAND);
+				AttachToParent(eventSystem, managerFolder);
 			}
 		}
 
@@ -87,7 +94,6 @@ namespace OctanGames
 				return splitter.transform;
 			}
 		}
-
 		public static Transform TryCreateFolder(string name)
 		{
 			var splitter = GameObject.Find(name);
@@ -102,7 +108,6 @@ namespace OctanGames
 				return splitter.transform;
 			}
 		}
-
 		public static Transform CreateSplitter(string name)
 		{
 			var splitter = new GameObject(name) { tag = EDITOR_ONLY_TAG };
@@ -110,13 +115,35 @@ namespace OctanGames
 
 			return splitter.transform;
 		}
-
 		public static Transform CreateFolder(string name)
 		{
 			var folder = new GameObject(name, typeof(HierarchyFolder));
 			Undo.RegisterCreatedObjectUndo(folder, name);
 
 			return folder.transform;
+		}
+
+		public static void AttachToParent(GameObject go, Transform parent)
+		{
+			Undo.SetTransformParent(go.transform, parent, SET_PARENT_COMMAND);
+		}
+		public static void AttachToParent<T>(T component, Transform parent) where T : Component
+		{
+			AttachToParent(component.gameObject, parent);
+		}
+		public static void AttachToParent(GameObject[] objects, Transform parent)
+		{
+			for (int i = objects.Length - 1; i >= 0; i--)
+			{
+				AttachToParent(objects[i], parent);
+			}
+		}
+		public static void AttachToParent<T>(T[] objects, Transform parent) where T : Component
+		{
+			for (int i = objects.Length - 1; i >= 0; i--)
+			{
+				AttachToParent(objects[i], parent);
+			}
 		}
 	}
 }
