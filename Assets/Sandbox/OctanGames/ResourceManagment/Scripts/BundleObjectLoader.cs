@@ -10,7 +10,7 @@ namespace OctanGames
 		[SerializeField] private string assetName = "BundledSpriteObject";
 		[SerializeField] private string bundleName = "testbundle";
 
-		void Start()
+		private void Start()
 		{
 			AssetBundle localAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, bundleName));
 			if (localAssetBundle == null)
@@ -18,8 +18,10 @@ namespace OctanGames
 				Debug.Log("Failed to load AssetBundle!");
 				return;
 			}
+			
 			GameObject prefab = localAssetBundle.LoadAsset<GameObject>(assetName);
 			Instantiate(prefab);
+			
 			localAssetBundle.Unload(false);
 		}
 	}

@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 1773425695}
   - component: {fileID: 1773425696}
   - component: {fileID: 1773425697}
+  - component: {fileID: 1773425698}
   m_Layer: 0
   m_Name: Loader
   m_TagString: Untagged
@@ -727,6 +728,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assetName: BundledSpriteObject
   bundleName: testbundle
+--- !u!114 &1773425698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773425694}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255e2d1529ed11948801d6b154e4ae40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bundleUrl: http://localhost/assetbundles/testbundle
+  assetName: BundledSpriteObject
 --- !u!1 &1916187640
 GameObject:
   m_ObjectHideFlags: 0
