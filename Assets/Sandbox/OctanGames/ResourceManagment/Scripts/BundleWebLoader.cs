@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -25,7 +25,7 @@ namespace OctanGames
                 Debug.Log("Failed to download AssetBundle!");
                 yield break;
             }
-
+            
             AssetBundleRequest assetRequest = remoteAssetBundle.LoadAssetAsync<GameObject>(assetName);
             yield return assetRequest;
 
