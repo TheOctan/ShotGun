@@ -1475,7 +1475,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Key
-    value: Standard Assets
+    value: StandardAssets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Ordinal
@@ -2007,7 +2007,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[41].Ordinal
-    value: 41
+    value: 40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[41].Priority
