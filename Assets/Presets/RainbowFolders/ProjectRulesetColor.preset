@@ -9,7 +9,7 @@ Preset:
   m_Name: ProjectRulesetColor
   m_TargetType:
     m_NativeTypeID: 114
-    m_ManagedTypePPtr: {fileID: -1979333959, guid: 3bcb0d35ddf493043aaa14715c4ae5dc,
+    m_ManagedTypePPtr: {fileID: -1467165876, guid: 3bcb0d35ddf493043aaa14715c4ae5dc,
       type: 3}
     m_ManagedTypeFallback: 
   m_Properties:
@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.size
-    value: 47
+    value: 40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].Type
@@ -659,7 +659,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[13].Key
-    value: RainbowAssets
+    value: RainbowFolders
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[13].Ordinal
@@ -1103,7 +1103,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[22].IconType
-    value: 3000
+    value: 3500
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[22].SmallIcon
@@ -1151,7 +1151,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[23].IconType
-    value: 3010
+    value: 3510
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[23].SmallIcon
@@ -1199,7 +1199,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[24].IconType
-    value: 3040
+    value: 3540
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[24].SmallIcon
@@ -1247,7 +1247,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[25].IconType
-    value: 3020
+    value: 3520
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[25].SmallIcon
@@ -1295,7 +1295,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[26].IconType
-    value: 3030
+    value: 3530
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[26].SmallIcon
@@ -1331,7 +1331,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].Key
-    value: _NoVersionControl
+    value: MaterialLibrary
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].Ordinal
@@ -1343,16 +1343,16 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].IconType
-    value: 1
+    value: 2570
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 19bad7787b5d27b44919b885235dc123, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: b0bdac6198341634fbeb4124f770f8b9, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[27].IsIconRecursive
     value: 0
@@ -1379,7 +1379,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].Key
-    value: Gizmos
+    value: _NoVersionControl
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].Ordinal
@@ -1396,11 +1396,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 905b660a64caa4f459f825b43286d32d, type: 3}
+    objectReference: {fileID: 2800000, guid: 19bad7787b5d27b44919b885235dc123, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: dfdd338cf4b9c1741952a66cfc5760c4, type: 3}
+    objectReference: {fileID: 2800000, guid: b0bdac6198341634fbeb4124f770f8b9, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[28].IsIconRecursive
     value: 0
@@ -1427,7 +1427,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].Key
-    value: Presets
+    value: Gizmos
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].Ordinal
@@ -1444,11 +1444,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 9262a8dcca9a6264b9d0c6de09a4027b, type: 3}
+    objectReference: {fileID: 2800000, guid: 905b660a64caa4f459f825b43286d32d, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: cfbefbc70315ee7439c2d12037ccda57, type: 3}
+    objectReference: {fileID: 2800000, guid: dfdd338cf4b9c1741952a66cfc5760c4, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[29].IsIconRecursive
     value: 0
@@ -1475,7 +1475,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Key
-    value: Standard Assets
+    value: Presets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].Ordinal
@@ -1492,11 +1492,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 30591f7b7513fc34cae65b941d0f7895, type: 3}
+    objectReference: {fileID: 2800000, guid: 9262a8dcca9a6264b9d0c6de09a4027b, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 9c0a46ff3c635214ea2e31d138aa3f0c, type: 3}
+    objectReference: {fileID: 2800000, guid: cfbefbc70315ee7439c2d12037ccda57, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[30].IsIconRecursive
     value: 0
@@ -1523,7 +1523,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].Key
-    value: StreamingAssets
+    value: Sandbox
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].Ordinal
@@ -1540,11 +1540,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: c8ffe1155813db04b80fbdffd7d2ce1a, type: 3}
+    objectReference: {fileID: 2800000, guid: 4f5331955dd85184a977262bd2631b82, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: afdc822f52e42b44b983bc7429715da6, type: 3}
+    objectReference: {fileID: 2800000, guid: 833b7094b2a338b4e84174884b0d7a97, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[31].IsIconRecursive
     value: 0
@@ -1571,7 +1571,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].Key
-    value: ThirdPartyAssets
+    value: Standard Assets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].Ordinal
@@ -1588,11 +1588,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: e8fee121dff5cdd4bb37d0a9be43899a, type: 3}
+    objectReference: {fileID: 2800000, guid: 30591f7b7513fc34cae65b941d0f7895, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 3b210ce8c3a863547a31caa66a8c0421, type: 3}
+    objectReference: {fileID: 2800000, guid: 9c0a46ff3c635214ea2e31d138aa3f0c, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[32].IsIconRecursive
     value: 0
@@ -1619,7 +1619,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].Key
-    value: RainbowFolders
+    value: StreamingAssets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].Ordinal
@@ -1631,16 +1631,16 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].IconType
-    value: 2130
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].SmallIcon
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 2800000, guid: c8ffe1155813db04b80fbdffd7d2ce1a, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].LargeIcon
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 2800000, guid: afdc822f52e42b44b983bc7429715da6, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[33].IsIconRecursive
     value: 0
@@ -1667,7 +1667,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[34].Key
-    value: OctanGames
+    value: ThirdPartyAssets
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[34].Ordinal
@@ -1684,11 +1684,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[34].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 42b096f5d2e6fd0429951c3bda09e4bd, type: 3}
+    objectReference: {fileID: 2800000, guid: e8fee121dff5cdd4bb37d0a9be43899a, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[34].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: da5e98cfaaa5bc24aadd7365fe534e29, type: 3}
+    objectReference: {fileID: 2800000, guid: 3b210ce8c3a863547a31caa66a8c0421, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[34].IsIconRecursive
     value: 0
@@ -1715,7 +1715,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[35].Key
-    value: Documentation
+    value: OctanGames
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[35].Ordinal
@@ -1732,11 +1732,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[35].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 090051137e62546479f14653b6b1aa76, type: 3}
+    objectReference: {fileID: 2800000, guid: 42b096f5d2e6fd0429951c3bda09e4bd, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[35].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 3b5d01eb1796d52408e0a9496be056d4, type: 3}
+    objectReference: {fileID: 2800000, guid: da5e98cfaaa5bc24aadd7365fe534e29, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[35].IsIconRecursive
     value: 0
@@ -1763,7 +1763,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].Key
-    value: Sprites
+    value: Art
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].Ordinal
@@ -1780,11 +1780,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 3cf9f2f4787f58d4b9e15f11375e3026, type: 3}
+    objectReference: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: e604d45d83287904194e9a2d5ff85755, type: 3}
+    objectReference: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[36].IsIconRecursive
     value: 0
@@ -1811,7 +1811,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].Key
-    value: Art
+    value: Controls
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].Ordinal
@@ -1828,11 +1828,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 538cb61254a59814c96eaf53424d0195, type: 3}
+    objectReference: {fileID: 2800000, guid: 26a8bda6e48bf524e88003050a8dcf34, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: f984a9ef1c934594192f59e407b85b61, type: 3}
+    objectReference: {fileID: 2800000, guid: 2aa03530a206e1b479e9e2385acfb765, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[37].IsIconRecursive
     value: 0
@@ -1859,7 +1859,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Key
-    value: Controls
+    value: ScriptableObjects
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].Ordinal
@@ -1871,16 +1871,16 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].IconType
-    value: 1
+    value: 2620
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 26a8bda6e48bf524e88003050a8dcf34, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 2aa03530a206e1b479e9e2385acfb765, type: 3}
+    objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[38].IsIconRecursive
     value: 0
@@ -1907,7 +1907,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].Key
-    value: Sandbox
+    value: Sprites
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].Ordinal
@@ -1924,11 +1924,11 @@ Preset:
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].SmallIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 4f5331955dd85184a977262bd2631b82, type: 3}
+    objectReference: {fileID: 2800000, guid: 3cf9f2f4787f58d4b9e15f11375e3026, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].LargeIcon
     value: 
-    objectReference: {fileID: 2800000, guid: 833b7094b2a338b4e84174884b0d7a97, type: 3}
+    objectReference: {fileID: 2800000, guid: e604d45d83287904194e9a2d5ff85755, type: 3}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].IsIconRecursive
     value: 0
@@ -1947,342 +1947,6 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].Key
-    value: TextMesh Pro
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].Ordinal
-    value: 40
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].IconType
-    value: 2560
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].BackgroundType
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[40].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Key
-    value: Common
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Ordinal
-    value: 41
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IconType
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].SmallIcon
-    value: 
-    objectReference: {fileID: 2800000, guid: eb71b9bb7aaddeb4da458e7b9df47e1f, type: 3}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].LargeIcon
-    value: 
-    objectReference: {fileID: 2800000, guid: d5d32659ab70add419c8a3b3cc5a6719, type: 3}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].BackgroundType
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[41].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].Key
-    value: VFX
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].Ordinal
-    value: 42
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].IconType
-    value: 1200
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].BackgroundType
-    value: 200
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[42].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].Key
-    value: Characters
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].Ordinal
-    value: 43
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].IconType
-    value: 1030
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].BackgroundType
-    value: 40
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[43].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].Key
-    value: Environment
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].Ordinal
-    value: 44
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].IconType
-    value: 1080
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].BackgroundType
-    value: 80
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[44].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].Key
-    value: Props
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].Ordinal
-    value: 45
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].IconType
-    value: 1150
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].BackgroundType
-    value: 150
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[45].IsHidden
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].Type
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].Key
-    value: UI
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].Ordinal
-    value: 46
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].Priority
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].IconType
-    value: 1010
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].SmallIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].LargeIcon
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].IsIconRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].BackgroundType
-    value: 10
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].BackgroundTexture
-    value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].IsBackgroundRecursive
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: Rules.Array.data[46].IsHidden
     value: 0
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
