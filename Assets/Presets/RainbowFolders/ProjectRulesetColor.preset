@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.size
-    value: 40
+    value: 41
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[0].Type
@@ -1947,6 +1947,54 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: Rules.Array.data[39].IsHidden
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].Key
+    value: TextMesh Pro
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].Ordinal
+    value: 40
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].Priority
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].IconType
+    value: 2560
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].SmallIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].LargeIcon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].IsIconRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].BackgroundType
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].BackgroundTexture
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].IsBackgroundRecursive
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Rules.Array.data[40].IsHidden
     value: 0
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
