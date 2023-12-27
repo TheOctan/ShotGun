@@ -14,3 +14,6 @@
 </div>
 
 ![LastLevel](Screenshots/Level5.jpg)
+
+## How to install
+Copy this repository only through git, because it init the LFS!
