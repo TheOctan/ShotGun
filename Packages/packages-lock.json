@@ -22,15 +22,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.ai.navigation.components": {
-      "version": "https://github.com/Unity-Technologies/NavMeshComponents.git#package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.modules.ai": "1.0.0"
-      },
-      "hash": "0fc6f532e4f47d66d173314efcb906bc7cf0d00f"
-    },
     "com.unity.cinemachine": {
       "version": "2.9.5",
       "depth": 0,
@@ -86,6 +77,13 @@
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
