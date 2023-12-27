@@ -38,6 +38,8 @@ namespace OctanGames.Entities
 
 		private bool hasTarget;
 		private float damage = 1;
+		private CapsuleCollider _capsuleCollider;
+
 		public void SetCharacteristics(float moveSpeed, int hitsToKillPlayer, float enemyHealth, Color skinColor)
 		{
 			pathFinder.speed = moveSpeed;
@@ -81,8 +83,11 @@ namespace OctanGames.Entities
 				target = player.transform;
 				targetEntity = player.GetComponent<LivingEntity>();
 
-				myCollisionRadius = GetComponent<CapsuleCollider>().radius;
-				targetCollisionRadius = target.GetComponent<CapsuleCollider>().radius;
+				_capsuleCollider = GetComponent<CapsuleCollider>();
+				myCollisionRadius = _capsuleCollider.radius;
+
+				var playerCapsuleCollider = target.GetComponent<CapsuleCollider>();
+				targetCollisionRadius = playerCapsuleCollider.radius;
 			}
 		}
 		protected override void Start()
